@@ -1,0 +1,16 @@
+﻿--- Checking Phone: 0826726277 ---
+Thread Found: ID=42, Name=ayu, Phone=0826726277
+Orders linked via thread_id (1):
+  - ORD: ORD-20260207130245-PXA3, Status: pending_admin
+Orders found by phone literal (1):
+  - ORD: ORD-20260207130245-PXA3, Status: pending_admin, ThreadID: 42
+Orders found by alt phone (62826726277) (0):
+
+--- Checking Phone: 0282727999 ---
+Thread Found: ID=43, Name=desi, Phone=0282727999
+Orders linked via thread_id (1):
+  - ORD: ORD-20260207132851-EKAT, Status: pending_admin
+Orders found by phone literal (1):
+  - ORD: ORD-20260207132851-EKAT, Status: pending_admin, ThreadID: 43
+Orders found by alt phone (62282727999) (0):
+

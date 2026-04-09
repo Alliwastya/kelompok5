@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Order Status API</title>
+</head>
+<body>
+    <h1>Test Order Status API</h1>
+    <input type="text" id="phone" placeholder="Nomor HP" value="0826726277">
+    <button onclick="testAPI()">Test API</button>
+    <pre id="result"></pre>
+
+    <script>
+        async function testAPI() {
+            const phone = document.getElementById('phone').value;
+            const resultEl = document.getElementById('result');
+            
+            try {
+                resultEl.textContent = 'Loading...';
+                const response = await fetch(`/order-status/${phone}`);
+                const data = await response.json();
+                
+                resultEl.textContent = JSON.stringify(data, null, 2);
+                
+                console.log('Response:', data);
+                console.log('Success:', data.success);
+                console.log('Type:', typeof data.success);
+            } catch (error) {
+                resultEl.textContent = 'Error: ' + error.message;
+            }
+        }
+    </script>
+</body>
+</html>
