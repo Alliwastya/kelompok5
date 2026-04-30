@@ -159,16 +159,94 @@
     
     <!-- Reply -->
     <div class="reply-area">
-        <form action="{{ route('admin.messages.reply', $thread->id) }}" method="POST" class="reply-form">
+        <form id="admin-reply-form" class="reply-form">
             @csrf
-            <textarea name="message" rows="1" placeholder="Ketik balasan Anda..." required></textarea>
-            <button type="submit">Kirim</button>
+            <textarea name="message" id="reply-message" rows="1" placeholder="Ketik balasan Anda..." required></textarea>
+            <button type="submit" id="send-btn">Kirim</button>
         </form>
     </div>
 </div>
 
 <script>
     const container = document.getElementById('messages-container');
+    const replyForm = document.getElementById('admin-reply-form');
+    const replyMessage = document.getElementById('reply-message');
+    const sendBtn = document.getElementById('send-btn');
+    const threadId = "{{ $thread->id }}";
+    let lastMessageCount = {{ count($messages) }};
+
+    // Scroll to bottom initially
     container.scrollTop = container.scrollHeight;
+
+    // Handle form submission
+    replyForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const message = replyMessage.value.trim();
+        if (!message) return;
+
+        sendBtn.disabled = true;
+        sendBtn.textContent = '...';
+
+        try {
+            const response = await fetch("{{ route('admin.messages.reply', $thread->id) }}", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,
+                    'X-Requested-With': 'XMLHttpRequest'
+                },
+                body: JSON.stringify({ message })
+            });
+
+            const data = await response.json();
+            if (data.success) {
+                replyMessage.value = '';
+                await fetchMessages();
+            }
+        } catch (error) {
+            console.error('Error sending message:', error);
+        } finally {
+            sendBtn.disabled = false;
+            sendBtn.textContent = 'Kirim';
+        }
+    });
+
+    // Auto resize textarea
+    replyMessage.addEventListener('input', function() {
+        this.style.height = 'auto';
+        this.style.height = (this.scrollHeight) + 'px';
+    });
+
+    // Fetch messages function
+    async function fetchMessages() {
+        try {
+            const response = await fetch("{{ route('admin.messages.fetch', $thread->id) }}");
+            const data = await response.json();
+            
+            if (data.success && data.messages.length !== lastMessageCount) {
+                renderMessages(data.messages);
+                lastMessageCount = data.messages.length;
+                container.scrollTop = container.scrollHeight;
+            }
+        } catch (error) {
+            console.error('Error fetching messages:', error);
+        }
+    }
+
+    // Render messages to UI
+    function renderMessages(messages) {
+        container.innerHTML = messages.map(msg => `
+            <div class="message ${msg.sender_type === 'admin' ? 'admin' : ''}">
+                <div class="message-bubble ${msg.sender_type === 'admin' ? 'admin' : 'user'}">
+                    <p style="white-space: pre-wrap;">${msg.message}</p>
+                    <div class="message-time">${msg.created_at_formatted}</div>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    // Start polling every 3 seconds
+    setInterval(fetchMessages, 3000);
 </script>
 @endsection

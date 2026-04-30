@@ -730,6 +730,57 @@
             flex-wrap: wrap;
         }
 
+        /* Countdown Timer Styling */
+        .promo-countdown {
+            display: flex;
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
+            justify-content: flex-start;
+        }
+
+        .timer-item {
+            background: #fff;
+            border: 1px solid rgba(232, 130, 26, 0.2);
+            border-radius: 10px;
+            padding: 8px;
+            min-width: 60px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+        }
+
+        .timer-item span {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #E8821A;
+            line-height: 1;
+        }
+
+        .timer-item small {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            color: #8b5a2b;
+            font-weight: 600;
+            margin-top: 4px;
+        }
+
+        @media (max-width: 480px) {
+            .promo-countdown {
+                justify-content: center;
+                gap: 0.5rem;
+                margin-bottom: 1.2rem;
+            }
+            .timer-item {
+                min-width: 55px;
+                padding: 6px;
+            }
+            .timer-item span {
+                font-size: 1.1rem;
+            }
+        }
+
         .price-original {
             font-size: 1.2rem;
             color: #999;
@@ -1050,143 +1101,237 @@
         }
 
         @media (max-width: 480px) {
+            /* 0. General Padding for sections */
+            .container, .products-section, .reviews-section, .contact-section, .about-section, .testimoni-section {
+                padding-left: 16px !important;
+                padding-right: 16px !important;
+            }
+
+            /* 1. Navbar Mobile Fix */
+            header { 
+                padding: 0.8rem 12px;
+                gap: 8px;
+            }
+            .header-actions { 
+                gap: 4px; 
+                flex-shrink: 0;
+            }
+            .logo-text { display: none; } /* Hide logo text on small mobile */
+            .cart-btn, .message-btn, .menu-btn { 
+                font-size: 0.75rem; 
+                padding: 0.4rem 6px; 
+                gap: 4px;
+            }
+            .logo-img { width: 40px; height: 40px; }
+
+            /* 2. Banner Promo Redesign */
             .promo-section { 
-                padding: 1.5rem 0; 
+                padding: 1.5rem 0;
+                background: transparent;
             }
             .promo-card { 
-                margin: 0 1rem;
-                border-radius: 20px !important;
-                width: calc(100% - 2rem);
+                margin: 0; /* Already inside container with padding */
+                border-radius: 24px !important;
+                width: 100%;
+                background: #FFFDF9 !important;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.08) !important;
+                padding: 24px 16px !important;
+                border: 1px solid rgba(234, 88, 12, 0.1) !important;
                 height: auto;
             }
             .promo-content {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 24px;
                 min-height: auto;
             }
-            .promo-left { 
-                padding: 2rem 1.8rem 1.5rem;
+            .promo-left, .promo-right { 
+                display: contents; 
             }
-            .promo-right {
-                min-height: 320px;
-                padding-bottom: 1.5rem;
-                position: relative;
-            }
+
+            /* 3. Badges & Labels */
             .promo-badges {
-                margin-bottom: 1rem;
+                order: 1;
+                display: flex;
+                flex-wrap: wrap;
                 gap: 8px;
+                justify-content: center;
+                margin-bottom: 0;
+                width: 100%;
             }
-            .promo-badge, .discount-badge {
-                padding: 7px 14px;
+            .promo-badge {
+                background: rgba(245, 158, 11, 0.1) !important;
+                color: #ea580c !important;
+                border: 1px solid rgba(234, 88, 12, 0.2);
+                padding: 6px 12px;
                 font-size: 11px;
+                box-shadow: none;
+                animation: none;
+                white-space: nowrap;
             }
+            .discount-badge {
+                display: inline-block;
+                background: rgba(16, 185, 129, 0.1) !important;
+                color: #10b981 !important;
+                border: 1px solid rgba(16, 185, 129, 0.2);
+                padding: 6px 12px;
+                font-size: 11px;
+                border-radius: 50px;
+                font-weight: 600;
+            }
+
+            /* 4. Title & Description */
             .promo-title-section {
-                margin-bottom: 0.8rem;
+                order: 2;
+                margin-bottom: 0;
             }
             .promo-title { 
                 font-size: 1.75rem;
-                line-height: 1.3;
+                line-height: 1.2;
+                text-align: center;
+                color: #3e2723;
+                font-weight: 800;
             }
             .promo-subtitle { 
+                order: 3;
                 font-size: 0.85rem;
-                margin-bottom: 1rem;
-                line-height: 1.6;
+                margin: 0;
+                line-height: 1.5;
+                text-align: center;
+                color: #6B4E3D;
+                max-width: 100%;
             }
-            .promo-pricing {
-                margin-bottom: 1rem;
-                gap: 10px;
-                align-items: baseline;
-            }
-            .price-discount { 
-                font-size: 2rem; 
-            }
-            .price-original { 
-                font-size: 1rem; 
-            }
-            .price-save {
-                font-size: 11px;
-                padding: 5px 12px;
-            }
-            .promo-features {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 0.7rem;
-                margin-bottom: 1rem;
-            }
-            .feature-icon { 
-                width: 40px; 
-                height: 40px; 
-                font-size: 18px;
-                margin-bottom: 5px;
-                border-width: 2px;
-            }
-            .feature-title { 
-                font-size: 10px;
-                line-height: 1.3;
-                margin-bottom: 3px;
-            }
-            .feature-subtitle { 
-                font-size: 8px;
-                line-height: 1.3;
-            }
-            .promo-cta { 
-                padding: 14px 20px; 
-                font-size: 13px;
-                margin-bottom: 8px;
-                letter-spacing: 0.4px;
-            }
-            .promo-note {
-                font-size: 11px;
-            }
-            .promo-image-main {
-                width: 220px;
-                height: 190px;
-                top: 15px;
-                right: 50%;
-                transform: translateX(50%) rotate(2deg);
-            }
-            .promo-image-second {
-                width: 135px;
-                height: 120px;
-                bottom: 15px;
-                left: 20px;
-                transform: rotate(-3deg);
-            }
-            .promo-image-third {
-                width: 145px;
-                height: 125px;
-                bottom: 15px;
-                right: 20px;
-                transform: rotate(1deg);
+
+            /* 5. Images Stack (3 images vertikal) */
+            .promo-images {
+                order: 4;
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+                width: 100%;
+                margin: 0;
             }
             .promo-image-item {
-                border-width: 3px;
-                border-radius: 12px;
+                position: relative !important;
+                top: auto !important;
+                right: auto !important;
+                bottom: auto !important;
+                left: auto !important;
+                transform: none !important;
+                width: 100% !important;
+                height: 200px !important;
+                border-radius: 16px !important;
+                box-shadow: 0 8px 20px rgba(0,0,0,0.1) !important;
+                border: 2px solid white !important;
+                object-fit: cover !important;
             }
             .best-seller-badge {
-                width: 65px;
-                height: 65px;
-                top: 8px;
-                right: 8px;
-                border-width: 2.5px;
+                width: 55px;
+                height: 55px;
+                top: -8px !important;
+                right: -8px !important;
+                background: #3e2723 !important;
+                border-color: #ea580c !important;
+                transform: rotate(10deg);
+                z-index: 5;
             }
-            .best-seller-badge .crown { 
-                font-size: 16px;
-                margin-bottom: 1px;
+
+            /* 6. Pricing Row (Sejajar satu baris) */
+            .promo-pricing {
+                order: 5;
+                margin: 0;
+                display: flex;
+                flex-direction: row;
+                gap: 10px;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                flex-wrap: nowrap;
             }
-            .best-seller-badge .text { 
-                font-size: 8px;
-                line-height: 1.2;
+            .price-original { 
+                font-size: 0.9rem;
+                color: #999;
+                text-decoration: line-through;
+                margin: 0;
+                flex-shrink: 0;
             }
-            .best-seller-badge .stars { 
-                font-size: 7px;
+            .price-discount { 
+                font-size: 1.8rem;
+                color: #ea580c;
+                font-weight: 800;
+                margin: 0;
+                flex-shrink: 0;
             }
-            .wheat-decoration { 
-                font-size: 60px;
-                top: 5px;
-                right: 5px;
-                opacity: 0.2;
+            .price-save {
+                display: inline-block;
+                border: 1px solid #ea580c;
+                color: #ea580c;
+                font-size: 10px;
+                padding: 3px 8px;
+                border-radius: 50px;
+                font-weight: 600;
+                flex-shrink: 0;
             }
-            .wheat-ornament-left { 
-                display: none; 
+
+            /* 7. Icon Features Row (Space-around) */
+            .promo-features {
+                order: 6;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+                width: 100%;
+                background: rgba(245, 158, 11, 0.05);
+                padding: 16px 8px;
+                border-radius: 16px;
+                gap: 4px;
+                margin-bottom: 0;
             }
+            .promo-features > div {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                flex: 1;
+            }
+            .feature-icon { 
+                width: 32px; 
+                height: 32px; 
+                font-size: 14px;
+                margin-bottom: 6px;
+                background: white;
+                border-color: rgba(234, 88, 12, 0.3);
+            }
+            .feature-title { 
+                font-size: 8.5px; 
+                text-align: center;
+                white-space: nowrap;
+            }
+            .feature-subtitle { display: none; }
+
+            /* 8. Full Width CTA Button */
+            .promo-cta-container {
+                order: 7;
+                width: 100%;
+                margin-top: 8px;
+            }
+            .promo-cta { 
+                padding: 14px; 
+                font-size: 14px;
+                border-radius: 30px;
+                background: linear-gradient(135deg, #f59e0b, #ea580c) !important;
+                width: 100%;
+                margin: 0;
+                font-weight: 700;
+            }
+            .promo-note { 
+                order: 8;
+                font-size: 10px;
+                margin-top: 10px;
+                text-align: center;
+            }
+
+            /* Hide decorative elements */
+            .wheat-decoration, .wheat-ornament-left { display: none !important; }
         }
         }
 
@@ -2656,6 +2801,228 @@
             color: #E8748A;
             filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.5));
         }
+
+        /* ========== PROMO MODAL ========== */
+        .promo-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.75);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 20000;
+            backdrop-filter: blur(5px);
+            padding: 20px;
+        }
+
+        .promo-modal-overlay.active {
+            display: flex;
+            animation: fadeInModal 0.3s ease forwards;
+        }
+
+        @keyframes fadeInModal {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .promo-modal {
+            background: #FFFDF9;
+            width: 100%;
+            max-width: 1000px;
+            max-height: 90vh;
+            border-radius: 24px;
+            position: relative;
+            padding: 40px 30px;
+            overflow-y: auto;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+        }
+
+        .promo-modal-overlay.active .promo-modal {
+            transform: translateY(0);
+        }
+
+        .promo-modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background: #f5f5f5;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: #333;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .promo-modal-close:hover {
+            background: #ea580c;
+            color: white;
+            transform: rotate(90deg);
+        }
+
+        .promo-modal-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: #4a2c0a;
+            text-align: center;
+            margin-bottom: 35px;
+            font-weight: 700;
+        }
+
+        .promo-products-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .promo-product-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease;
+        }
+
+        .promo-product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .promo-product-img-wrapper {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1/1;
+        }
+
+        .promo-product-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .promo-product-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: #ef4444;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            z-index: 2;
+        }
+
+        .promo-product-body {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .promo-product-subtitle {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #8b5a2b;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .promo-product-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            color: #4a2c0a;
+            font-weight: 700;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+
+        .promo-product-pricing {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .promo-price-original {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        .promo-price-current {
+            color: #ea580c;
+            font-size: 1.3rem;
+            font-weight: 800;
+        }
+
+        .promo-stock-status {
+            background: #d1fae5;
+            color: #065f46;
+            padding: 6px 12px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: inline-block;
+            align-self: flex-start;
+        }
+
+        .promo-label-bottom {
+            font-size: 0.8rem;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .promo-buy-btn {
+            background: #4a2c0a;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+            font-family: 'Outfit', sans-serif;
+            margin-top: auto;
+        }
+
+        .promo-buy-btn:hover {
+            background: #2c1806;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(74, 44, 10, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .promo-products-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                overflow-x: hidden;
+            }
+            .promo-modal {
+                padding: 30px 20px;
+                width: 95%;
+            }
+            .promo-modal-title {
+                font-size: 1.6rem;
+            }
+        }
         
         .contact-details { flex: 1; }
         
@@ -2934,7 +3301,7 @@
     <!-- Header -->
     <header>
         <div class="logo">
-            <img src="{{ asset('images/budess.jpg') }}" alt="Dapoer Budess" class="logo-img">
+            <img src="/images/budess.jpg" alt="Dapoer Budess" class="logo-img">
         </div>
 
         <ul class="nav-links">
@@ -2968,7 +3335,7 @@
 
     <!-- HERO SLIDER SECTION -->
     <div class="hero-slider" id="heroSlider">
-        <div class="slide slide-1 active" style="background-image: url('{{ asset('images/hero/slide1.jpg') }}');">
+        <div class="slide slide-1 active" style="background-image: url('/images/hero/slide1.jpg');">
             <div class="slide-content">
                 <h1>Nikmatnya <br>Roti Manis Premium</h1>
                 <p>Rasakan kelembutan roti yang dibuat dengan sepenuh hati. Topping keju dan coklat berlimpah yang lumer di mulut.</p>
@@ -2976,7 +3343,7 @@
             </div>
         </div>
 
-        <div class="slide slide-2" style="background-image: url('{{ asset('images/hero/slide2.jpg') }}');">
+        <div class="slide slide-2" style="background-image: url('/images/hero/slide2.jpg');">
             <div class="slide-content">
                 <h1 style="font-family: 'Playfair Display', serif; font-style: italic;">Dapoer Budess</h1>
                 <p>Nikmati kelembutan roti artisan kelas dunia yang dibuat dengan resep rahasia. Setiap potongnya menjanjikan kelezatan yang tak terlupakan dan aroma yang menggugah selera.</p>
@@ -2984,7 +3351,7 @@
             </div>
         </div>
 
-        <div class="slide slide-3" style="background-image: url('{{ asset('images/hero/slide3.jpg') }}');">
+        <div class="slide slide-3" style="background-image: url('/images/hero/slide3.jpg');">
             <div class="slide-content">
                 <h1>Dibuat Segar <br>Setiap Hari</h1>
                 <p>Kami menjamin kesegaran setiap potong roti. Resep autentik dan proses pemanggangan sempurna.</p>
@@ -3003,6 +3370,7 @@
     </div>
 
     <!-- PROMO Section -->
+    @if(isset($promo) && $promo->is_active)
     <section class="promo-section" id="promoBanner">
         <div class="promo-card">
             <div class="promo-content">
@@ -3010,32 +3378,55 @@
                 <div class="promo-left">
                     <!-- Badge Row -->
                     <div class="promo-badges">
-                        <span class="promo-badge">🔥 SPESIAL HARI INI!</span>
-                        <span class="discount-badge">💎 HEMAT 20%</span>
+                        @if($promo->badge_text)
+                            <span class="promo-badge">{{ $promo->badge_text }}</span>
+                        @endif
+                        @if($promo->discount_badge_text)
+                            <span class="discount-badge">{{ $promo->discount_badge_text }}</span>
+                        @endif
                     </div>
 
                     <!-- Title -->
                     <div class="promo-title-section">
                         <div class="wheat-ornament-left">🌾</div>
                         <h2 class="promo-title">
-                            Roti Sobek<br>
-                            Premium,<br>
-                            Lembut <span class="highlight">&</span> Fresh!
+                            {!! nl2br(e($promo->title)) !!}
                         </h2>
                     </div>
 
                     <!-- Description -->
                     <p class="promo-subtitle">
-                        Roti sobek premium dengan tekstur lembut dan rasa yang menggugah selera. 
-                        Sempurna untuk sarapan atau camilan Anda!
+                        {{ $promo->subtitle }}
                     </p>
 
                     <!-- Price -->
                     <div class="promo-pricing">
-                        <span class="price-original">Rp 35.000</span>
-                        <span class="price-discount">Rp 28.000</span>
-                        <span class="price-save">🏷 Hemat Rp 7.000</span>
+                        <span class="price-original">Rp {{ number_format($promo->price_original, 0, ',', '.') }}</span>
+                        <span class="price-discount">Rp {{ number_format($promo->price_promo, 0, ',', '.') }}</span>
+                        <span class="price-save">🏷 Hemat Rp {{ number_format($promo->price_original - $promo->price_promo, 0, ',', '.') }}</span>
                     </div>
+
+                    <!-- Countdown Timer -->
+                    @if($promo->end_time && $promo->end_time->isFuture())
+                    <div id="promo-countdown" class="promo-countdown" data-endtime="{{ $promo->end_time->format('Y-m-d H:i:s') }}">
+                        <div class="timer-item">
+                            <span id="timer-days">00</span>
+                            <small>Hari</small>
+                        </div>
+                        <div class="timer-item">
+                            <span id="timer-hours">00</span>
+                            <small>Jam</small>
+                        </div>
+                        <div class="timer-item">
+                            <span id="timer-mins">00</span>
+                            <small>Menit</small>
+                        </div>
+                        <div class="timer-item">
+                            <span id="timer-secs">00</span>
+                            <small>Detik</small>
+                        </div>
+                    </div>
+                    @endif
 
                     <!-- Features -->
                     <div class="promo-features">
@@ -3057,9 +3448,9 @@
                     </div>
 
                     <!-- CTA Button -->
-                    <div>
-                        <button class="promo-cta" onclick="showSection('products')">
-                            🛒 PESAN SEKARANG – STOK TERBATAS!
+                    <div class="promo-cta-container">
+                        <button class="promo-cta" onclick="openPromoModal()">
+                            🛒 PESAN SEKARANG – TERBATAS!
                         </button>
                         <p class="promo-note">⏰ Promo hanya hari ini!</p>
                     </div>
@@ -3081,23 +3472,66 @@
                     <div class="promo-images">
                         <!-- GAMBAR 1 - UTAMA (BESAR, ATAS KANAN) -->
                         <div class="promo-image-item promo-image-main">
-                            <img src="{{ asset('images/besar1.jpg') }}" alt="Roti Sobek Premium" onerror="this.src='https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400&q=80'">
+                            <img src="{{ $promo->image_main ? '/' . $promo->image_main : '/images/besar1.jpg' }}" alt="{{ $promo->title }}" onerror="this.src='https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400&q=80'">
                         </div>
 
                         <!-- GAMBAR 2 - KECIL (BAWAH KIRI) -->
                         <div class="promo-image-item promo-image-second">
-                            <img src="{{ asset('images/besar 2.jpg') }}" alt="Donat Premium" onerror="this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&q=80'">
+                            <img src="{{ $promo->image_second ? '/' . $promo->image_second : '/images/besar 2.jpg' }}" alt="{{ $promo->title }}" onerror="this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&q=80'">
                         </div>
 
                         <!-- GAMBAR 3 - SEDANG (BAWAH KANAN) -->
                         <div class="promo-image-item promo-image-third">
-                            <img src="{{ asset('images/besar 3.jpg') }}" alt="Roti Bundar" onerror="this.src='https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=400&q=80'">
+                            <img src="{{ $promo->image_third ? '/' . $promo->image_third : '/images/besar 3.jpg' }}" alt="{{ $promo->title }}" onerror="this.src='https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=400&q=80'">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    @endif
+
+    <!-- PROMO MODAL HTML -->
+    <div id="promoModalOverlay" class="promo-modal-overlay" onclick="closePromoModal(event)">
+        <div class="promo-modal" onclick="event.stopPropagation()">
+            <div class="promo-modal-close" onclick="closePromoModal(event)">✕</div>
+            <h2 class="promo-modal-title">🔥 Pilih Roti Promo Hari Ini</h2>
+            
+            <div class="promo-products-grid">
+                @if(isset($modalProducts) && $modalProducts->count() > 0)
+                    @foreach($modalProducts as $p)
+                    <div class="promo-product-card">
+                        <div class="promo-product-img-wrapper">
+                            @if($p->badge)
+                                <span class="promo-product-badge">{{ $p->badge }}</span>
+                            @endif
+                            <img src="{{ $p->image ? '/' . $p->image : 'https://images.unsplash.com/photo-1509440159596-0249088772ff?w=500&h=500&fit=crop' }}" class="promo-product-img" alt="{{ $p->name }}">
+                        </div>
+                        <div class="promo-product-body">
+                            @if($p->subtitle)
+                                <span class="promo-product-subtitle">{{ $p->subtitle }}</span>
+                            @endif
+                            <h3 class="promo-product-name">{{ $p->name }}</h3>
+                            <div class="promo-product-pricing">
+                                @if($p->price_original && $p->price_original > $p->price_promo)
+                                    <span class="promo-price-original">Rp {{ number_format($p->price_original, 0, ',', '.') }}</span>
+                                @endif
+                                <span class="promo-price-current">Rp {{ number_format($p->price_promo, 0, ',', '.') }}</span>
+                            </div>
+                            @if($p->stock_label)
+                                <span class="promo-stock-status">{{ $p->stock_label }}</span>
+                            @endif
+                            @if($p->bottom_label)
+                                <p class="promo-label-bottom">{{ $p->bottom_label }}</p>
+                            @endif
+                            <button class="promo-buy-btn" onclick="directBuyPromo('{{ $p->name }}', {{ (int)$p->price_promo }})">🛒 Beli</button>
+                        </div>
+                    </div>
+                    @endforeach
+                @endif
+            </div>
+        </div>
+    </div>
 
     <!-- Main Container -->
     <div class="container">
@@ -3108,7 +3542,7 @@
                 <div class="zigzag-container">
                     <div class="zigzag-row" data-aos="fade-up">
                         <div class="zigzag-image">
-                            <img src="{{ asset('images/panggang.jpg') }}" alt="Roti Fresh dari Oven">
+                            <img src="/images/panggang.jpg" alt="Roti Fresh dari Oven">
                         </div>
                         <div class="zigzag-card">
                             <div class="speech-pointer"></div>
@@ -3135,7 +3569,7 @@
                             <p class="card-desc">Roti kami menawarkan cita rasa lezat dan segar dengan harga yang ramah di kantong. Cocok untuk sarapan, camilan, dan momen spesial Anda bersama keluarga.</p>
                         </div>
                         <div class="zigzag-image">
-                            <img src="{{ asset('images/keluarga.jpg') }}" alt="Momen Menikmati Roti Bersama">
+                            <img src="/images/keluarga.jpg" alt="Momen Menikmati Roti Bersama">
                         </div>
                     </div>
                 </div>
@@ -3172,8 +3606,8 @@
                             @if($review->media_urls)
                                 <div style="display: flex; gap: 8px; margin-top: 15px; flex-wrap: wrap;">
                                     @foreach($review->media_urls as $url)
-                                        <div style="width: 60px; height: 60px; border-radius: 10px; overflow: hidden; cursor: pointer; border: 2px solid #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.1); transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'" onclick="window.open('{{ asset($url) }}', '_blank')">
-                                            <img src="{{ asset($url) }}" style="width: 100%; height: 100%; object-fit: cover;">
+                                        <div style="width: 60px; height: 60px; border-radius: 10px; overflow: hidden; cursor: pointer; border: 2px solid #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.1); transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'" onclick="window.open('/' + '{{ $url }}', '_blank')">
+                                            <img src="/{{ $url }}" style="width: 100%; height: 100%; object-fit: cover;">
                                         </div>
                                     @endforeach
                                 </div>
@@ -3339,7 +3773,7 @@
                 <div class="about-grid">
                     <div class="about-images-wrapper" data-aos="fade-right">
                         <div class="about-img-frame about-img-large">
-                            <img src="{{ asset('images/rocil.jpg') }}" alt="Proses Pembuatan Roti" class="about-img-large">
+                            <img src="/images/rocil.jpg" alt="Proses Pembuatan Roti" class="about-img-large">
                         </div>
                     </div>
                     <div class="about-text-content" data-aos="fade-left">
@@ -3641,17 +4075,26 @@
 
         function renderProducts(containerId, filterBestseller, sortOption = null) {
             const container = document.getElementById(containerId);
-            let filteredProducts = filterBestseller ? products.filter(p => p.bestseller) : [...products];
+            if (!container) return;
+            
+            if (!Array.isArray(products)) {
+                console.error('Products data is not an array:', products);
+                container.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 3rem; color: #ef4444;">Terjadi kesalahan saat memuat data produk.</div>';
+                return;
+            }
+
+            let filteredProducts = filterBestseller ? products.filter(p => p && p.bestseller) : [...products];
             if (sortOption) {
                 switch(sortOption) {
-                    case 'bestseller': filteredProducts.sort((a, b) => b.total_sold - a.total_sold); break;
-                    case 'price-low': filteredProducts.sort((a, b) => a.effective_price - b.effective_price); break;
-                    case 'price-high': filteredProducts.sort((a, b) => b.effective_price - a.effective_price); break;
-                    case 'name-asc': filteredProducts.sort((a, b) => a.name.localeCompare(b.name)); break;
-                    case 'name-desc': filteredProducts.sort((a, b) => b.name.localeCompare(a.name)); break;
+                    case 'bestseller': filteredProducts.sort((a, b) => (b.total_sold || 0) - (a.total_sold || 0)); break;
+                    case 'price-low': filteredProducts.sort((a, b) => (a.effective_price || 0) - (b.effective_price || 0)); break;
+                    case 'price-high': filteredProducts.sort((a, b) => (b.effective_price || 0) - (a.effective_price || 0)); break;
+                    case 'name-asc': filteredProducts.sort((a, b) => (a.name || '').localeCompare(b.name || '')); break;
+                    case 'name-desc': filteredProducts.sort((a, b) => (b.name || '').localeCompare(a.name || '')); break;
+                    case 'newest': filteredProducts.sort((a, b) => b.id - a.id); break;
                 }
             } else if (filterBestseller) {
-                filteredProducts.sort((a, b) => b.total_sold - a.total_sold);
+                filteredProducts.sort((a, b) => (b.total_sold || 0) - (a.total_sold || 0));
             }
             if (filteredProducts.length === 0) {
                 container.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 3rem; color: #888; font-style: italic;">Belum ada produk yang ditampilkan saat ini.</div>';
@@ -3659,6 +4102,7 @@
             }
             const taglines = ["⚡ Promo terbatas!", "🔥 Stok menipis!", "✨ Fresh setiap hari!", "💯 Favorit pelanggan!", "🎉 Harga spesial hari ini!"];
             container.innerHTML = filteredProducts.map(product => {
+                if (!product) return '';
                 const randomTagline = taglines[Math.floor(Math.random() * taglines.length)];
                 let badgeText = "";
                 if (product.is_discount_active) {
@@ -3671,20 +4115,25 @@
                 const stockBgColors = { green: '#d1fae5', yellow: '#fef3c7', red: '#fee2e2', orange: '#ffedd5' };
                 const buttonText = stockStatus.is_preorder ? '📅 Pre-Order untuk Besok' : '🛒 Beli';
                 const buttonDisabled = !stockStatus.can_order;
+                
+                // Sanitize description for template literal
+                const description = (product.description || 'Lembut, manis, dan fresh setiap hari').replace(/[`$\\]/g, '\\$&');
+                const name = (product.name || 'Produk Roti').replace(/[`$\\]/g, '\\$&');
+
                 return `
                     <div class="product-card" data-category="${product.category}">
                         ${badgeText ? `<div class="product-promo-badge">${badgeText}</div>` : ''}
                         <div class="product-image-wrapper">
                             <div class="product-image">
-                                ${product.image ? `<img src="${product.image}" alt="${product.name}" style="width:100%;height:100%;object-fit:cover;">` : `<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:#ccc;font-size:3rem;">🍞</div>`}
+                                ${product.image ? `<img src="${product.image}" alt="${name}" style="width:100%;height:100%;object-fit:cover;">` : `<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:#ccc;font-size:3rem;">🍞</div>`}
                             </div>
                         </div>
                         <div class="product-info">
-                            <h3 class="product-name">${product.name}</h3>
-                            <p class="product-description">${product.description || 'Lembut, manis, dan fresh setiap hari'}</p>
-                            ${stockStatus.label ? `<div style="margin:0.75rem 0;padding:0.5rem 0.75rem;background:${stockBgColors[stockStatus.color]};border-left:3px solid ${stockColors[stockStatus.color]};border-radius:0.5rem;font-size:0.8rem;font-weight:600;color:${stockColors[stockStatus.color]};text-align:center;">${stockStatus.label}</div>` : ''}
+                            <h3 class="product-name">${name}</h3>
+                            <p class="product-description">${description}</p>
+                            ${stockStatus.label ? `<div style="margin:0.75rem 0;padding:0.5rem 0.75rem;background:${stockBgColors[stockStatus.color] || '#f3f4f6'};border-left:3px solid ${stockColors[stockStatus.color] || '#9ca3af'};border-radius:0.5rem;font-size:0.8rem;font-weight:600;color:${stockColors[stockStatus.color] || '#4b5563'};text-align:center;">${stockStatus.label}</div>` : ''}
                             <div class="price-container">
-                                ${product.is_discount_active ? `<span class="price-old">Rp ${product.price.toLocaleString('id-ID')}</span><span class="price-new">Rp ${product.effective_price.toLocaleString('id-ID')}</span>` : `<span class="price-new">Rp ${product.price.toLocaleString('id-ID')}</span>`}
+                                ${product.is_discount_active ? `<span class="price-old">Rp ${(product.price || 0).toLocaleString('id-ID')}</span><span class="price-new">Rp ${(product.effective_price || 0).toLocaleString('id-ID')}</span>` : `<span class="price-new">Rp ${(product.price || 0).toLocaleString('id-ID')}</span>`}
                             </div>
                             <p style="font-size:0.8rem;color:#888;margin-bottom:0.75rem;">${randomTagline}</p>
                             <button class="cta-button" onclick="addToCart(${product.id}, ${!!stockStatus.is_preorder})" ${buttonDisabled ? 'disabled' : ''}>${buttonText}</button>
@@ -3736,15 +4185,49 @@
         }
 
         function addToCartOnly() {
-            // Show CAPTCHA first before adding to cart
-            window.pendingCartAction = 'add_only';
-            showCaptchaModal();
+            // Langsung tambah ke keranjang tanpa CAPTCHA
+            const product = products.find(p => p.id === window.selectedProduct.id);
+            const existingItem = cart.find(item => item.id === window.selectedProduct.id);
+            
+            if (existingItem) {
+                existingItem.quantity++;
+            } else {
+                cart.push({ 
+                    ...product, 
+                    quantity: 1, 
+                    price: product.effective_price, 
+                    original_price: product.price, 
+                    is_discounted: product.is_discount_active, 
+                    is_preorder: window.selectedProduct.isPreorder 
+                });
+            }
+            
+            updateCart();
+            closePurchaseModal();
+            showNotification(`${product.name} ditambahkan ke keranjang!`);
         }
 
         function buyNow() {
-            // Show CAPTCHA first before buy now
-            window.pendingCartAction = 'buy_now';
-            showCaptchaModal();
+            // Tambah ke keranjang lalu lanjut ke checkout (yang akan memicu CAPTCHA)
+            const product = products.find(p => p.id === window.selectedProduct.id);
+            const existingItem = cart.find(item => item.id === window.selectedProduct.id);
+            
+            if (existingItem) {
+                existingItem.quantity++;
+            } else {
+                cart.push({ 
+                    ...product, 
+                    quantity: 1, 
+                    price: product.effective_price, 
+                    original_price: product.price, 
+                    is_discounted: product.is_discount_active, 
+                    is_preorder: window.selectedProduct.isPreorder 
+                });
+            }
+            
+            updateCart();
+            closePurchaseModal();
+            goToCheckout(true);
         }
 
         function executePendingCartAction() {
@@ -3761,34 +4244,6 @@
                     if (phoneInput && !phoneInput.value) {
                         phoneInput.value = savedPhone;
                     }
-                }
-            } else {
-                // Add product to cart (for add_only and buy_now)
-                const product = products.find(p => p.id === window.selectedProduct.id);
-                const existingItem = cart.find(item => item.id === window.selectedProduct.id);
-                
-                if (existingItem) {
-                    existingItem.quantity++;
-                } else {
-                    cart.push({ 
-                        ...product, 
-                        quantity: 1, 
-                        price: product.effective_price, 
-                        original_price: product.price, 
-                        is_discounted: product.is_discount_active, 
-                        is_preorder: window.selectedProduct.isPreorder 
-                    });
-                }
-                
-                updateCart();
-                closePurchaseModal();
-                
-                if (window.pendingCartAction === 'add_only') {
-                    showNotification(`${product.name} ditambahkan ke keranjang!`);
-                } else if (window.pendingCartAction === 'buy_now') {
-                    // Redirect to checkout after adding to cart
-                    showSection('checkout');
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
                 }
             }
             
@@ -3924,7 +4379,7 @@
             if (navMenu) navMenu.classList.remove('open');
         }
 
-        function goToCheckout() {
+        function goToCheckout(skipToggle = false) {
             if (cart.length === 0) { 
                 alert('Keranjang Anda masih kosong!'); 
                 return; 
@@ -3953,7 +4408,7 @@
             
             // Set pending action to go to checkout
             window.pendingCartAction = 'go_to_checkout';
-            toggleCart();
+            if (!skipToggle) toggleCart();
             
             // Show CAPTCHA modal for verification
             showCaptchaModal();
@@ -4505,6 +4960,47 @@
             if (btn) { btn.disabled = false; btn.style.opacity = '1'; btn.style.cursor = 'pointer'; }
         }
 
+        /* PROMO MODAL FUNCTIONS */
+        function openPromoModal() {
+            document.getElementById('promoModalOverlay').classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent scroll
+        }
+
+        function closePromoModal(event) {
+            document.getElementById('promoModalOverlay').classList.remove('active');
+            document.body.style.overflow = ''; // Restore scroll
+        }
+
+        function directBuyPromo(productName, price) {
+            // Find product in products array to get full data
+            const product = products.find(p => p.name.toLowerCase() === productName.toLowerCase()) || {
+                id: Date.now(), // Fallback ID
+                name: productName,
+                price: price,
+                effective_price: price,
+                is_discount_active: false
+            };
+
+            const existingItem = cart.find(item => item.name === product.name);
+            if (existingItem) {
+                existingItem.quantity++;
+            } else {
+                cart.push({ 
+                    ...product, 
+                    quantity: 1, 
+                    price: price, 
+                    original_price: price, 
+                    is_discounted: false, 
+                    is_preorder: false 
+                });
+            }
+            
+            updateCart();
+            closePromoModal();
+            toggleCart(); // Show cart after adding
+            showNotification(`${productName} ditambahkan ke keranjang!`);
+        }
+
         function toggleMenu() {
             const m = document.getElementById('navMenu');
             if (m) m.classList.toggle('open');
@@ -4519,7 +5015,48 @@
         `;
         document.head.appendChild(style);
 
+        function initPromoCountdown() {
+            const countdownEl = document.getElementById('promo-countdown');
+            if (!countdownEl) return;
+
+            const endTimeStr = countdownEl.getAttribute('data-endtime');
+            if (!endTimeStr) return;
+
+            const endTime = new Date(endTimeStr).getTime();
+            const daysEl = document.getElementById('timer-days');
+            const hoursEl = document.getElementById('timer-hours');
+            const minsEl = document.getElementById('timer-mins');
+            const secsEl = document.getElementById('timer-secs');
+
+            function update() {
+                const now = new Date().getTime();
+                const diff = endTime - now;
+
+                if (diff <= 0) {
+                    if (daysEl) daysEl.textContent = '00';
+                    if (hoursEl) hoursEl.textContent = '00';
+                    if (minsEl) minsEl.textContent = '00';
+                    if (secsEl) secsEl.textContent = '00';
+                    return;
+                }
+
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const secs = Math.floor((diff % (1000 * 60)) / 1000);
+
+                if (daysEl) daysEl.textContent = days.toString().padStart(2, '0');
+                if (hoursEl) hoursEl.textContent = hours.toString().padStart(2, '0');
+                if (minsEl) minsEl.textContent = mins.toString().padStart(2, '0');
+                if (secsEl) secsEl.textContent = secs.toString().padStart(2, '0');
+            }
+
+            update();
+            setInterval(update, 1000);
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
+            initPromoCountdown();
             renderProducts('productsGrid', false);
             renderProducts('bestsellerGrid', true);
             renderProducts('bestsellerHome', true);
@@ -4535,6 +5072,7 @@
                     closeUploadModal();
                     closePurchaseModal();
                     document.getElementById('successMessage').classList.remove('active');
+                    closePromoModal();
                 }
             });
             const chatInput = document.getElementById('chatInput');

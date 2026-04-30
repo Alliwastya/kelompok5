@@ -328,7 +328,7 @@
     <div class="product-card">
         <div class="product-image">
             @if($product->image)
-                <img src="{{ Storage::url($product->image) }}" alt="{{ $product->name }}">
+                <img src="/storage/{{ $product->image }}" alt="{{ $product->name }}">
             @else
                 <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: #666;">
                     📷

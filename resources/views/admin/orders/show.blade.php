@@ -460,7 +460,7 @@
             
             <div style="background: #1a1a1a; border-radius: 12px; padding: 1rem; margin-bottom: 1rem;">
                 <div style="text-align: center; margin-bottom: 1rem;">
-                    <img src="{{ asset('storage/' . $order->payment_proof) }}" 
+                    <img src="/storage/{{ $order->payment_proof }}" 
                          alt="Bukti Pembayaran" 
                          class="payment-proof-thumbnail"
                          style="max-width: 100%; max-height: 500px; border-radius: 8px; cursor: pointer; border: 2px solid #FFD700;"
@@ -472,17 +472,17 @@
                 </div>
                 
                 <div style="display: flex; gap: 0.75rem; margin-top: 1rem;">
-                    <a href="{{ asset('storage/' . $order->payment_proof) }}" 
+                    <a href="/storage/{{ $order->payment_proof }}" 
                        target="_blank" 
                        class="btn-secondary" 
                        style="flex: 1; display: inline-block;">
-                        🔍 Lihat Full Size
+                        🔍 Lihat Ukuran Penuh
                     </a>
-                    <a href="{{ asset('storage/' . $order->payment_proof) }}" 
+                    <a href="/storage/{{ $order->payment_proof }}" 
                        download 
                        class="btn-secondary" 
                        style="flex: 1; display: inline-block;">
-                        💾 Download
+                        📥 Download Gambar
                     </a>
                 </div>
             </div>

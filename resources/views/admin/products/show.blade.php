@@ -30,7 +30,7 @@
                 <!-- Product Image -->
                 <div>
                     @if($product->image)
-                        <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" 
+                        <img src="/storage/{{ $product->image }}" alt="{{ $product->name }}" 
                              class="w-full h-auto object-cover rounded-lg border border-gray-300">
                     @else
                         <div class="w-full h-96 bg-gray-300 rounded-lg flex items-center justify-center">

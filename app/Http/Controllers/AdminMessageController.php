@@ -58,6 +58,41 @@ class AdminMessageController extends Controller
             'last_message_at' => now(),
         ]);
 
+        if ($request->ajax() || $request->wantsJson()) {
+            return response()->json([
+                'success' => true,
+                'message' => 'Balasan dikirim'
+            ]);
+        }
+
         return back()->with('success', 'Balasan dikirim');
+    }
+
+    public function getMessages($id)
+    {
+        $thread = MessageThread::findOrFail($id);
+        
+        // Mark messages as read
+        $thread->messages()->where('sender_type', 'user')->where('is_read', false)->update([
+            'is_read' => true,
+            'read_at' => now()
+        ]);
+
+        $messages = $thread->messages()
+            ->orderBy('created_at', 'asc')
+            ->get()
+            ->map(function($msg) {
+                return [
+                    'id' => $msg->id,
+                    'sender_type' => $msg->sender_type,
+                    'message' => $msg->message,
+                    'created_at_formatted' => $msg->created_at->format('H:i'),
+                ];
+            });
+
+        return response()->json([
+            'success' => true,
+            'messages' => $messages
+        ]);
     }
 }

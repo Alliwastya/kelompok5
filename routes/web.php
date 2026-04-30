@@ -133,9 +133,14 @@ Route::middleware(['auth', 'is_admin'])->prefix('admin')->name('admin.')->group(
     Route::get('/reviews', [AdminController::class, 'reviews'])->name('reviews.index');
     Route::patch('/reviews/{review}/toggle', [AdminController::class, 'toggleReviewVisibility'])->name('reviews.toggle');
 
+    // Promo Settings
+    Route::get('/promo', [\App\Http\Controllers\PromoSettingController::class, 'index'])->name('promo.edit');
+    Route::put('/promo', [\App\Http\Controllers\PromoSettingController::class, 'update'])->name('promo.update');
+
     // Messages Management
     Route::get('/messages', [\App\Http\Controllers\AdminMessageController::class, 'index'])->name('messages.index');
     Route::get('/messages/{id}', [\App\Http\Controllers\AdminMessageController::class, 'show'])->name('messages.show');
+    Route::get('/messages/{id}/fetch', [\App\Http\Controllers\AdminMessageController::class, 'getMessages'])->name('messages.fetch');
     Route::post('/messages/{id}/reply', [\App\Http\Controllers\AdminMessageController::class, 'reply'])->name('messages.reply');
     
     // Payment Settings
@@ -157,18 +162,6 @@ Route::middleware(['auth', 'is_admin'])->prefix('admin')->name('admin.')->group(
     Route::get('/contact-messages/{id}', [\App\Http\Controllers\Admin\ContactMessageController::class, 'show'])->name('contact.show');
     Route::post('/contact-messages/{id}/reply', [\App\Http\Controllers\Admin\ContactMessageController::class, 'reply'])->name('contact.reply');
     Route::delete('/contact-messages/{id}', [\App\Http\Controllers\Admin\ContactMessageController::class, 'delete'])->name('contact.delete');
-    
-    // Security Management
-    Route::get('/security', [\App\Http\Controllers\Admin\SecurityController::class, 'index'])->name('security.index');
-    Route::post('/security/block/{ip}', [\App\Http\Controllers\Admin\SecurityController::class, 'blockIp'])->name('security.block');
-    Route::post('/security/unblock/{ip}', [\App\Http\Controllers\Admin\SecurityController::class, 'unblockIp'])->name('security.unblock');
-    Route::post('/security/clear-logs', [\App\Http\Controllers\Admin\SecurityController::class, 'clearLogs'])->name('security.clear-logs');
-    
-    // Fraud Detection
-    Route::get('/fraud', [\App\Http\Controllers\Admin\FraudController::class, 'index'])->name('fraud.index');
-    Route::get('/fraud/{id}', [\App\Http\Controllers\Admin\FraudController::class, 'show'])->name('fraud.show');
-    Route::post('/fraud/{id}/approve', [\App\Http\Controllers\Admin\FraudController::class, 'approve'])->name('fraud.approve');
-    Route::post('/fraud/{id}/reject', [\App\Http\Controllers\Admin\FraudController::class, 'reject'])->name('fraud.reject');
 });
 
 // API Routes for Checkout

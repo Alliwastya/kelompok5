@@ -11,6 +11,8 @@ use App\Models\ChatMessage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use App\Models\PromoSetting;
+use App\Models\PromoModalProduct;
 
 class RotiController extends Controller
 {
@@ -29,7 +31,7 @@ class RotiController extends Controller
                 'name' => $product->name,
                 'price' => (float)$product->price,
                 'description' => $product->description ?? 'Produk berkualitas dari Dapoer Budess',
-                'image' => $product->image ? asset('storage/' . $product->image) : null,
+                'image' => $product->image ? '/storage/' . $product->image : null,
                 'category' => $product->category,
                 'total_sold' => $product->total_sold,
                 'bestseller' => in_array($product->id, $bestsellerIds),
@@ -49,12 +51,24 @@ class RotiController extends Controller
             ->take(10)
             ->get();
 
+        $promo = PromoSetting::getActive();
+        
+        // AUTO-DISABLE PROMO: Jika waktu sudah habis, nonaktifkan di database
+        if ($promo && $promo->is_active && $promo->end_time && $promo->end_time->isPast()) {
+            $promo->update(['is_active' => false]);
+            $promo = null; // Sembunyikan dari tampilan saat ini
+        }
+
+        $modalProducts = PromoModalProduct::orderBy('order')->get();
+
         // Generate CAPTCHA for checkout
         $captcha = \App\Services\CaptchaService::generateMath();
 
         return view('roti', [
             'products' => $products, 
             'reviews' => $reviews,
+            'promo' => $promo,
+            'modalProducts' => $modalProducts,
             'captcha' => $captcha
         ]);
     }
@@ -98,16 +112,6 @@ class RotiController extends Controller
                     'captcha_verified' => true,
                     'message' => 'reCAPTCHA verified successfully'
                 ]);
-            }
-
-            // SECURITY: Check if IP is blocked
-            if (\App\Models\SecurityLog::isIpBlocked($ipAddress)) {
-                \Log::warning('[Security] Blocked IP attempted checkout', ['ip' => $ipAddress]);
-                return response()->json([
-                    'success' => false,
-                    'blocked' => true,
-                    'message' => 'Akses dibatasi sementara. Silakan hubungi admin.'
-                ], 403);
             }
 
             // Manual validation to ensure JSON response for validation errors
@@ -165,22 +169,7 @@ class RotiController extends Controller
             }
             $validated['customer_phone'] = $phone;
             
-            // SECURITY: Check if customer is blacklisted
-            $reputation = \App\Models\CustomerReputation::getOrCreate($phone, $validated['customer_name']);
-            if ($reputation->isBlacklisted()) {
-                \Log::warning('[Security] Blacklisted customer attempted checkout', ['phone' => $phone]);
-                return response()->json([
-                    'success' => false,
-                    'blocked' => true,
-                    'message' => 'Akses dibatasi sementara. Silakan hubungi admin.'
-                ], 403);
-            }
-
             return DB::transaction(function () use ($validated, $request, $ipAddress) {
-                // Security: Log order attempt
-                $phoneNumber = $this->normalizePhone($validated['customer_phone']);
-                \App\Models\SecurityLog::logOrderAttempt($ipAddress, $phoneNumber, 'Order created');
-
                 // Validasi stok sebelum membuat order
                 foreach ($validated['items'] as $item) {
                     $product = Product::find($item['product_id']);
@@ -292,14 +281,6 @@ class RotiController extends Controller
                 }
 
                 $this->sendOrderMessageToAdmin($order, $messageThread, $itemsDescription);
-
-                // Fraud Detection
-                $fraud = \App\Models\FraudDetection::analyzeOrder($order, $ipAddress);
-                
-                // If high risk, set order to pending review
-                if ($fraud->risk_score >= 70) {
-                    $order->update(['status' => 'pending_review']);
-                }
 
                 return response()->json([
                     'success' => true,
@@ -525,7 +506,7 @@ class RotiController extends Controller
                 'name' => $product->name,
                 'price' => (float)$product->price,
                 'description' => $product->description ?? 'Produk berkualitas dari Dapoer Budess',
-                'image' => $product->image ? asset('storage/' . $product->image) : null,
+                'image' => $product->image ? '/storage/' . $product->image : null,
                 'category' => $product->category,
                 'total_sold' => $product->total_sold,
                 'bestseller' => in_array($product->id, $bestsellerIds),
@@ -591,7 +572,7 @@ class RotiController extends Controller
             return response()->json([
                 'success' => true,
                 'message' => 'Bukti pembayaran berhasil diupload',
-                'payment_proof_url' => asset('storage/' . $path)
+                'payment_proof_url' => '/storage/' . $path
             ]);
         }
 
@@ -772,16 +753,6 @@ class RotiController extends Controller
             // Get IP address for security check
             $ipAddress = $this->getClientIp($request);
             
-            // SECURITY: Check if IP is blocked
-            if (\App\Models\SecurityLog::isIpBlocked($ipAddress)) {
-                \Log::warning('[Security] Blocked IP attempted pre-order', ['ip' => $ipAddress]);
-                return response()->json([
-                    'success' => false,
-                    'blocked' => true,
-                    'message' => 'Akses dibatasi sementara. Silakan hubungi admin.'
-                ], 403);
-            }
-
             // Decode items from JSON string
             $items = json_decode($request->input('items'), true);
             
@@ -837,22 +808,7 @@ class RotiController extends Controller
             }
             $validated['customer_phone'] = $phone;
             
-            // SECURITY: Check if customer is blacklisted
-            $reputation = \App\Models\CustomerReputation::getOrCreate($phone, $validated['customer_name']);
-            if ($reputation->isBlacklisted()) {
-                \Log::warning('[Security] Blacklisted customer attempted pre-order', ['phone' => $phone]);
-                return response()->json([
-                    'success' => false,
-                    'blocked' => true,
-                    'message' => 'Akses dibatasi sementara. Silakan hubungi admin.'
-                ], 403);
-            }
-
             return DB::transaction(function () use ($validated, $items, $request, $ipAddress) {
-                // Security: Log order attempt
-                $phoneNumber = $this->normalizePhone($validated['customer_phone']);
-                \App\Models\SecurityLog::logOrderAttempt($ipAddress, $phoneNumber, 'Pre-order created');
-
                 // Validasi stok - untuk pre-order, kita bisa lebih fleksibel
                 // Tapi tetap cek apakah produk ada
                 foreach ($items as $item) {
@@ -949,14 +905,6 @@ class RotiController extends Controller
                 }
 
                 $this->sendPreorderMessageToAdmin($order, $messageThread, $itemsDescription);
-
-                // Fraud Detection
-                $fraud = \App\Models\FraudDetection::analyzeOrder($order, $ipAddress);
-                
-                // If high risk, set order to pending review
-                if ($fraud->risk_score >= 70) {
-                    $order->update(['status' => 'pending_review']);
-                }
 
                 return response()->json([
                     'success' => true,

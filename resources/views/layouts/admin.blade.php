@@ -304,21 +304,21 @@
                     <span>📦</span>
                     <span>Pesanan</span>
                 </a>
+                <a href="{{ route('admin.reviews.index') }}" class="@if(str_contains(Route::currentRouteName(), 'reviews')) active @endif">
+                    <span>⭐</span>
+                    <span>Ulasan</span>
+                </a>
+                <a href="{{ route('admin.promo.edit') }}" class="@if(str_contains(Route::currentRouteName(), 'promo')) active @endif">
+                    <span>🔥</span>
+                    <span>Pengaturan Promo</span>
+                </a>
                 <a href="{{ route('admin.messages.index') }}" class="@if(str_contains(Route::currentRouteName(), 'messages')) active @endif">
-                    <span>💬</span>
+                    <span>✉️</span>
                     <span>Pesan</span>
                 </a>
                 <a href="{{ route('admin.reports') }}" class="@if(Route::currentRouteName() === 'admin.reports') active @endif">
                     <span>📈</span>
                     <span>Laporan</span>
-                </a>
-                <a href="{{ route('admin.security.index') }}" class="@if(Route::currentRouteName() === 'admin.security.index') active @endif">
-                    <span>🔒</span>
-                    <span>Keamanan</span>
-                </a>
-                <a href="{{ route('admin.fraud.index') }}" class="@if(Route::currentRouteName() === 'admin.fraud.index') active @endif">
-                    <span>🚨</span>
-                    <span>Fraud</span>
                 </a>
                 <a href="{{ route('admin.payment-settings.index') }}" class="@if(str_contains(Route::currentRouteName(), 'payment-settings')) active @endif">
                     <span>💳</span>
