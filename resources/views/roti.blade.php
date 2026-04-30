@@ -1732,6 +1732,37 @@
             background: #f8f9fa;
         }
 
+        .quick-add-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 40px;
+            height: 40px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(-10px);
+            font-size: 1.2rem;
+        }
+
+        .product-card:hover .quick-add-btn {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .quick-add-btn:hover {
+            background: var(--primary);
+            color: white;
+            transform: scale(1.1);
+        }
+
         .product-image-wrapper::before {
             content: '◆';
             position: absolute;
@@ -2908,6 +2939,32 @@
             aspect-ratio: 1/1;
         }
 
+        .promo-quick-add {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 38px;
+            height: 38px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .promo-quick-add:hover {
+            background: #4a2c0a;
+            color: white;
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(74, 44, 10, 0.3);
+        }
+
         .promo-product-img {
             width: 100%;
             height: 100%;
@@ -2941,6 +2998,8 @@
             color: #8b5a2b;
             margin-bottom: 5px;
             font-weight: 600;
+            display: block;
+            min-height: 2rem; /* Increased for long subtitles */
         }
 
         .promo-product-name {
@@ -2950,6 +3009,11 @@
             font-weight: 700;
             margin-bottom: 12px;
             line-height: 1.3;
+            min-height: 3.25rem; /* Ensure consistent height for 2 lines */
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
 
         .promo-product-pricing {
@@ -2957,6 +3021,7 @@
             display: flex;
             align-items: center;
             gap: 8px;
+            min-height: 1.5rem;
         }
 
         .promo-price-original {
@@ -2981,12 +3046,18 @@
             margin-bottom: 15px;
             display: inline-block;
             align-self: flex-start;
+            min-height: 27px; /* Consistent height */
         }
 
         .promo-label-bottom {
             font-size: 0.8rem;
             color: #666;
             margin-bottom: 15px;
+            min-height: 2.5rem; /* Ensure consistent height for 2 lines */
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
 
         .promo-buy-btn {
@@ -3496,6 +3567,11 @@
         <div class="promo-modal" onclick="event.stopPropagation()">
             <div class="promo-modal-close" onclick="closePromoModal(event)">✕</div>
             <h2 class="promo-modal-title">🔥 Pilih Roti Promo Hari Ini</h2>
+            <div style="text-align: center; margin-bottom: 25px; margin-top: -20px;">
+                <button onclick="toggleCart()" style="background: #fffcf0; border: 1px solid #D4AF37; padding: 8px 15px; border-radius: 20px; color: #4a2c0a; font-weight: 600; cursor: pointer; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 8px; transition: all 0.3s;">
+                    🛒 Lihat Keranjang (<span id="promoModalCartCount">0</span>)
+                </button>
+            </div>
             
             <div class="promo-products-grid">
                 @if(isset($modalProducts) && $modalProducts->count() > 0)
@@ -3505,6 +3581,7 @@
                             @if($p->badge)
                                 <span class="promo-product-badge">{{ $p->badge }}</span>
                             @endif
+                            <div class="promo-quick-add" onclick="directBuyPromo('{{ $p->name }}', {{ (int)$p->price_promo }})" title="Tambah ke Keranjang">🛒</div>
                             <img src="{{ $p->image ? '/' . $p->image : 'https://images.unsplash.com/photo-1509440159596-0249088772ff?w=500&h=500&fit=crop' }}" class="promo-product-img" alt="{{ $p->name }}">
                         </div>
                         <div class="promo-product-body">
@@ -4124,6 +4201,7 @@
                     <div class="product-card" data-category="${product.category}">
                         ${badgeText ? `<div class="product-promo-badge">${badgeText}</div>` : ''}
                         <div class="product-image-wrapper">
+                            <div class="quick-add-btn" onclick="addToCart(${product.id}, ${!!stockStatus.is_preorder})" title="Tambah ke Keranjang">🛒</div>
                             <div class="product-image">
                                 ${product.image ? `<img src="${product.image}" alt="${name}" style="width:100%;height:100%;object-fit:cover;">` : `<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:#ccc;font-size:3rem;">🍞</div>`}
                             </div>
@@ -4301,6 +4379,11 @@
             const cartSummary = document.getElementById('cartSummary');
             const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
             cartCount.textContent = totalItems;
+            
+            // Update cart count in promo modal if exists
+            const promoCartCount = document.getElementById('promoModalCartCount');
+            if (promoCartCount) promoCartCount.textContent = totalItems;
+
             if (cart.length === 0) {
                 cartItems.innerHTML = '<div class="empty-cart"><div class="empty-cart-icon">🛒</div><p>Keranjang Anda masih kosong</p></div>';
                 cartSummary.style.display = 'none';
@@ -4972,33 +5055,51 @@
         }
 
         function directBuyPromo(productName, price) {
-            // Find product in products array to get full data
-            const product = products.find(p => p.name.toLowerCase() === productName.toLowerCase()) || {
-                id: Date.now(), // Fallback ID
-                name: productName,
-                price: price,
-                effective_price: price,
-                is_discount_active: false
-            };
-
-            const existingItem = cart.find(item => item.name === product.name);
-            if (existingItem) {
-                existingItem.quantity++;
+            // Normalize name: remove multiple spaces and trim
+            const normalize = (str) => str.toLowerCase().replace(/\s+/g, ' ').trim();
+            const normalizedTarget = normalize(productName);
+            
+            // Find product in products array with normalized matching
+            const product = products.find(p => normalize(p.name) === normalizedTarget);
+            
+            if (!product) {
+                // If not found in main products, create a temporary item
+                // This shouldn't happen if names are synced
+                const tempProduct = {
+                    id: 'promo-' + Date.now(),
+                    name: productName,
+                    price: price,
+                    effective_price: price,
+                    image: null,
+                    is_discount_active: false
+                };
+                
+                const existingItem = cart.find(item => item.name === productName);
+                if (existingItem) {
+                    existingItem.quantity++;
+                } else {
+                    cart.push({ ...tempProduct, quantity: 1 });
+                }
             } else {
-                cart.push({ 
-                    ...product, 
-                    quantity: 1, 
-                    price: price, 
-                    original_price: price, 
-                    is_discounted: false, 
-                    is_preorder: false 
-                });
+                const existingItem = cart.find(item => item.id === product.id);
+                if (existingItem) {
+                    existingItem.quantity++;
+                } else {
+                    cart.push({ 
+                        ...product, 
+                        quantity: 1, 
+                        price: product.effective_price, 
+                        original_price: product.price, 
+                        is_discounted: product.is_discount_active, 
+                        is_preorder: false 
+                    });
+                }
             }
             
             updateCart();
             closePromoModal();
             toggleCart(); // Show cart after adding
-            showNotification(`${productName} ditambahkan ke keranjang!`);
+            showNotification(`✅ ${productName} ditambahkan ke keranjang!`);
         }
 
         function toggleMenu() {
@@ -5027,6 +5128,9 @@
             const hoursEl = document.getElementById('timer-hours');
             const minsEl = document.getElementById('timer-mins');
             const secsEl = document.getElementById('timer-secs');
+            
+            // Reference to the days item container to hide it if needed
+            const daysItem = daysEl ? daysEl.closest('.timer-item') : null;
 
             function update() {
                 const now = new Date().getTime();
@@ -5045,7 +5149,17 @@
                 const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
                 const secs = Math.floor((diff % (1000 * 60)) / 1000);
 
-                if (daysEl) daysEl.textContent = days.toString().padStart(2, '0');
+                if (daysEl) {
+                    daysEl.textContent = days.toString().padStart(2, '0');
+                    // Hide days if 0, show if > 0
+                    if (daysItem) {
+                        daysItem.style.display = days > 0 ? 'flex' : 'none';
+                    }
+                }
+                
+                // If days are hidden, add days to hours (optional, but user might want "48 hours")
+                // For now, let's keep it simple: if days > 0, show everything. If days = 0, hide days item.
+                
                 if (hoursEl) hoursEl.textContent = hours.toString().padStart(2, '0');
                 if (minsEl) minsEl.textContent = mins.toString().padStart(2, '0');
                 if (secsEl) secsEl.textContent = secs.toString().padStart(2, '0');
@@ -5063,6 +5177,7 @@
             initStarRating();
             const savedPhone = localStorage.getItem('customerPhone');
             if (savedPhone) { currentPhone = savedPhone; startMessagePolling(); }
+            updateCart(); // Initialize cart counts
             document.addEventListener('keydown', function(e) {
                 if (e.key === 'Escape') {
                     toggleCart();
