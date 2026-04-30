@@ -250,24 +250,72 @@ class AdminController extends Controller
                 ->update(['is_read' => true, 'read_at' => now()]);
         }
 
-        // Kirim notifikasi penyelesaian
-        $completionMessage = "🎉 PESANAN SELESAI!\n\n" .
-            "Pesanan Anda *{$order->order_number}* sudah siap untuk diambil.\n\n" .
-            "Estimasi: Sudah tersedia\n\n" .
-            "Terima kasih telah berbelanja di Dapoer Budess! 🍞";
+        return redirect()->back()->with('success', 'Pesanan ditandai sebagai selesai');
+    }
 
-        ChatMessage::create([
-            'message_thread_id' => $order->message_thread_id,
-            'order_id' => $order->id,
-            'sender_type' => 'admin',
-            'message_type' => 'completion_notification',
-            'message' => $completionMessage,
-            'is_read' => false,
-        ]);
+    // Confirm Payment (Terima/Tolak Bukti Pembayaran)
+    public function confirmPayment(Request $request, $orderId)
+    {
+        $order = Order::findOrFail($orderId);
+        $action = $request->input('action'); // 'approve' or 'reject'
 
-        $order->messageThread()->update(['last_message_at' => now()]);
+        if ($action === 'approve') {
+            // Terima pembayaran
+            $order->update([
+                'payment_status' => 'paid',
+                'status' => $order->shipping_method === 'pickup' ? 'processing' : 'shipping_set',
+            ]);
 
-        return redirect()->back()->with('success', 'Notifikasi penyelesaian telah dikirim');
+            // Send notification to customer
+            if ($order->message_thread_id) {
+                $message = "✅ *PEMBAYARAN DITERIMA*\n\n" .
+                    "Pembayaran Anda untuk pesanan *{$order->order_number}* telah kami terima dan diverifikasi.\n\n" .
+                    "Pesanan Anda akan segera kami proses. 🍞\n\n" .
+                    "Terima kasih! 🙏";
+
+                ChatMessage::create([
+                    'message_thread_id' => $order->message_thread_id,
+                    'order_id' => $order->id,
+                    'sender_type' => 'admin',
+                    'message_type' => 'payment_confirmation',
+                    'message' => $message,
+                    'is_read' => false,
+                ]);
+
+                $order->messageThread()->update(['last_message_at' => now()]);
+            }
+
+            return redirect()->back()->with('success', 'Pembayaran berhasil dikonfirmasi');
+        } elseif ($action === 'reject') {
+            // Tolak pembayaran
+            $order->update([
+                'payment_status' => 'unpaid',
+                'payment_proof' => null, // Hapus bukti pembayaran
+            ]);
+
+            // Send notification to customer
+            if ($order->message_thread_id) {
+                $message = "❌ *PEMBAYARAN DITOLAK*\n\n" .
+                    "Maaf, bukti pembayaran untuk pesanan *{$order->order_number}* tidak dapat diverifikasi.\n\n" .
+                    "Mohon upload ulang bukti pembayaran yang valid atau hubungi admin untuk informasi lebih lanjut.\n\n" .
+                    "Terima kasih.";
+
+                ChatMessage::create([
+                    'message_thread_id' => $order->message_thread_id,
+                    'order_id' => $order->id,
+                    'sender_type' => 'admin',
+                    'message_type' => 'payment_rejection',
+                    'message' => $message,
+                    'is_read' => false,
+                ]);
+
+                $order->messageThread()->update(['last_message_at' => now()]);
+            }
+
+            return redirect()->back()->with('warning', 'Pembayaran ditolak. Customer akan diminta upload ulang.');
+        }
+
+        return redirect()->back()->with('error', 'Invalid action');
     }
 
     // Mark Message as Replied
@@ -441,40 +489,5 @@ class AdminController extends Controller
         }
 
         return back()->with('success', 'Ongkos kirim berhasil diupdate dan notifikasi dikirim ke pelanggan.');
-    }
-
-    // Confirm Payment (QRIS)
-    public function confirmPayment($id)
-    {
-        $order = Order::findOrFail($id);
-        
-        if ($order->payment_method !== 'QRIS') {
-            return back()->with('error', 'Metode pembayaran bukan QRIS');
-        }
-
-        $order->update([
-            'payment_status' => 'paid',
-            'status' => 'payment_confirmed', // Pembayaran Diterima
-        ]);
-
-        // Notify User
-        if ($order->message_thread_id) {
-            $message = "✅ *PEMBAYARAN DITERIMA*\n\n" .
-                "Pembayaran untuk pesanan *{$order->order_number}* telah dikonfirmasi oleh admin.\n\n" .
-                "Pesanan kami proses sekarang. Mohon tunggu informasi selanjutnya.";
-
-            ChatMessage::create([
-                'message_thread_id' => $order->message_thread_id,
-                'order_id' => $order->id,
-                'sender_type' => 'admin',
-                'message_type' => 'text',
-                'message' => $message,
-                'is_read' => false,
-            ]);
-            
-            $order->messageThread->update(['last_message_at' => now()]);
-        }
-
-        return back()->with('success', 'Pembayaran berhasil dikonfirmasi dan status order diupdate.');
     }
 }

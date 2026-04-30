@@ -18,6 +18,16 @@ use Inertia\Inertia;
 */
 Route::get('/', [RotiController::class, 'index']);
 Route::post('/checkout', [RotiController::class, 'checkout'])->name('checkout');
+
+// Pre-Order Routes
+Route::get('/preorder', [RotiController::class, 'showPreorderPage'])->name('preorder.show');
+Route::post('/preorder/submit', [RotiController::class, 'submitPreorder'])->name('preorder.submit');
+
+Route::get('/payment/{orderId}', [RotiController::class, 'showPaymentPage'])->name('payment.show');
+Route::post('/upload-payment-proof', [RotiController::class, 'uploadPaymentProof'])->name('payment.upload');
+Route::get('/captcha/generate', [RotiController::class, 'generateCaptcha'])->name('captcha.generate');
+Route::post('/send-otp', [RotiController::class, 'sendOtp'])->name('send-otp');
+Route::post('/verify-otp', [RotiController::class, 'verifyOtp'])->name('verify-otp');
 Route::get('/order-status/{phone}', [RotiController::class, 'getOrderStatus'])->name('order.status');
 Route::get('/messages/thread', [MessageController::class, 'getThread'])->name('messages.getThread');
 Route::post('/messages', [MessageController::class, 'store'])->name('messages.store');
@@ -34,6 +44,19 @@ Route::get('/test/force-complete', function() {
         return response()->json(['success' => true, 'message' => "Order {$order->order_number} updated to delivered"]);
     }
     return response()->json(['success' => false, 'message' => "No orders found"]);
+});
+
+// Test QRIS Image
+Route::get('/test/qris', function() {
+    $qrisImagePath = \App\Models\PaymentSetting::getQrisImage();
+    $qrisImage = asset($qrisImagePath);
+    
+    return response()->json([
+        'raw_path' => $qrisImagePath,
+        'asset_url' => $qrisImage,
+        'file_exists' => \Storage::disk('public')->exists(str_replace('/storage/', '', $qrisImagePath)),
+        'setting' => \App\Models\PaymentSetting::where('key', 'qris_image')->first()
+    ]);
 });
 
 // Test Notification API
@@ -82,7 +105,7 @@ Route::middleware(['auth', 'is_admin'])->prefix('admin')->name('admin.')->group(
     Route::post('/orders/{order}/respond', [AdminController::class, 'respondToOrder'])->name('orders.respond');
     Route::post('/orders/{order}/complete', [AdminController::class, 'completeOrder'])->name('orders.complete');
     Route::patch('/orders/{order}/shipping', [AdminController::class, 'updateOrderShipping'])->name('orders.update-shipping');
-    Route::post('/orders/{order}/confirm-payment', [AdminController::class, 'confirmPayment'])->name('orders.confirm-payment');
+    Route::patch('/orders/{order}/confirm-payment', [AdminController::class, 'confirmPayment'])->name('orders.confirm-payment');
     
     // Products Management
     Route::resource('products', ProductController::class);
@@ -115,6 +138,11 @@ Route::middleware(['auth', 'is_admin'])->prefix('admin')->name('admin.')->group(
     Route::get('/messages/{id}', [\App\Http\Controllers\AdminMessageController::class, 'show'])->name('messages.show');
     Route::post('/messages/{id}/reply', [\App\Http\Controllers\AdminMessageController::class, 'reply'])->name('messages.reply');
     
+    // Payment Settings
+    Route::get('/payment-settings', [\App\Http\Controllers\Admin\PaymentSettingController::class, 'index'])->name('payment-settings.index');
+    Route::post('/payment-settings/qris', [\App\Http\Controllers\Admin\PaymentSettingController::class, 'updateQrisImage'])->name('payment-settings.update-qris');
+    Route::delete('/payment-settings/qris', [\App\Http\Controllers\Admin\PaymentSettingController::class, 'deleteQrisImage'])->name('payment-settings.delete-qris');
+    
     // Notifications Management
     Route::get('/notifications', [\App\Http\Controllers\Admin\NotificationController::class, 'index'])->name('notifications.index');
     Route::get('/notifications/unread', [\App\Http\Controllers\Admin\NotificationController::class, 'getUnread'])->name('notifications.unread');
@@ -129,6 +157,18 @@ Route::middleware(['auth', 'is_admin'])->prefix('admin')->name('admin.')->group(
     Route::get('/contact-messages/{id}', [\App\Http\Controllers\Admin\ContactMessageController::class, 'show'])->name('contact.show');
     Route::post('/contact-messages/{id}/reply', [\App\Http\Controllers\Admin\ContactMessageController::class, 'reply'])->name('contact.reply');
     Route::delete('/contact-messages/{id}', [\App\Http\Controllers\Admin\ContactMessageController::class, 'delete'])->name('contact.delete');
+    
+    // Security Management
+    Route::get('/security', [\App\Http\Controllers\Admin\SecurityController::class, 'index'])->name('security.index');
+    Route::post('/security/block/{ip}', [\App\Http\Controllers\Admin\SecurityController::class, 'blockIp'])->name('security.block');
+    Route::post('/security/unblock/{ip}', [\App\Http\Controllers\Admin\SecurityController::class, 'unblockIp'])->name('security.unblock');
+    Route::post('/security/clear-logs', [\App\Http\Controllers\Admin\SecurityController::class, 'clearLogs'])->name('security.clear-logs');
+    
+    // Fraud Detection
+    Route::get('/fraud', [\App\Http\Controllers\Admin\FraudController::class, 'index'])->name('fraud.index');
+    Route::get('/fraud/{id}', [\App\Http\Controllers\Admin\FraudController::class, 'show'])->name('fraud.show');
+    Route::post('/fraud/{id}/approve', [\App\Http\Controllers\Admin\FraudController::class, 'approve'])->name('fraud.approve');
+    Route::post('/fraud/{id}/reject', [\App\Http\Controllers\Admin\FraudController::class, 'reject'])->name('fraud.reject');
 });
 
 // API Routes for Checkout

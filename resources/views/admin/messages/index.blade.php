@@ -182,9 +182,4 @@
     @endforelse
 </div>
 
-@if($threads->hasPages())
-<div style="margin-top: 2rem;">
-    {{ $threads->links() }}
-</div>
-@endif
 @endsection

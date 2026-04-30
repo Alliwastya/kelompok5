@@ -25,7 +25,6 @@
             font-family: 'Great Vibes', cursive;
         }
 
-        /* Status Badges */
         .status-badge {
             font-size: 0.75rem;
             padding: 2px 6px;
@@ -56,7 +55,6 @@
             padding-top: 0;
         }
 
-        /* Background Pattern Batik Halus - Dapoer Nusantara */
         body::before {
             content: '';
             position: fixed;
@@ -69,10 +67,9 @@
                 repeating-linear-gradient(-45deg, transparent, transparent 35px, rgba(139, 90, 60, 0.03) 35px, rgba(139, 90, 60, 0.03) 70px);
             opacity: 0.6;
             z-index: 0;
-            pointer-events: none;
+            pointer-events: none !important;
         }
 
-        /* Tekstur Kertas Handmade */
         body::after {
             content: '';
             position: fixed;
@@ -82,10 +79,9 @@
             height: 100%;
             background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' /%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
             z-index: 0;
-            pointer-events: none;
+            pointer-events: none !important;
         }
 
-        /* Ornamen Gandum Kiri Bawah */
         .wheat-left {
             position: fixed;
             bottom: -20px;
@@ -94,10 +90,9 @@
             height: 350px;
             opacity: 0.25;
             z-index: 1;
-            pointer-events: none;
+            pointer-events: none !important;
         }
 
-        /* Ornamen Gandum Kanan Atas */
         .wheat-right {
             position: fixed;
             top: -20px;
@@ -106,11 +101,10 @@
             height: 350px;
             opacity: 0.25;
             z-index: 1;
-            pointer-events: none;
+            pointer-events: none !important;
             transform: rotate(180deg);
         }
 
-        /* Motif Batik Sudut Kiri Atas */
         .batik-corner-left {
             position: fixed;
             top: 80px;
@@ -119,10 +113,9 @@
             height: 150px;
             opacity: 0.08;
             z-index: 1;
-            pointer-events: none;
+            pointer-events: none !important;
         }
 
-        /* Motif Batik Sudut Kanan Bawah */
         .batik-corner-right {
             position: fixed;
             bottom: 20px;
@@ -131,16 +124,15 @@
             height: 150px;
             opacity: 0.08;
             z-index: 1;
-            pointer-events: none;
+            pointer-events: none !important;
             transform: rotate(180deg);
         }
 
-        /* Siluet Daun Pisang */
         .banana-leaf {
             position: fixed;
             opacity: 0.06;
             z-index: 1;
-            pointer-events: none;
+            pointer-events: none !important;
         }
 
         .banana-leaf-1 {
@@ -159,7 +151,6 @@
             transform: rotate(25deg);
         }
 
-        /* Header */
         header {
             position: fixed;
             top: 0;
@@ -179,7 +170,6 @@
             pointer-events: auto !important;
         }
 
-        /* Header saat scroll - shadow lebih tebal */
         header.scrolled {
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
             background: rgba(44, 24, 16, 1);
@@ -222,6 +212,9 @@
             display: flex;
             gap: 1.25rem;
             align-items: center;
+            pointer-events: auto !important;
+            z-index: 10001;
+            position: relative;
         }
 
         .cart-btn, .menu-btn, .message-btn, .admin-btn {
@@ -239,6 +232,8 @@
             gap: 0.5rem;
             font-family: 'Outfit', sans-serif;
             font-size: 1rem;
+            pointer-events: auto !important;
+            z-index: 10001;
         }
 
         .cart-btn:hover, .menu-btn:hover, .message-btn:hover, .admin-btn:hover {
@@ -261,17 +256,7 @@
             justify-content: center;
             font-size: 0.75rem;
             font-weight: bold;
-            pointer-events: none; /* Badge shouldn't block button click */
-        }
-        
-        .header-actions {
-            pointer-events: auto !important;
-            z-index: 10001;
-        }
-
-        .cart-btn {
-            pointer-events: auto !important;
-            position: relative;
+            pointer-events: none;
         }
 
         .product-image {
@@ -311,7 +296,6 @@
             50% { transform: translateY(-5px); }
         }
 
-        /* Hero Slider */
         .hero-slider {
             position: relative;
             width: 100%;
@@ -323,6 +307,7 @@
             margin-top: -80px;
             border-radius: 0;
             padding-top: 80px;
+            z-index: 2;
         }
 
         .slide {
@@ -350,7 +335,6 @@
             pointer-events: auto;
         }
 
-        /* Overlay Styles - Lebih gelap untuk keterbacaan */
         .slide::before {
             content: '';
             position: absolute;
@@ -359,6 +343,7 @@
             right: 0;
             bottom: 0;
             z-index: 1;
+            pointer-events: none;
         }
 
         .slide-1::before {
@@ -373,7 +358,6 @@
             background: linear-gradient(270deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.2) 100%);
         }
 
-        /* Slide Content */
         .slide-content {
             position: relative;
             z-index: 10;
@@ -382,7 +366,6 @@
             padding-left: 2rem;
         }
 
-        /* Typography - Desktop */
         .slide h1 {
             font-family: 'Playfair Display', serif;
             font-size: 3.5rem;
@@ -413,7 +396,6 @@
             transform: translateY(0);
         }
 
-        /* CTA Button */
         .hero-btn {
             display: inline-block;
             background: linear-gradient(135deg, #d39e00 0%, #b8860b 100%);
@@ -430,6 +412,7 @@
             opacity: 0;
             transform: translateY(30px);
             transition: all 0.8s ease-out 0.7s, background 0.3s, transform 0.3s;
+            cursor: pointer;
         }
 
         .slide.active .hero-btn {
@@ -443,7 +426,6 @@
             background: linear-gradient(135deg, #e6ac00 0%, #d49a0c 100%);
         }
 
-        /* Navigation Arrows */
         .slider-nav {
             position: absolute;
             top: 50%;
@@ -472,7 +454,6 @@
         .prev-slide { left: 2.5rem; }
         .next-slide { right: 2.5rem; }
 
-        /* Dots Indicator */
         .slider-dots {
             position: absolute;
             bottom: 2.5rem;
@@ -499,7 +480,6 @@
             box-shadow: 0 0 12px rgba(255,255,255,0.6);
         }
 
-        /* Slide Variations */
         .slide-2 {
             justify-content: center;
             text-align: center;
@@ -518,117 +498,37 @@
             padding-right: 2rem;
         }
 
-        /* Mobile Responsive */
         @media (max-width: 768px) {
-            body {
-                padding-top: 0;
-            }
-            
-            .hero-slider {
-                height: 75vh;
-                min-height: 500px;
-            }
-            
-            .slide {
-                padding: 0 5%;
-                align-items: center;
-            }
-            
-            .slide-content {
-                padding-left: 0;
-                padding-right: 0;
-                max-width: 100%;
-            }
-            
-            .slide h1 {
-                font-size: 3rem;
-                margin-bottom: 1rem;
-                line-height: 1.2;
-            }
-            
-            .slide p {
-                font-size: 0.95rem;
-                margin-bottom: 1.5rem;
-                line-height: 1.6;
-                max-width: 100%;
-            }
-            
-            .hero-btn {
-                padding: 0.8rem 1.8rem;
-                font-size: 0.85rem;
-            }
-            
-            .slider-nav {
-                width: 2.5rem;
-                height: 2.5rem;
-                font-size: 1.1rem;
-            }
-            
+            body { padding-top: 0; }
+            .hero-slider { height: 75vh; min-height: 500px; }
+            .slide { padding: 0 5%; align-items: center; }
+            .slide-content { padding-left: 0; padding-right: 0; max-width: 100%; }
+            .slide h1 { font-size: 3rem; margin-bottom: 1rem; line-height: 1.2; }
+            .slide p { font-size: 0.95rem; margin-bottom: 1.5rem; line-height: 1.6; max-width: 100%; }
+            .hero-btn { padding: 0.8rem 1.8rem; font-size: 0.85rem; }
+            .slider-nav { width: 2.5rem; height: 2.5rem; font-size: 1.1rem; }
             .prev-slide { left: 1rem; }
             .next-slide { right: 1rem; }
-            
-            .slider-dots {
-                bottom: 1.5rem;
-                gap: 0.6rem;
-            }
-            
-            .dot {
-                width: 9px;
-                height: 9px;
-            }
-            
-            /* Center all slides on mobile */
-            .slide-2, .slide-3 {
-                justify-content: center;
-                text-align: center;
-            }
-            
-            .slide-3 .slide-content {
-                padding-right: 0;
-            }
+            .slider-dots { bottom: 1.5rem; gap: 0.6rem; }
+            .dot { width: 9px; height: 9px; }
+            .slide-2, .slide-3 { justify-content: center; text-align: center; }
+            .slide-3 .slide-content { padding-right: 0; }
         }
         
-        /* Extra small mobile */
         @media (max-width: 480px) {
-            .hero-slider {
-                height: 75vh;
-                min-height: 450px;
-            }
-            
-            .slide h1 {
-                font-size: 1.7rem;
-            }
-            
-            .slide p {
-                font-size: 0.9rem;
-            }
-            
-            .hero-btn {
-                padding: 0.7rem 1.5rem;
-                font-size: 0.8rem;
-            }
-
-            /* Success Message Mobile */
-            .success-message {
-                padding: 2rem 1.5rem;
-                width: 95%;
-                max-width: 100%;
-            }
-
-            .success-message h2 {
-                font-size: 1.6rem !important;
-            }
-
-            .success-icon {
-                font-size: 3rem !important;
-                margin-bottom: 1rem !important;
-            }
+            .hero-slider { height: 75vh; min-height: 450px; }
+            .slide h1 { font-size: 1.7rem; }
+            .slide p { font-size: 0.9rem; }
+            .hero-btn { padding: 0.7rem 1.5rem; font-size: 0.8rem; }
+            .success-message { padding: 2rem 1.5rem; width: 95%; max-width: 100%; }
+            .success-message h2 { font-size: 1.6rem !important; }
+            .success-icon { font-size: 3rem !important; margin-bottom: 1rem !important; }
         }
 
-        /* PROMO SECTION - Roti Sobek */
+        /* ========== PROMO BANNER SECTION v2 ========== */
         .promo-section {
             background: transparent;
-            padding: 1.5rem 2%;
+            padding: 2rem 0;
             text-align: center;
             position: relative;
             z-index: 10;
@@ -637,361 +537,659 @@
         }
 
         @keyframes fadeInScale {
-            from {
-                opacity: 0;
-                transform: scale(0.95);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
         }
 
         .promo-card {
-            background: linear-gradient(135deg, 
-                #F5EDE3 0%, 
-                #FFF8DC 50%, 
-                #F5EDE3 100%);
-            border-radius: 20px;
-            padding: 1.8rem;
+            background: 
+                linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, transparent 50%),
+                linear-gradient(225deg, rgba(232, 130, 26, 0.08) 0%, transparent 60%),
+                linear-gradient(135deg, rgba(245, 230, 200, 0.95) 0%, rgba(240, 221, 184, 0.95) 50%, rgba(232, 213, 176, 0.95) 100%),
+                url('https://images.unsplash.com/photo-1589569444360-61ed59c6e2be?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') !important;
+            background-size: cover, cover, cover, cover;
+            background-position: center, center, center, center;
+            background-blend-mode: normal, normal, normal, multiply;
+            border-radius: 32px !important;
+            padding: 0 !important;
             box-shadow: 
-                0 15px 40px rgba(139, 90, 60, 0.15),
-                0 0 30px rgba(212, 175, 55, 0.1),
-                inset 0 1px 0 rgba(255, 255, 255, 0.9);
+                0 0 0 3px rgba(255, 255, 255, 0.9),
+                0 0 0 6px rgba(232, 130, 26, 0.6),
+                0 0 0 9px rgba(255, 215, 0, 0.4),
+                0 0 30px rgba(255, 215, 0, 0.3),
+                0 20px 60px rgba(0, 0, 0, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5) !important;
             position: relative;
-            overflow: visible;
-            border: 2px solid #D4AF37;
+            overflow: hidden;
+            border: none !important;
             transition: all 0.4s ease;
-            backdrop-filter: blur(10px);
-            max-width: 1000px;
+            max-width: 1250px;
+            width: 94%;
             margin: 0 auto;
+            height: auto;
+            animation: borderGlow 3s ease-in-out infinite;
         }
 
-        .promo-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 
-                0 20px 50px rgba(139, 90, 60, 0.2),
-                0 0 40px rgba(212, 175, 55, 0.15),
-                inset 0 1px 0 rgba(255, 255, 255, 0.9);
+        @keyframes borderGlow {
+            0%, 100% { 
+                box-shadow: 
+                    0 0 0 3px rgba(255, 255, 255, 0.9),
+                    0 0 0 6px rgba(232, 130, 26, 0.6),
+                    0 0 0 9px rgba(255, 215, 0, 0.4),
+                    0 0 30px rgba(255, 215, 0, 0.3),
+                    0 20px 60px rgba(0, 0, 0, 0.2),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+            }
+            50% { 
+                box-shadow: 
+                    0 0 0 3px rgba(255, 255, 255, 1),
+                    0 0 0 6px rgba(232, 130, 26, 0.8),
+                    0 0 0 9px rgba(255, 215, 0, 0.6),
+                    0 0 40px rgba(255, 215, 0, 0.5),
+                    0 20px 60px rgba(0, 0, 0, 0.2),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+            }
+        }
+
+        /* Texture overlay - Enhanced */
+        .promo-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(232, 130, 26, 0.12) 30%, transparent 30%),
+                radial-gradient(circle at 80% 70%, rgba(45, 122, 58, 0.08) 20%, transparent 30%),
+                radial-gradient(circle at 50% 50%, rgba(255, 215, 0, 0.05) 30%, transparent 30%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Grain texture + Pattern */
+        .promo-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(61, 31, 0, 0.03) 2px, rgba(61, 31, 0, 0.03) 4px),
+                repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(61, 31, 0, 0.02) 2px, rgba(61, 31, 0, 0.02) 4px);
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.6;
         }
 
         .promo-content {
             position: relative;
             z-index: 2;
             display: flex;
-            flex-direction: column;
-            gap: 1.2rem;
-            align-items: center;
+            height: 100%;
+            min-height: 400px;
         }
 
-        /* Badge Container */
+        /* ========== LEFT COLUMN ========== */
+        .promo-left {
+            width: 46%;
+            padding: 2.5rem 2rem 2.5rem 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: left;
+        }
+
         .promo-badges {
             display: flex;
-            gap: 0.8rem;
-            justify-content: center;
+            gap: 8px;
+            margin-bottom: 1rem;
             flex-wrap: wrap;
         }
 
         .promo-badge {
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 700;
+            color: white;
             display: inline-flex;
             align-items: center;
-            gap: 0.4rem;
-            background: linear-gradient(135deg, #FF6B6B, #FF5252);
-            color: white;
-            padding: 0.6rem 1.4rem;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            box-shadow: 0 6px 15px rgba(255, 107, 107, 0.3);
-            font-family: 'Outfit', sans-serif;
+            gap: 6px;
+            box-shadow: 
+                0 4px 12px rgba(0, 0, 0, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            background: linear-gradient(135deg, #E53935 0%, #E8821A 100%);
+            animation: shimmer 3s ease-in-out infinite;
         }
 
         .discount-badge {
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 700;
+            color: white;
             display: inline-flex;
             align-items: center;
-            gap: 0.4rem;
-            background: linear-gradient(135deg, #4CAF50, #45a049);
-            color: white;
-            padding: 0.6rem 1.4rem;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            box-shadow: 0 6px 15px rgba(76, 175, 80, 0.3);
-            font-family: 'Outfit', sans-serif;
+            gap: 6px;
+            box-shadow: 
+                0 4px 12px rgba(0, 0, 0, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            background: linear-gradient(135deg, #2D7A3A 0%, #45a049 100%);
+            animation: shimmer 3s ease-in-out infinite 0.5s;
         }
 
-        /* Title */
+        @keyframes shimmer {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.9; }
+        }
+
+        .promo-title-section {
+            margin-bottom: 0.8rem;
+            position: relative;
+        }
+
+        .wheat-ornament-left {
+            position: absolute;
+            left: -35px;
+            top: 10px;
+            font-size: 48px;
+            opacity: 0.35;
+            transform: rotate(-15deg);
+            filter: drop-shadow(0 2px 4px rgba(200, 168, 107, 0.3));
+        }
+
         .promo-title {
             font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: #6B4423;
-            margin: 0;
+            font-size: 2.5rem;
             line-height: 1.2;
-            text-shadow: 1px 1px 2px rgba(139, 90, 60, 0.1);
-        }
-
-        /* Subtitle */
-        .promo-subtitle {
-            font-size: 0.95rem;
-            color: #8B6F47;
-            font-weight: 500;
-            line-height: 1.5;
+            color: #3D1F00;
+            font-weight: 900;
             margin: 0;
-            max-width: 600px;
+            text-align: left;
         }
 
-        /* Pricing Section */
+        .promo-title .highlight {
+            color: #E8821A;
+        }
+
+        .promo-subtitle {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: #6B4E3D;
+            margin: 0 0 1rem 0;
+            text-align: left;
+        }
+
         .promo-pricing {
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 1.2rem;
+            gap: 12px;
+            margin-bottom: 1rem;
             flex-wrap: wrap;
         }
 
         .price-original {
-            font-size: 1.1rem;
-            color: #B8A89A;
+            font-size: 1.2rem;
+            color: #999;
             text-decoration: line-through;
-            font-weight: 600;
-            font-family: 'Outfit', sans-serif;
-            opacity: 0.8;
+            font-weight: 500;
         }
 
         .price-discount {
-            font-size: 2.2rem;
-            color: #FF5252;
-            font-weight: 900;
-            font-family: 'Outfit', sans-serif;
-            text-shadow: 0 2px 4px rgba(255, 82, 82, 0.2);
+            font-size: 2.5rem;
+            color: #E8821A;
+            font-weight: 700;
         }
 
         .price-save {
-            background: linear-gradient(135deg, rgba(255, 152, 0, 0.15), rgba(255, 152, 0, 0.1));
-            color: #FF9800;
-            padding: 0.5rem 1.1rem;
+            display: inline-block;
+            padding: 6px 14px;
+            border: 2px solid #E8821A;
             border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 800;
-            font-family: 'Outfit', sans-serif;
-            border: 2px solid rgba(255, 152, 0, 0.3);
-            box-shadow: 0 4px 12px rgba(255, 152, 0, 0.15);
+            color: #E8821A;
+            font-size: 13px;
+            font-weight: 700;
         }
 
-        /* Images Grid */
-        .promo-images {
+        .promo-features {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
+            gap: 0.8rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .feature-item {
+            text-align: center;
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            border: 2px solid #E8821A;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 6px;
+            font-size: 20px;
+        }
+
+        .feature-title {
+            font-size: 11px;
+            font-weight: 700;
+            color: #3D1F00;
+            margin-bottom: 3px;
+        }
+
+        .feature-subtitle {
+            font-size: 9px;
+            color: #999;
+        }
+
+        .promo-cta {
             width: 100%;
-            margin-top: 0.8rem;
+            padding: 16px 28px;
+            background: linear-gradient(135deg, #E07B00 0%, #F5A623 100%);
+            color: white;
+            font-size: 15px;
+            font-weight: 700;
+            text-transform: uppercase;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 
+                0 8px 20px rgba(232, 130, 26, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .promo-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .promo-cta:hover::before {
+            left: 100%;
+        }
+
+        .promo-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px rgba(232, 130, 26, 0.5);
+        }
+
+        .promo-note {
+            text-align: center;
+            font-size: 12px;
+            color: #999;
+        }
+
+        /* ========== RIGHT COLUMN ========== */
+        .promo-right {
+            width: 54%;
+            position: relative;
+        }
+
+        .promo-images {
+            position: relative;
+            width: 100%;
+            height: 100%;
         }
 
         .promo-image-item {
-            position: relative;
+            position: absolute;
             border-radius: 15px;
+            box-shadow: 
+                0 0 0 3px rgba(255, 255, 255, 0.95),
+                0 0 0 5px rgba(232, 130, 26, 0.5),
+                0 0 0 7px rgba(255, 215, 0, 0.35),
+                0 0 20px rgba(255, 215, 0, 0.25),
+                0 8px 24px rgba(0, 0, 0, 0.15);
             overflow: hidden;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+            background: #ddd;
+            border: none;
             transition: all 0.3s ease;
-            height: 140px;
+            animation: imageBorderGlow 3s ease-in-out infinite;
         }
 
-        .promo-image-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+        @keyframes imageBorderGlow {
+            0%, 100% { 
+                box-shadow: 
+                    0 0 0 3px rgba(255, 255, 255, 0.95),
+                    0 0 0 5px rgba(232, 130, 26, 0.5),
+                    0 0 0 7px rgba(255, 215, 0, 0.35),
+                    0 0 20px rgba(255, 215, 0, 0.25),
+                    0 8px 24px rgba(0, 0, 0, 0.15);
+            }
+            50% { 
+                box-shadow: 
+                    0 0 0 3px rgba(255, 255, 255, 1),
+                    0 0 0 5px rgba(232, 130, 26, 0.7),
+                    0 0 0 7px rgba(255, 215, 0, 0.55),
+                    0 0 30px rgba(255, 215, 0, 0.4),
+                    0 8px 24px rgba(0, 0, 0, 0.15);
+            }
         }
 
         .promo-image-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.3s ease;
         }
 
-        .promo-image-item:hover img {
-            transform: scale(1.05);
+        .promo-image-item:hover {
+            transform: scale(1.03);
+            box-shadow: 
+                0 0 0 3px rgba(255, 255, 255, 1),
+                0 0 0 5px rgba(232, 130, 26, 0.8),
+                0 0 0 7px rgba(255, 215, 0, 0.6),
+                0 0 35px rgba(255, 215, 0, 0.5),
+                0 12px 32px rgba(0, 0, 0, 0.2);
+            animation: none;
         }
 
-        /* Button */
-        .promo-cta {
-            display: inline-flex;
+        .promo-image-main {
+            width: 360px;
+            height: 310px;
+            top: 25px;
+            right: 55px;
+            transform: rotate(2deg);
+            z-index: 3;
+        }
+
+        .promo-image-second {
+            width: 200px;
+            height: 180px;
+            bottom: 25px;
+            left: 85px;
+            transform: rotate(-3deg);
+            z-index: 2;
+        }
+
+        .promo-image-third {
+            width: 220px;
+            height: 200px;
+            bottom: 20px;
+            right: 105px;
+            transform: rotate(1deg);
+            z-index: 1;
+        }
+
+        .wheat-decoration {
+            position: absolute;
+            top: 30px;
+            right: 20px;
+            font-size: 120px;
+            color: #C8A86B;
+            opacity: 0.25;
+            transform: rotate(15deg);
+            z-index: 0;
+            text-shadow: 0 2px 10px rgba(200, 168, 107, 0.3);
+        }
+
+        .best-seller-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, #3D1F00 0%, #2C1500 100%);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
             align-items: center;
-            gap: 0.6rem;
-            background: linear-gradient(135deg, #FF9800, #FF8C00);
+            justify-content: center;
             color: white;
-            border: none;
-            padding: 0.9rem 2.4rem;
-            border-radius: 50px;
-            font-size: 0.95rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 6px 20px rgba(255, 152, 0, 0.35);
-            font-family: 'Outfit', sans-serif;
-            margin-top: 0.8rem;
+            font-weight: 700;
+            text-align: center;
+            border: 3px solid #C8A86B;
+            box-shadow: 
+                0 6px 20px rgba(0, 0, 0, 0.3),
+                0 0 0 5px rgba(200, 168, 107, 0.2),
+                inset 0 2px 0 rgba(255, 255, 255, 0.1);
+            z-index: 10;
+            animation: pulse 2s ease-in-out infinite;
         }
 
-        .promo-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 28px rgba(255, 152, 0, 0.45);
-            background: linear-gradient(135deg, #FFB74D, #FFA500);
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
         }
 
-        /* Mobile Responsive */
+        .best-seller-badge .crown {
+            font-size: 24px;
+            margin-bottom: 2px;
+        }
+
+        .best-seller-badge .text {
+            font-size: 11px;
+            line-height: 1.2;
+        }
+
+        .best-seller-badge .stars {
+            font-size: 10px;
+            color: #C8A86B;
+        }
+
         @media (max-width: 768px) {
-            .promo-section {
-                padding: 1rem 0;
-            }
-
-            .promo-card {
-                padding: 1.2rem;
-                border-radius: 12px;
+            .promo-section { padding: 1.5rem 0; }
+            .promo-card { 
+                padding: 0 !important; 
+                border-radius: 30px !important; 
                 margin: 0 1rem;
-                box-shadow: 
-                    0 10px 30px rgba(139, 90, 60, 0.12),
-                    0 0 20px rgba(212, 175, 55, 0.08),
-                    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+                min-height: auto;
+                aspect-ratio: auto;
+                width: calc(100% - 2rem);
             }
-
-            .promo-content {
-                gap: 0.8rem;
+            .promo-content { 
+                flex-direction: column;
+                min-height: auto;
             }
-
-            .promo-title {
-                font-size: 1.6rem;
-                margin-bottom: 0.3rem;
+            .promo-left {
+                width: 100%;
+                padding: 2rem 1.5rem 1.5rem;
             }
-
-            .promo-subtitle {
-                font-size: 0.85rem;
-                line-height: 1.4;
-                margin-bottom: 0.5rem;
+            .promo-right {
+                width: 100%;
+                min-height: 350px;
+                padding-bottom: 2rem;
             }
-
-            .promo-pricing {
-                gap: 0.8rem;
-                margin-bottom: 0.5rem;
-            }
-
-            .price-original {
-                font-size: 0.95rem;
-            }
-
-            .price-discount {
-                font-size: 1.8rem;
-            }
-
-            .price-save {
-                font-size: 0.75rem;
-                padding: 0.4rem 0.9rem;
-            }
-
-            .promo-images {
+            .promo-title { font-size: 2rem; }
+            .promo-subtitle { font-size: 0.85rem; }
+            .price-discount { font-size: 2rem; }
+            .promo-features {
                 grid-template-columns: repeat(3, 1fr);
-                gap: 0.6rem;
-                margin-top: 0.6rem;
+                gap: 0.8rem;
             }
-
-            .promo-image-item {
-                height: 100px;
-                border-radius: 10px;
+            .feature-icon { width: 40px; height: 40px; font-size: 18px; }
+            .promo-image-main {
+                width: 260px;
+                height: 220px;
+                top: 20px;
+                right: 50%;
+                transform: translateX(50%) rotate(2deg);
             }
-
-            .promo-cta {
-                padding: 0.7rem 1.8rem;
-                font-size: 0.8rem;
-                margin-top: 0.6rem;
-                box-shadow: 0 4px 15px rgba(255, 152, 0, 0.3);
+            .promo-image-second {
+                width: 150px;
+                height: 130px;
+                bottom: 20px;
+                left: 20px;
             }
-
-            .promo-badges {
-                gap: 0.5rem;
-                margin-bottom: 0.3rem;
+            .promo-image-third {
+                width: 160px;
+                height: 140px;
+                bottom: 20px;
+                right: 20px;
             }
-
-            .promo-badge,
-            .discount-badge {
-                padding: 0.4rem 0.9rem;
-                font-size: 0.65rem;
-                letter-spacing: 0.3px;
+            .wheat-ornament-left { display: none; }
+            .wheat-decoration { 
+                font-size: 80px;
+                top: 10px;
+                right: 10px;
             }
+            .best-seller-badge {
+                width: 75px;
+                height: 75px;
+                top: 10px;
+                right: 10px;
+            }
+            .best-seller-badge .crown { font-size: 20px; }
+            .best-seller-badge .text { font-size: 10px; }
+            .best-seller-badge .stars { font-size: 9px; }
         }
 
-        /* Extra Small Mobile */
         @media (max-width: 480px) {
-            .promo-card {
-                padding: 1rem;
-                margin: 0 0.75rem;
+            .promo-section { 
+                padding: 1.5rem 0; 
             }
-
-            .promo-title {
-                font-size: 1.4rem;
+            .promo-card { 
+                margin: 0 1rem;
+                border-radius: 20px !important;
+                width: calc(100% - 2rem);
+                height: auto;
             }
-
-            .promo-subtitle {
-                font-size: 0.8rem;
+            .promo-content {
+                min-height: auto;
             }
-
-            .price-discount {
-                font-size: 1.6rem;
+            .promo-left { 
+                padding: 2rem 1.8rem 1.5rem;
             }
-
-            .price-original {
-                font-size: 0.9rem;
+            .promo-right {
+                min-height: 320px;
+                padding-bottom: 1.5rem;
+                position: relative;
             }
-
+            .promo-badges {
+                margin-bottom: 1rem;
+                gap: 8px;
+            }
+            .promo-badge, .discount-badge {
+                padding: 7px 14px;
+                font-size: 11px;
+            }
+            .promo-title-section {
+                margin-bottom: 0.8rem;
+            }
+            .promo-title { 
+                font-size: 1.75rem;
+                line-height: 1.3;
+            }
+            .promo-subtitle { 
+                font-size: 0.85rem;
+                margin-bottom: 1rem;
+                line-height: 1.6;
+            }
+            .promo-pricing {
+                margin-bottom: 1rem;
+                gap: 10px;
+                align-items: baseline;
+            }
+            .price-discount { 
+                font-size: 2rem; 
+            }
+            .price-original { 
+                font-size: 1rem; 
+            }
             .price-save {
-                font-size: 0.7rem;
-                padding: 0.35rem 0.8rem;
+                font-size: 11px;
+                padding: 5px 12px;
             }
-
-            .promo-images {
-                gap: 0.5rem;
+            .promo-features {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 0.7rem;
+                margin-bottom: 1rem;
             }
-
+            .feature-icon { 
+                width: 40px; 
+                height: 40px; 
+                font-size: 18px;
+                margin-bottom: 5px;
+                border-width: 2px;
+            }
+            .feature-title { 
+                font-size: 10px;
+                line-height: 1.3;
+                margin-bottom: 3px;
+            }
+            .feature-subtitle { 
+                font-size: 8px;
+                line-height: 1.3;
+            }
+            .promo-cta { 
+                padding: 14px 20px; 
+                font-size: 13px;
+                margin-bottom: 8px;
+                letter-spacing: 0.4px;
+            }
+            .promo-note {
+                font-size: 11px;
+            }
+            .promo-image-main {
+                width: 220px;
+                height: 190px;
+                top: 15px;
+                right: 50%;
+                transform: translateX(50%) rotate(2deg);
+            }
+            .promo-image-second {
+                width: 135px;
+                height: 120px;
+                bottom: 15px;
+                left: 20px;
+                transform: rotate(-3deg);
+            }
+            .promo-image-third {
+                width: 145px;
+                height: 125px;
+                bottom: 15px;
+                right: 20px;
+                transform: rotate(1deg);
+            }
             .promo-image-item {
-                height: 90px;
+                border-width: 3px;
+                border-radius: 12px;
             }
-
-            .promo-cta {
-                padding: 0.65rem 1.6rem;
-                font-size: 0.75rem;
+            .best-seller-badge {
+                width: 65px;
+                height: 65px;
+                top: 8px;
+                right: 8px;
+                border-width: 2.5px;
             }
-
-            .promo-badge,
-            .discount-badge {
-                padding: 0.35rem 0.8rem;
-                font-size: 0.6rem;
+            .best-seller-badge .crown { 
+                font-size: 16px;
+                margin-bottom: 1px;
             }
-
-            /* Product Card Extra Small Mobile */
-            .product-image-wrapper {
-                padding-top: 120%;
-                min-height: 280px;
+            .best-seller-badge .text { 
+                font-size: 8px;
+                line-height: 1.2;
             }
-
-            .products-grid {
-                gap: 1.2rem;
+            .best-seller-badge .stars { 
+                font-size: 7px;
             }
-
-            /* Success Message Mobile - 768px */
-            .success-message {
-                width: 90%;
+            .wheat-decoration { 
+                font-size: 60px;
+                top: 5px;
+                right: 5px;
+                opacity: 0.2;
             }
-
-            .success-message > div[style*="grid-template-columns"] {
-                grid-template-columns: 1fr !important;
+            .wheat-ornament-left { 
+                display: none; 
             }
         }
+        }
 
-        /* Review Button */
         .review-button-container {
             text-align: center;
             margin: 3rem 0;
@@ -1007,10 +1205,7 @@
             font-size: 1.15rem;
             font-weight: 600;
             text-decoration: none;
-            box-shadow: 
-                0 8px 25px rgba(139, 69, 19, 0.3),
-                0 3px 10px rgba(139, 69, 19, 0.15),
-                inset 0 -2px 0 rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 25px rgba(139, 69, 19, 0.3), 0 3px 10px rgba(139, 69, 19, 0.15), inset 0 -2px 0 rgba(0, 0, 0, 0.1);
             transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             font-family: 'Outfit', sans-serif;
             border: none;
@@ -1019,22 +1214,15 @@
 
         .review-btn:hover {
             transform: translateY(-3px) scale(1.02);
-            box-shadow: 
-                0 12px 35px rgba(139, 69, 19, 0.4),
-                0 5px 15px rgba(139, 69, 19, 0.2),
-                inset 0 -2px 0 rgba(0, 0, 0, 0.1);
+            box-shadow: 0 12px 35px rgba(139, 69, 19, 0.4), 0 5px 15px rgba(139, 69, 19, 0.2), inset 0 -2px 0 rgba(0, 0, 0, 0.1);
             background: linear-gradient(135deg, #A0522D, #F4A460);
         }
 
         .review-btn:active {
             transform: translateY(-1px) scale(1);
-            box-shadow: 
-                0 6px 20px rgba(139, 69, 19, 0.3),
-                0 2px 8px rgba(139, 69, 19, 0.15),
-                inset 0 2px 4px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 6px 20px rgba(139, 69, 19, 0.3), 0 2px 8px rgba(139, 69, 19, 0.15), inset 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
-        /* Testimoni Section */
         .testimoni-section {
             max-width: 1200px;
             margin: 0 auto 4rem;
@@ -1052,20 +1240,13 @@
             animation: fadeInUp 0.6s ease-out;
         }
 
-        .testimoni-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
+        .testimoni-grid { display: flex; flex-direction: column; gap: 2rem; }
 
         .testimoni-card {
             background: linear-gradient(135deg, #FFFFFF 0%, #FAFAFA 100%);
             border-radius: 25px;
             padding: 2.5rem;
-            box-shadow: 
-                0 10px 30px rgba(0, 0, 0, 0.08),
-                0 2px 8px rgba(0, 0, 0, 0.04),
-                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.8);
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             border-left: 6px solid var(--accent);
             position: relative;
@@ -1082,14 +1263,12 @@
             background: radial-gradient(circle, rgba(244, 164, 96, 0.1), transparent);
             border-radius: 50%;
             transform: translate(30%, -30%);
+            pointer-events: none;
         }
 
         .testimoni-card:hover {
             transform: translateX(8px);
-            box-shadow: 
-                0 15px 40px rgba(0, 0, 0, 0.12),
-                0 4px 12px rgba(0, 0, 0, 0.06),
-                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12), 0 4px 12px rgba(0, 0, 0, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.8);
             border-left-color: var(--secondary);
         }
 
@@ -1107,20 +1286,9 @@
             color: var(--dark);
         }
 
-        .testimoni-rating {
-            color: #FFB800;
-            font-size: 1.1rem;
-            letter-spacing: 2px;
-        }
+        .testimoni-rating { color: #FFB800; font-size: 1.1rem; letter-spacing: 2px; }
+        .testimoni-text { color: #555; line-height: 1.7; font-style: italic; font-size: 1.05rem; }
 
-        .testimoni-text {
-            color: #555;
-            line-height: 1.7;
-            font-style: italic;
-            font-size: 1.05rem;
-        }
-
-        /* Navigation */
         nav {
             position: fixed;
             top: 82px;
@@ -1135,7 +1303,6 @@
             transition: all 0.3s ease;
         }
 
-        /* Nav saat scroll */
         nav.scrolled {
             box-shadow: 0 4px 15px rgba(139, 69, 19, 0.15);
             background: rgba(255, 255, 255, 1);
@@ -1171,16 +1338,11 @@
             transition: width 0.3s ease;
         }
 
-        .nav-links a:hover {
-            color: var(--secondary);
-        }
+        .nav-links a:hover { color: var(--secondary); }
 
         .nav-links a:hover::after,
-        .nav-links a.active::after {
-            width: 100%;
-        }
+        .nav-links a.active::after { width: 100%; }
 
-        /* Main Content */
         .container {
             max-width: 1400px;
             margin: 0 auto;
@@ -1196,9 +1358,7 @@
             z-index: 2;
         }
 
-        .section.active {
-            display: block;
-        }
+        .section.active { display: block; }
 
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
@@ -1229,7 +1389,6 @@
             box-shadow: 0 2px 4px rgba(212, 175, 55, 0.3);
         }
 
-        /* Reviews Grid */
         .reviews-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -1241,34 +1400,11 @@
             background: linear-gradient(135deg, #FFFFFF 0%, #FEFEFE 100%);
             padding: 2.5rem;
             border-radius: 25px;
-            box-shadow: 
-                0 10px 35px rgba(139, 69, 19, 0.1),
-                0 3px 10px rgba(139, 69, 19, 0.05),
-                inset 0 1px 0 rgba(255, 255, 255, 0.9);
+            box-shadow: 0 10px 35px rgba(139, 69, 19, 0.1), 0 3px 10px rgba(139, 69, 19, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.9);
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             border: 1px solid rgba(139, 69, 19, 0.05);
             position: relative;
             overflow: hidden;
-        }
-
-        .review-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 200px;
-            height: 200px;
-            background: radial-gradient(circle, rgba(244, 164, 96, 0.08), transparent 70%);
-            border-radius: 50%;
-        }
-
-        .review-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 
-                0 15px 45px rgba(139, 69, 19, 0.15),
-                0 5px 15px rgba(139, 69, 19, 0.08),
-                inset 0 1px 0 rgba(255, 255, 255, 0.9);
-            border-color: rgba(244, 164, 96, 0.3);
         }
 
         .review-card::before {
@@ -1280,6 +1416,7 @@
             font-size: 8rem;
             color: rgba(244, 164, 96, 0.1);
             line-height: 1;
+            pointer-events: none;
         }
 
         .review-card:hover {
@@ -1296,11 +1433,7 @@
             position: relative;
         }
 
-        .reviewer-info {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
+        .reviewer-info { display: flex; align-items: center; gap: 1rem; }
 
         .reviewer-avatar {
             width: 45px;
@@ -1324,11 +1457,7 @@
             font-weight: 700;
         }
 
-        .reviewer-time {
-            font-size: 0.75rem;
-            color: #999;
-            margin-top: 2px;
-        }
+        .reviewer-time { font-size: 0.75rem; color: #999; margin-top: 2px; }
 
         .review-text {
             color: #555;
@@ -1339,19 +1468,9 @@
             z-index: 1;
         }
 
-        .stars {
-            color: #FFD700;
-            font-size: 1.1rem;
-            letter-spacing: 2px;
-        }
+        .stars { color: #FFD700; font-size: 1.1rem; letter-spacing: 2px; }
 
-        /* Star Rating Input */
-        .star-rating {
-            display: flex;
-            gap: 0.5rem;
-            justify-content: center;
-            margin: 1rem 0;
-        }
+        .star-rating { display: flex; gap: 0.5rem; justify-content: center; margin: 1rem 0; }
 
         .star {
             font-size: 2.5rem;
@@ -1362,16 +1481,9 @@
             line-height: 1;
         }
 
-        .star:hover,
-        .star:hover ~ .star {
-            color: #FFD700;
-        }
+        .star:hover, .star:hover ~ .star { color: #FFD700; }
+        .star.active { color: #FFD700 !important; }
 
-        .star.active {
-            color: #FFD700 !important;
-        }
-
-        /* Filter Container */
         .filter-container {
             display: flex;
             justify-content: flex-end;
@@ -1379,10 +1491,7 @@
             padding: 0 1rem;
         }
 
-        .filter-wrapper {
-            position: relative;
-            min-width: 250px;
-        }
+        .filter-wrapper { position: relative; min-width: 250px; }
 
         .sort-select {
             width: 100%;
@@ -1418,15 +1527,8 @@
             box-shadow: 0 6px 25px rgba(212, 175, 55, 0.3);
         }
 
-        .sort-select option {
-            padding: 1rem;
-            background: white;
-            color: #8B5A3C;
-            font-weight: 500;
-        }
+        .sort-select option { padding: 1rem; background: white; color: #8B5A3C; font-weight: 500; }
 
-        /* Product Grid */
-        /* Product Grid */
         .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -1435,13 +1537,9 @@
         }
         
         @media (max-width: 768px) {
-            .products-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
+            .products-grid { grid-template-columns: 1fr; gap: 1.5rem; }
         }
 
-        /* Original Clean Product Card */
         .product-card {
             background: #fff;
             border-radius: 20px;
@@ -1460,7 +1558,6 @@
             border-color: #E6C200;
         }
 
-        /* Ornamen Sudut Atas Kiri */
         .product-card::before {
             content: '◆';
             position: absolute;
@@ -1469,9 +1566,9 @@
             font-size: 1.8rem;
             color: #D4AF37;
             z-index: 5;
+            pointer-events: none;
         }
 
-        /* Ornamen Sudut Bawah Kanan */
         .product-card::after {
             content: '◆';
             position: absolute;
@@ -1480,17 +1577,16 @@
             font-size: 1.8rem;
             color: #D4AF37;
             z-index: 5;
+            pointer-events: none;
         }
 
-        /* Image Wrapper */
         .product-image-wrapper {
             position: relative;
-            padding-top: 75%; /* 4:3 Aspect Ratio */
+            padding-top: 75%;
             overflow: hidden;
             background: #f8f9fa;
         }
 
-        /* Ornamen Sudut Atas Kanan */
         .product-image-wrapper::before {
             content: '◆';
             position: absolute;
@@ -1500,6 +1596,7 @@
             color: #D4AF37;
             opacity: 1;
             z-index: 5;
+            pointer-events: none;
         }
         
         .product-image {
@@ -1517,11 +1614,8 @@
             transition: transform 0.5s ease;
         }
 
-        .product-card:hover .product-image img {
-            transform: scale(1.1);
-        }
+        .product-card:hover .product-image img { transform: scale(1.1); }
 
-        /* Promo Badge */
         .product-promo-badge {
             position: absolute;
             top: 1rem;
@@ -1538,7 +1632,6 @@
             z-index: 2;
         }
 
-        /* Info Section */
         .product-info {
             padding: 1.5rem;
             display: flex;
@@ -1547,7 +1640,6 @@
             position: relative;
         }
 
-        /* Ornamen Sudut Bawah Kiri */
         .product-info::after {
             content: '◆';
             position: absolute;
@@ -1557,6 +1649,7 @@
             color: #D4AF37;
             opacity: 1;
             z-index: 5;
+            pointer-events: none;
         }
 
         .product-name {
@@ -1579,7 +1672,6 @@
             overflow: hidden;
         }
         
-        /* Stock Badge (Simple) */
         .stock-badge {
             display: inline-block;
             background: #FFF3E0;
@@ -1592,7 +1684,6 @@
             width: fit-content;
         }
 
-        /* Price */
         .price-container {
             margin-top: auto;
             display: flex;
@@ -1601,23 +1692,10 @@
             margin-bottom: 1.25rem;
         }
 
-        .price-old {
-            font-size: 0.9rem;
-            color: #999;
-            text-decoration: line-through;
-        }
+        .price-old { font-size: 0.9rem; color: #999; text-decoration: line-through; }
+        .price-new { font-size: 1.25rem; font-weight: 700; color: var(--primary); }
+        .fresh-tag { display: none; }
 
-        .price-new {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--primary);
-        }
-        
-        .fresh-tag {
-            display: none; /* Hide in simple mode */
-        }
-
-        /* Button */
         .cta-button {
             width: 100%;
             padding: 0.9rem;
@@ -1633,6 +1711,8 @@
             align-items: center;
             justify-content: center;
             gap: 0.5rem;
+            position: relative;
+            z-index: 3;
         }
 
         .cta-button:hover {
@@ -1649,7 +1729,6 @@
             box-shadow: none;
         }
 
-        /* Best Seller Title */
         .bestseller-title-section {
             text-align: center;
             margin-bottom: 3rem;
@@ -1674,7 +1753,6 @@
             border-radius: 2px;
         }
 
-        /* Standalone Best Seller (Feature Highlights) */
         .feature-highlights {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -1712,9 +1790,7 @@
             transition: transform 0.6s ease;
         }
 
-        .highlight-card:hover .highlight-image img {
-            transform: scale(1.1);
-        }
+        .highlight-card:hover .highlight-image img { transform: scale(1.1); }
 
         .highlight-placeholder {
             width: 100%;
@@ -1742,10 +1818,7 @@
             z-index: 2;
         }
 
-        .highlight-info {
-            padding: 2rem;
-            text-align: center;
-        }
+        .highlight-info { padding: 2rem; text-align: center; }
 
         .highlight-info h3 {
             font-family: 'Playfair Display', serif;
@@ -1754,67 +1827,22 @@
             margin-bottom: 0.75rem;
         }
 
-        .highlight-info p {
-            color: #777;
-            line-height: 1.7;
-            font-size: 1.05rem;
-        }
+        .highlight-info p { color: #777; line-height: 1.7; font-size: 1.05rem; }
 
         @media (max-width: 768px) {
-            .feature-highlights {
-                grid-template-columns: 1fr;
-            }
-            
-            .products-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
-            .product-image {
-                width: 150px;
-                height: 150px;
-            }
-            
-            .product-name {
-                font-size: 1.3rem;
-            }
-            
-            .price-new {
-                font-size: 1.5rem;
-            }
-
-            /* Responsive Ornamen Mobile */
-            .wheat-left, .wheat-right {
-                width: 180px;
-                height: 220px;
-            }
-
-            .batik-corner-left {
-                top: 70px;
-                left: 10px;
-                width: 100px;
-                height: 100px;
-            }
-
-            .batik-corner-right {
-                bottom: 10px;
-                right: 10px;
-                width: 100px;
-                height: 100px;
-            }
-
-            .banana-leaf-1 {
-                width: 150px;
-                height: 90px;
-            }
-
-            .banana-leaf-2 {
-                width: 140px;
-                height: 85px;
-            }
+            .feature-highlights { grid-template-columns: 1fr; }
+            .products-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .product-image { width: 150px; height: 150px; }
+            .product-name { font-size: 1.3rem; }
+            .price-new { font-size: 1.5rem; }
+            .wheat-left, .wheat-right { width: 180px; height: 220px; }
+            .batik-corner-left { top: 70px; left: 10px; width: 100px; height: 100px; }
+            .batik-corner-right { bottom: 10px; right: 10px; width: 100px; height: 100px; }
+            .banana-leaf-1 { width: 150px; height: 90px; }
+            .banana-leaf-2 { width: 140px; height: 85px; }
         }
 
-        /* Shopping Cart */
+        /* ========== CART MODAL ========== */
         .cart-modal {
             display: none;
             position: fixed;
@@ -1825,7 +1853,7 @@
             height: 100vh;
             background: white;
             box-shadow: -5px 0 25px rgba(0,0,0,0.3);
-            z-index: 2000;
+            z-index: 20000;
             transition: right 0.4s ease;
             overflow-y: auto;
         }
@@ -1843,8 +1871,8 @@
             width: 100%;
             height: 100%;
             background: rgba(0,0,0,0.5);
-            z-index: 1999;
-            pointer-events: none; /* Safety: Prevent blocking when not active */
+            z-index: 19999;
+            pointer-events: none;
         }
 
         .cart-overlay.active {
@@ -1861,10 +1889,7 @@
             align-items: center;
         }
 
-        .cart-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-        }
+        .cart-title { font-family: 'Playfair Display', serif; font-size: 1.8rem; }
 
         .close-cart {
             background: none;
@@ -1875,13 +1900,9 @@
             transition: transform 0.3s ease;
         }
 
-        .close-cart:hover {
-            transform: rotate(90deg);
-        }
+        .close-cart:hover { transform: rotate(90deg); }
 
-        .cart-items {
-            padding: 1.5rem;
-        }
+        .cart-items { padding: 1.5rem; }
 
         .cart-item {
             display: flex;
@@ -1905,21 +1926,12 @@
             align-items: center;
             justify-content: center;
             font-size: 2rem;
+            overflow: hidden;
         }
 
-        .cart-item-details {
-            flex: 1;
-        }
-
-        .cart-item-name {
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .cart-item-price {
-            color: var(--secondary);
-            font-weight: 600;
-        }
+        .cart-item-details { flex: 1; }
+        .cart-item-name { font-weight: 600; margin-bottom: 0.5rem; }
+        .cart-item-price { color: var(--secondary); font-weight: 600; }
 
         .quantity-controls {
             display: flex;
@@ -1939,10 +1951,7 @@
             transition: all 0.3s ease;
         }
 
-        .quantity-btn:hover {
-            background: var(--secondary);
-            transform: scale(1.1);
-        }
+        .quantity-btn:hover { background: var(--secondary); transform: scale(1.1); }
 
         .remove-item {
             color: #FF4444;
@@ -1954,9 +1963,7 @@
             transition: color 0.3s ease;
         }
 
-        .remove-item:hover {
-            color: #CC0000;
-        }
+        .remove-item:hover { color: #CC0000; }
 
         .cart-summary {
             padding: 1.5rem;
@@ -1993,23 +2000,12 @@
             margin-top: 1rem;
         }
 
-        .checkout-btn:hover {
-            background: var(--dark);
-            transform: scale(1.02);
-        }
+        .checkout-btn:hover { background: var(--dark); transform: scale(1.02); }
 
-        .empty-cart {
-            text-align: center;
-            padding: 3rem 1rem;
-            color: #999;
-        }
+        .empty-cart { text-align: center; padding: 3rem 1rem; color: #999; }
+        .empty-cart-icon { font-size: 4rem; margin-bottom: 1rem; }
 
-        .empty-cart-icon {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-        }
-
-        /* Checkout Form */
+        /* ========== CHECKOUT FORM ========== */
         .checkout-form {
             max-width: 800px;
             margin: 0 auto;
@@ -2019,9 +2015,7 @@
             box-shadow: 0 4px 20px var(--shadow);
         }
 
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
+        .form-group { margin-bottom: 1.5rem; }
 
         .form-group label {
             display: block;
@@ -2049,23 +2043,12 @@
             border-color: var(--primary);
         }
 
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-        }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 
-        /* Tentang Kami Section Styling */
-        .about-container {
-            padding: 4rem 1.5rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+        /* ========== ABOUT SECTION ========== */
+        .about-container { padding: 4rem 1.5rem; max-width: 1200px; margin: 0 auto; }
 
-        .about-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
+        .about-header { text-align: center; margin-bottom: 4rem; }
 
         .about-script-title {
             font-family: 'Great Vibes', cursive;
@@ -2092,10 +2075,7 @@
             margin-bottom: 5rem;
         }
 
-        .about-images-wrapper {
-            position: relative;
-            padding: 2rem;
-        }
+        .about-images-wrapper { position: relative; padding: 2rem; }
 
         .about-img-frame {
             border-radius: 20px;
@@ -2105,11 +2085,7 @@
             transition: all 0.5s ease;
         }
 
-        .about-img-large {
-            width: 100%;
-            height: 500px;
-            object-fit: cover;
-        }
+        .about-img-large { width: 100%; height: 500px; object-fit: cover; }
 
         .about-img-small {
             position: absolute;
@@ -2127,18 +2103,9 @@
             border-color: var(--light-cream);
         }
 
-        .about-text-content {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
+        .about-text-content { display: flex; flex-direction: column; gap: 1.5rem; }
 
-        .about-description {
-            font-size: 1.15rem;
-            line-height: 1.8;
-            color: var(--text);
-            text-align: justify;
-        }
+        .about-description { font-size: 1.15rem; line-height: 1.8; color: var(--text); text-align: justify; }
 
         .vision-mission-section {
             background: var(--light-cream);
@@ -2148,11 +2115,7 @@
             border: 1px solid rgba(139, 69, 19, 0.05);
         }
 
-        .vm-grid {
-            display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 4rem;
-        }
+        .vm-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; }
 
         .vm-title {
             font-family: 'Playfair Display', serif;
@@ -2164,57 +2127,9 @@
             display: inline-block;
         }
 
-        .mission-list {
-            list-style: none;
-            padding: 0;
-        }
+        .mission-list { list-style: none; padding: 0; }
 
-        .mission-item {
-            margin-bottom: 1rem;
-            display: flex;
-            gap: 1rem;
-            align-items: flex-start;
-        }
-
-        .mission-number {
-            background: var(--secondary);
-            color: white;
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            flex-shrink: 0;
-        }
-
-        .mission-text {
-            color: var(--text);
-            line-height: 1.6;
-        }
-
-        .vm-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--accent);
-            display: inline-block;
-        }
-
-        .mission-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .mission-item {
-            margin-bottom: 1rem;
-            display: flex;
-            gap: 1rem;
-            align-items: flex-start;
-        }
+        .mission-item { margin-bottom: 1rem; display: flex; gap: 1rem; align-items: flex-start; }
 
         .mission-number {
             background: var(--secondary);
@@ -2231,17 +2146,10 @@
             margin-top: 0.2rem;
         }
 
-        .mission-text {
-            font-size: 1.05rem;
-            color: var(--text);
-            line-height: 1.6;
-        }
+        .mission-text { font-size: 1.05rem; color: var(--text); line-height: 1.6; }
 
         @media (max-width: 992px) {
-            .about-grid, .vm-grid {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
+            .about-grid, .vm-grid { grid-template-columns: 1fr; gap: 3rem; }
             .about-header .about-script-title { font-size: 2.8rem; }
             .about-header .about-main-title { font-size: 2.2rem; }
             .about-images-wrapper { order: 2; }
@@ -2251,21 +2159,18 @@
             .vision-mission-section { padding: 2rem; }
         }
 
-        /* Success Message */
-        /* Message Modal */
+        /* ========== MODALS ========== */
         .message-modal {
             display: none;
             position: fixed;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            z-index: 3000;
+            z-index: 30000;
             animation: popIn 0.5s ease;
         }
 
-        .message-modal.active {
-            display: block;
-        }
+        .message-modal.active { display: block; }
 
         .message-modal-content {
             background: white;
@@ -2273,8 +2178,10 @@
             border-radius: 15px;
             box-shadow: 0 10px 40px rgba(0,0,0,0.3);
             max-width: 500px;
-            width: 90%;
+            width: 90vw;
             position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
         }
 
         .message-close-btn {
@@ -2288,9 +2195,7 @@
             color: var(--text);
         }
 
-        .message-close-btn:hover {
-            color: var(--primary);
-        }
+        .message-close-btn:hover { color: var(--primary); }
 
         .message-overlay {
             position: fixed;
@@ -2299,27 +2204,19 @@
             right: 0;
             bottom: 0;
             background: rgba(0, 0, 0, 0.5);
-            z-index: 2999;
+            z-index: 29999;
             display: none;
-            pointer-events: none; /* Safety */
+            pointer-events: none;
         }
 
-        .message-modal.active ~ .message-overlay,
         .message-overlay.active {
             display: block;
             pointer-events: auto;
         }
 
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
+        .form-group { margin-bottom: 1.5rem; }
 
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: var(--primary);
-        }
+        .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--primary); }
 
         .form-group input,
         .form-group textarea {
@@ -2333,10 +2230,7 @@
         }
 
         .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--primary);
-        }
+        .form-group textarea:focus { outline: none; border-color: var(--primary); }
 
         .submit-msg-btn {
             width: 100%;
@@ -2367,16 +2261,14 @@
             border-radius: 16px;
             box-shadow: 0 20px 60px rgba(0,0,0,0.15), 0 0 1px rgba(0,0,0,0.1);
             text-align: center;
-            z-index: 3000;
+            z-index: 30000;
             animation: popIn 0.5s ease;
             max-width: 500px;
             width: 90%;
             border: 1px solid rgba(212, 175, 55, 0.2);
         }
 
-        .success-message.active {
-            display: block;
-        }
+        .success-message.active { display: block; }
 
         @keyframes popIn {
             0% { transform: translate(-50%, -50%) scale(0.8); opacity: 0; }
@@ -2395,21 +2287,14 @@
             100% { transform: scale(1); }
         }
 
-        
-
-        /* Why Choose Us Section - Reference Lookalike */
-        .why-choose-section {
-            padding: 5rem 0;
-            background-color: transparent;
-            position: relative;
-        }
+        /* ========== WHY CHOOSE US ========== */
+        .why-choose-section { padding: 5rem 0; background-color: transparent; position: relative; }
 
         .why-choose-title {
             text-align: center;
             font-size: 2.5rem;
             color: #4A2C2A;
             margin-bottom: 4rem;
-            text-shadow: none;
             position: relative;
         }
 
@@ -2423,11 +2308,7 @@
             border-radius: 2px;
         }
 
-        .zigzag-container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
+        .zigzag-container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
 
         .zigzag-row {
             display: flex;
@@ -2437,23 +2318,12 @@
         }
 
         @media (max-width: 900px) {
-            .zigzag-row {
-                flex-direction: column;
-                gap: 2rem;
-            }
-            .zigzag-row, .zigzag-row.reverse {
-                flex-direction: column;
-            }
-             .zigzag-row.reverse .zigzag-image { order: 1; }
-             .zigzag-row.reverse .zigzag-card { order: 2; }
+            .zigzag-row { flex-direction: column; gap: 2rem; }
+            .zigzag-row.reverse .zigzag-image { order: 1; }
+            .zigzag-row.reverse .zigzag-card { order: 2; }
         }
 
-        /* IMAGE STYLES */
-        .zigzag-image {
-            flex: 1;
-            position: relative;
-            z-index: 1;
-        }
+        .zigzag-image { flex: 1; position: relative; z-index: 1; }
 
         .zigzag-image img {
             width: 100%;
@@ -2467,26 +2337,12 @@
             transition: transform 0.3s ease;
         }
         
-        .zigzag-row.reverse .zigzag-image img {
-             transform: rotate(2deg);
-        }
+        .zigzag-row.reverse .zigzag-image img { transform: rotate(2deg); }
+        .zigzag-image:hover img { transform: scale(1.02) rotate(0deg); z-index: 5; }
 
-        .zigzag-image:hover img {
-            transform: scale(1.02) rotate(0deg);
-            z-index: 5;
-        }
-
-        /* CARD STYLES */
         .zigzag-card {
             flex: 1.2;
-            background: #FFFBF5;
-            background-image: 
-                radial-gradient(#D4AF37 0.5px, transparent 0.5px), 
-                radial-gradient(#D4AF37 0.5px, #FFFBF5 0.5px);
-            background-size: 20px 20px; 
-            background-position: 0 0, 10px 10px;
             background: linear-gradient(to bottom right, #fff9f0, #fff5e6);
-            
             padding: 2.5rem;
             border-radius: 15px;
             box-shadow: 0 8px 20px rgba(139, 69, 19, 0.1);
@@ -2502,6 +2358,7 @@
             font-size: 2rem;
             opacity: 0.1;
             transform: rotate(45deg);
+            pointer-events: none;
         }
         
         .zigzag-card::after {
@@ -2512,9 +2369,9 @@
             font-size: 2rem;
             opacity: 0.1;
             transform: rotate(-135deg);
+            pointer-events: none;
         }
 
-        /* SPEECH BUBBLE POINTER */
         .speech-pointer {
             position: absolute;
             width: 30px;
@@ -2522,8 +2379,8 @@
             background: #fff9f0;
             transform: rotate(45deg);
             z-index: 10;
-             border-bottom: 1px solid rgba(212, 175, 55, 0.3);
-             border-left: 1px solid rgba(212, 175, 55, 0.3);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+            border-left: 1px solid rgba(212, 175, 55, 0.3);
         }
 
         .zigzag-row:not(.reverse) .speech-pointer {
@@ -2543,24 +2400,11 @@
             box-shadow: 3px -3px 5px rgba(139, 69, 19, 0.05);
         }
 
-        @media (max-width: 900px) {
-            .speech-pointer { display: none; }
-        }
+        @media (max-width: 900px) { .speech-pointer { display: none; } }
 
-        /* CARD HEADER CONTENT */
-        .card-header {
-            display: flex;
-            align-items: flex-start;
-            gap: 1.2rem;
-            margin-bottom: 1.2rem;
-        }
+        .card-header { display: flex; align-items: flex-start; gap: 1.2rem; margin-bottom: 1.2rem; }
 
-        .title-group {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
+        .title-group { flex: 1; display: flex; flex-direction: column; gap: 0.5rem; }
 
         .icon-circle {
             width: 60px;
@@ -2604,284 +2448,14 @@
         }
         
         @media (max-width: 500px) {
-            .card-desc {
-                margin-left: 0;
-            }
-            .card-header {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-            .title-underline {
-                margin: 0.5rem auto;
-            }
-            .card-title {
-                text-align: center;
-            }
+            .card-desc { margin-left: 0; }
+            .card-header { flex-direction: column; align-items: center; text-align: center; }
+            .title-underline { margin: 0.5rem auto; }
+            .card-title { text-align: center; }
         }
 
-        /* Reviews Section */
-        .reviews-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .review-card {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px var(--shadow);
-            transition: all 0.3s ease;
-            border-left: 4px solid var(--accent);
-        }
-
-        .review-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px var(--shadow);
-        }
-
-        .review-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 1rem;
-        }
-
-        .reviewer-info h4 {
-            font-family: 'Playfair Display', serif;
-            color: var(--dark);
-            margin-bottom: 0.25rem;
-            font-size: 1.1rem;
-        }
-
-        .reviewer-time {
-            font-size: 0.85rem;
-            color: #999;
-        }
-
-        .stars {
-            color: #FFB800;
-            font-size: 1.2rem;
-            letter-spacing: 2px;
-        }
-
-        .review-text {
-            color: #666;
-            line-height: 1.6;
-            font-size: 0.95rem;
-            font-style: italic;
-        }
-
-        /* Section Divider */
-        .section-divider {
-            height: 3px;
-            background: linear-gradient(90deg, transparent, var(--accent), transparent);
-            margin: 3rem 0;
-            border-radius: 10px;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero {
-                padding: 4rem 1.5rem;
-                min-height: 40vh;
-                text-align: left;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
-            .promo-section {
-                margin: -2rem 1rem 2rem;
-                padding: 0;
-            }
-
-            .promo-card {
-                padding: 2rem;
-            }
-
-            .promo-title {
-                font-size: 2rem;
-            }
-
-            .promo-subtitle {
-                font-size: 1rem;
-            }
-
-            .promo-pricing {
-                gap: 1rem;
-            }
-
-            .price-original {
-                font-size: 1.3rem;
-            }
-
-            .price-discount {
-                font-size: 2.2rem;
-            }
-
-            .price-save {
-                font-size: 0.9rem;
-                padding: 0.4rem 0.8rem;
-            }
-
-            .promo-cta {
-                width: 100%;
-                justify-content: center;
-                padding: 1.2rem 2rem;
-                font-size: 1rem;
-            }
-
-            .promo-content {
-                grid-template-columns: 1fr;
-                gap: 2.5rem;
-            }
-
-            /* Filter Mobile */
-            .filter-container {
-                padding: 0;
-                margin-bottom: 1.5rem;
-            }
-
-            .filter-wrapper {
-                min-width: 100%;
-            }
-
-            .sort-select {
-                font-size: 0.9rem;
-                padding: 0.9rem 1.2rem;
-                padding-right: 2.5rem;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .products-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .benefits-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .reviews-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-
-            .cart-modal {
-                max-width: 100%;
-            }
-
-            .profile-header {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .container {
-                padding: 2rem 1rem;
-            }
-
-            .benefit-card {
-                padding: 1.5rem;
-            }
-
-            .review-card {
-                padding: 1.25rem;
-            }
-
-            /* Product Card Mobile */
-            .product-card {
-                border: 2.5px solid #D4AF37;
-                border-radius: 15px;
-            }
-
-            .product-card::before {
-                top: -10px;
-                left: -10px;
-                font-size: 1.5rem;
-            }
-
-            .product-card::after {
-                bottom: -10px;
-                right: -10px;
-                font-size: 1.5rem;
-            }
-
-            .product-image-wrapper {
-                padding-top: 100% !important;
-                min-height: 400px !important;
-            }
-
-            .product-image {
-                width: 100% !important;
-                height: 100% !important;
-            }
-
-            .product-image img {
-                width: 100% !important;
-                height: 100% !important;
-                object-fit: cover !important;
-            }
-
-            .product-image-wrapper::before {
-                top: -10px;
-                right: -10px;
-                font-size: 1.5rem;
-            }
-
-            .product-info::after {
-                bottom: -10px;
-                left: -10px;
-                font-size: 1.5rem;
-            }
-
-            .product-info {
-                padding: 1.2rem;
-            }
-
-            .product-name {
-                font-size: 1.1rem;
-            }
-
-            .product-description {
-                font-size: 0.85rem;
-            }
-
-            .price-new {
-                font-size: 1.1rem;
-            }
-
-            .cta-button {
-                padding: 0.8rem;
-                font-size: 0.9rem;
-            }
-        }
-
-        /* Orders Section */
-        .orders-container {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
+        /* ========== ORDERS SECTION ========== */
+        .orders-container { max-width: 1000px; margin: 0 auto; }
 
         .order-card {
             background: white;
@@ -2893,64 +2467,12 @@
             transition: all 0.3s ease;
         }
 
-        .order-card:hover {
-            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
-            transform: translateY(-2px);
-        }
+        .order-card:hover { box-shadow: 0 8px 25px rgba(0,0,0,0.12); transform: translateY(-2px); }
 
-        .order-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 1rem;
-        }
-
-        .order-number {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .order-number-label {
-            font-size: 0.85rem;
-            color: #999;
-            margin: 0;
-        }
-
-        .order-number-value {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: #333;
-            margin: 0.25rem 0 0 0;
-        }
-
-        /* Status Badges */
-        .status-badge {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-
-        .status-pending {
-            background: #fff3cd;
-            color: #856404;
-        }
-
-        .status-processing {
-            background: #cce5ff;
-            color: #004085;
-        }
-
-        .status-ready {
-            background: #e8f5e9;
-            color: #2e7d32;
-        }
-
-        .status-completed {
-            background: #d1e7dd;
-            color: #0f5132;
-        }
+        .order-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; }
+        .order-number { display: flex; flex-direction: column; }
+        .order-number-label { font-size: 0.85rem; color: #999; margin: 0; }
+        .order-number-value { font-size: 1.1rem; font-weight: 700; color: #333; margin: 0.25rem 0 0 0; }
 
         .order-details {
             display: grid;
@@ -2961,38 +2483,12 @@
             border-bottom: 1px solid #eee;
         }
 
-        .order-detail-item {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .order-detail-label {
-            font-size: 0.85rem;
-            color: #999;
-            margin: 0;
-        }
-
-        .order-detail-value {
-            font-size: 0.95rem;
-            color: #333;
-            margin: 0.25rem 0 0 0;
-        }
-
-        .order-products {
-            margin-bottom: 1rem;
-        }
-
-        .order-products-label {
-            font-size: 0.85rem;
-            color: #999;
-            margin: 0 0 0.5rem 0;
-        }
-
-        .order-products-value {
-            font-size: 0.95rem;
-            color: #333;
-            margin: 0;
-        }
+        .order-detail-item { display: flex; flex-direction: column; }
+        .order-detail-label { font-size: 0.85rem; color: #999; margin: 0; }
+        .order-detail-value { font-size: 0.95rem; color: #333; margin: 0.25rem 0 0 0; }
+        .order-products { margin-bottom: 1rem; }
+        .order-products-label { font-size: 0.85rem; color: #999; margin: 0 0 0.5rem 0; }
+        .order-products-value { font-size: 0.95rem; color: #333; margin: 0; }
 
         .order-footer {
             display: flex;
@@ -3002,23 +2498,9 @@
             border-top: 1px solid #eee;
         }
 
-        .order-total {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .order-total-label {
-            font-size: 0.85rem;
-            color: #999;
-            margin: 0;
-        }
-
-        .order-total-value {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: #D4AF37;
-            margin: 0.25rem 0 0 0;
-        }
+        .order-total { display: flex; flex-direction: column; }
+        .order-total-label { font-size: 0.85rem; color: #999; margin: 0; }
+        .order-total-value { font-size: 1.2rem; font-weight: 700; color: #D4AF37; margin: 0.25rem 0 0 0; }
 
         .order-action-btn {
             background: #8B4513;
@@ -3039,133 +2521,265 @@
         }
 
         @media (max-width: 768px) {
-            .order-header {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .order-details {
-                grid-template-columns: 1fr;
-            }
-
-            .order-footer {
-                flex-direction: column;
-                gap: 1rem;
-                align-items: flex-start;
-                boolval
-            }
-
-            .order-action-btn {
-                width: 100%;
-            }
+            .order-header { flex-direction: column; gap: 1rem; }
+            .order-details { grid-template-columns: 1fr; }
+            .order-footer { flex-direction: column; gap: 1rem; align-items: flex-start; }
+            .order-action-btn { width: 100%; }
         }
 
-        /* Footer */
+        /* ========== FOOTER ========== */
         footer {
-            background: linear-gradient(135deg, rgba(61, 40, 23, 0.9) 0%, rgba(90, 58, 42, 0.9) 50%, rgba(42, 24, 16, 0.9) 100%);
-            color: var(--cream);
-            padding: 3rem 2rem;
-            margin-top: 4rem;
+            background: linear-gradient(135deg, #4A3428 0%, #6B4E3D 100%);
+            color: #F5F5DC;
+            padding: 40px 2rem 25px;
+            margin-top: 3rem;
             position: relative;
             z-index: 5;
+            overflow: hidden;
+        }
+        
+        /* Wood/bread texture overlay */
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                repeating-linear-gradient(90deg, transparent, transparent 3px, rgba(139, 90, 60, 0.03) 3px, rgba(139, 90, 60, 0.03) 6px);
+            opacity: 0.3;
+            z-index: 1;
+            pointer-events: none;
+        }
+        
+        /* Subtle overlay for better text readability */
+        footer::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.1);
+            z-index: 1;
+            pointer-events: none;
+        }
+        
+        /* Left decorative image - wheat/bread ingredients */
+        .footer-deco-left {
+            position: absolute;
+            left: -50px;
+            bottom: 0;
+            width: 250px;
+            height: 100%;
+            z-index: 2;
+            pointer-events: none;
+            opacity: 0.28;
+            background-image: url('https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&h=600&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            mask-image: linear-gradient(to right, rgba(0,0,0,0.9) 0%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,0.9) 0%, transparent 100%);
+        }
+        
+        /* Right decorative image - artisan bread */
+        .footer-deco-right {
+            position: absolute;
+            right: -50px;
+            bottom: 0;
+            width: 280px;
+            height: 100%;
+            z-index: 2;
+            pointer-events: none;
+            opacity: 0.3;
+            background-image: url('https://images.unsplash.com/photo-1586444248902-2f64eddc13df?w=400&h=600&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            mask-image: linear-gradient(to left, rgba(0,0,0,0.9) 0%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,0.9) 0%, transparent 100%);
         }
 
         .footer-content {
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
+            grid-template-columns: 55% 45%;
+            gap: 2.5rem;
+            align-items: start;
+            position: relative;
+            z-index: 3;
         }
 
-        .footer-info h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            color: var(--accent);
+        .footer-info h3 { 
+            font-family: 'Playfair Display', serif; 
+            font-size: 1.6rem; 
+            margin-bottom: 0.5rem; 
+            color: #E8748A;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+            font-weight: 700;
+            letter-spacing: 0.3px;
         }
-
-        .footer-contact {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-        }
-
-        .contact-icon {
-            font-size: 1.5rem;
-            min-width: 30px;
-            text-align: center;
-        }
-
-        .contact-details {
-            flex: 1;
-        }
-
-        .contact-label {
-            font-weight: 600;
-            color: var(--accent);
-            font-size: 0.9rem;
-            margin-bottom: 0.25rem;
-        }
-
-        .contact-value {
-            color: var(--cream);
+        
+        .footer-info > p {
+            color: #F5F5DC;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
             line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-size: 0.85rem;
+            font-family: 'Lora', serif;
+        }
+
+        .footer-contact { 
+            display: flex; 
+            flex-direction: column; 
+            gap: 1rem; 
+        }
+
+        .contact-item { 
+            display: flex; 
+            align-items: flex-start; 
+            gap: 0.75rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .contact-item:hover {
+            transform: translateX(3px);
+        }
+        
+        .contact-icon { 
+            font-size: 1.1rem; 
+            min-width: 26px; 
+            text-align: center;
+            color: #E8748A;
+            filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.5));
+        }
+        
+        .contact-details { flex: 1; }
+        
+        .contact-label { 
+            font-weight: 700; 
+            color: #E8748A;
+            font-size: 0.75rem; 
+            margin-bottom: 0.2rem;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+            letter-spacing: 0.3px;
+            text-transform: uppercase;
+            font-family: 'Outfit', sans-serif;
+        }
+        
+        .contact-value { 
+            color: #F5F5DC;
+            line-height: 1.5; 
             word-break: break-word;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
+            font-size: 0.85rem;
+        }
+        
+        .contact-value a { 
+            transition: all 0.3s ease; 
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: #E8748A;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .contact-value a:hover { 
+            color: #FF9DB5;
+            text-shadow: 0 0 10px rgba(232, 116, 138, 0.5);
+            transform: scale(1.02);
         }
 
-        .contact-value a {
+        .footer-map { 
+            border-radius: 10px; 
+            overflow: hidden; 
+            box-shadow: 
+                0 8px 25px rgba(0, 0, 0, 0.4),
+                0 0 0 2px rgba(232, 116, 138, 0.2);
+            height: 260px;
+            background: rgba(0, 0, 0, 0.3);
+            position: relative;
             transition: all 0.3s ease;
-            display: inline-block;
         }
-
-        .contact-value a:hover {
-            color: #FFE4B5;
-            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
-            transform: scale(1.05);
+        
+        .footer-map:hover {
+            box-shadow: 
+                0 10px 30px rgba(0, 0, 0, 0.5),
+                0 0 0 2px rgba(232, 116, 138, 0.3);
+            transform: translateY(-2px);
         }
-
-        .footer-map {
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-            height: 300px;
-        }
-
-        .footer-map iframe {
-            width: 100%;
-            height: 100%;
+        
+        .footer-map iframe { 
+            width: 100%; 
+            height: 100%; 
             border: none;
+            filter: brightness(0.95) contrast(1.05) saturate(0.9);
         }
 
         .footer-bottom {
             text-align: center;
-            margin-top: 2rem;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 248, 220, 0.2);
-            font-size: 0.9rem;
-            color: rgba(255, 248, 220, 0.8);
+            margin-top: 2.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(232, 116, 138, 0.2);
+            font-size: 0.8rem;
+            color: rgba(245, 245, 220, 0.7);
+            position: relative;
+            z-index: 3;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
+        }
+        
+        /* Wheat divider ornament */
+        .footer-bottom::before {
+            content: '🌾';
+            display: block;
+            font-size: 1.2rem;
+            margin-bottom: 0.6rem;
+            opacity: 0.5;
+            filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.5));
         }
 
         @media (max-width: 768px) {
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
+            footer { 
+                padding: 35px 1.5rem 25px;
             }
-
-            .footer-map {
-                height: 250px;
+            .footer-content { 
+                grid-template-columns: 1fr; 
+                gap: 2rem; 
+            }
+            .footer-map { height: 240px; }
+            .footer-deco-left,
+            .footer-deco-right { 
+                width: 180px;
+                opacity: 0.2;
+            }
+            .footer-info h3 { font-size: 1.4rem; }
+        }
+        
+        @media (max-width: 480px) {
+            footer { 
+                padding: 30px 1rem 20px;
+            }
+            .footer-map { height: 220px; }
+            .footer-info h3 { font-size: 1.3rem; }
+            .contact-icon { font-size: 1rem; }
+            .footer-deco-left,
+            .footer-deco-right { 
+                width: 140px;
+                opacity: 0.18;
+            }
+            .footer-deco-left {
+                left: -20px;
+            }
+            .footer-deco-right {
+                right: -20px;
             }
         }
 
-        /* Mobile menu toggle: hidden on desktop, shown on small screens */
+        /* ========== MOBILE NAV ========== */
         .menu-toggle {
             display: none;
             cursor: pointer;
@@ -3175,23 +2789,16 @@
             color: var(--cream);
             padding: 0.25rem 0.5rem;
             border-radius: 6px;
+            pointer-events: auto !important;
         }
 
         .nav-menu { display: none; }
 
         @media (max-width: 768px) {
-            body {
-                padding-top: 80px; /* Kurangi padding di mobile */
-            }
-            
-            header {
-                padding: 0.6rem 4%;
-            }
-            
+            body { padding-top: 80px; }
+            header { padding: 0.6rem 4%; }
             .menu-toggle { display: block; }
-            /* Hide the main desktop nav on small screens */
             nav { display: none; }
-            /* Mobile nav styles */
             .nav-menu {
                 display: none;
                 flex-direction: column;
@@ -3208,15 +2815,7 @@
             .nav-menu a { color: var(--text); padding: 0.5rem 0.75rem; text-decoration: none; }
             .nav-menu.open { display: flex; }
 
-            /* Status Badges */
-            .status-badge {
-                padding: 4px 10px;
-                border-radius: 20px;
-                font-size: 0.75rem;
-                font-weight: 700;
-                text-transform: uppercase;
-                letter-spacing: 0.5px;
-            }
+            .status-badge { padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
             .status-pending { background: #f5f5f5; color: #616161; }
             .status-pending_admin { background: #eeeeee; color: #424242; }
             .status-shipping_set { background: #e8eaf6; color: #3f51b5; }
@@ -3228,6 +2827,36 @@
             .status-shipped { background: #e0f2f1; color: #009688; }
             .status-delivered { background: #c8e6c9; color: #2e7d32; }
             .status-cancelled { background: #ffebee; color: #d32f2f; }
+
+            .hero { padding: 4rem 1.5rem; min-height: 40vh; text-align: left; }
+            .nav-links { display: none; }
+            .products-grid { grid-template-columns: 1fr; }
+            .form-row { grid-template-columns: 1fr; }
+            .cart-modal { max-width: 100%; }
+            .section-title { font-size: 2rem; }
+            .container { padding: 2rem 1rem; }
+
+            .product-card { border: 2.5px solid #D4AF37; border-radius: 15px; }
+            .product-card::before { top: -10px; left: -10px; font-size: 1.5rem; }
+            .product-card::after { bottom: -10px; right: -10px; font-size: 1.5rem; }
+            .product-image-wrapper { padding-top: 100% !important; min-height: 400px !important; }
+            .product-image { width: 100% !important; height: 100% !important; }
+            .product-image img { width: 100% !important; height: 100% !important; object-fit: cover !important; }
+            .product-image-wrapper::before { top: -10px; right: -10px; font-size: 1.5rem; }
+            .product-info::after { bottom: -10px; left: -10px; font-size: 1.5rem; }
+            .product-info { padding: 1.2rem; }
+            .product-name { font-size: 1.1rem; }
+            .product-description { font-size: 0.85rem; }
+            .price-new { font-size: 1.1rem; }
+            .cta-button { padding: 0.8rem; font-size: 0.9rem; }
+        }
+
+        /* ========== SECTION DIVIDER ========== */
+        .section-divider {
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            margin: 3rem 0;
+            border-radius: 10px;
         }
     </style>
 </head>
@@ -3292,25 +2921,21 @@
 
     <!-- Siluet Daun Pisang 1 -->
     <svg class="banana-leaf banana-leaf-1" viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
-        <path d="M10 60 Q50 20 100 40 Q150 60 190 50 Q150 80 100 70 Q50 60 10 80 Z" 
-              fill="#8B5A3C" opacity="0.3"/>
-        <path d="M20 60 L100 45 M40 65 L100 50 M60 68 L100 55" 
-              stroke="#8B5A3C" stroke-width="1" opacity="0.2"/>
+        <path d="M10 60 Q50 20 100 40 Q150 60 190 50 Q150 80 100 70 Q50 60 10 80 Z" fill="#8B5A3C" opacity="0.3"/>
+        <path d="M20 60 L100 45 M40 65 L100 50 M60 68 L100 55" stroke="#8B5A3C" stroke-width="1" opacity="0.2"/>
     </svg>
 
     <!-- Siluet Daun Pisang 2 -->
     <svg class="banana-leaf banana-leaf-2" viewBox="0 0 180 110" xmlns="http://www.w3.org/2000/svg">
-        <path d="M10 55 Q45 15 90 35 Q135 55 170 45 Q135 75 90 65 Q45 55 10 75 Z" 
-              fill="#8B5A3C" opacity="0.3"/>
-        <path d="M20 55 L90 42 M35 60 L90 47 M50 63 L90 52" 
-              stroke="#8B5A3C" stroke-width="1" opacity="0.2"/>
+        <path d="M10 55 Q45 15 90 35 Q135 55 170 45 Q135 75 90 65 Q45 55 10 75 Z" fill="#8B5A3C" opacity="0.3"/>
+        <path d="M20 55 L90 42 M35 60 L90 47 M50 63 L90 52" stroke="#8B5A3C" stroke-width="1" opacity="0.2"/>
     </svg>
 
     <!-- Header -->
     <header>
-       <div class="logo">
-    <img src="{{ asset('images/budess.jpg') }}" alt="Dapoer Budess" class="logo-img">
-</div>
+        <div class="logo">
+            <img src="{{ asset('images/budess.jpg') }}" alt="Dapoer Budess" class="logo-img">
+        </div>
 
         <ul class="nav-links">
             <li><a href="javascript:void(0)" class="active" onclick="showSection('home')">Beranda</a></li>
@@ -3329,31 +2954,20 @@
                 <span class="cart-count" id="msgBadge" style="display: none;">!</span>
             </button>
             @auth
-                @if(auth()->user()->is_admin)
-                    <a href="{{ route('admin.dashboard') }}" class="admin-btn">
-                        ⚙️ Admin
-                    </a>
-                @endif
-            @endauth
-<!-- TOGGLE BUTTON (MOBILE ONLY) -->
-<div class="menu-toggle" onclick="toggleMenu()">
-    ☰
-</div>
+             @endif
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        </div>
 
-<nav class="nav-menu" id="navMenu">
-    <a href="javascript:void(0)" onclick="showSection('home')">Beranda</a>
-    <a href="javascript:void(0)" onclick="showSection('products')">Menu</a>
-    <a href="javascript:void(0)" onclick="showSection('bestseller')">Best Seller</a>
-    <a href="javascript:void(0)" onclick="showSection('profile')">Profile</a>
-</nav>
+        <nav class="nav-menu" id="navMenu">
+            <a href="javascript:void(0)" onclick="showSection('home')">Beranda</a>
+            <a href="javascript:void(0)" onclick="showSection('products')">Menu</a>
+            <a href="javascript:void(0)" onclick="showSection('bestseller')">Best Seller</a>
+            <a href="javascript:void(0)" onclick="showSection('profile')">Profile</a>
+        </nav>
     </header>
-
-
 
     <!-- HERO SLIDER SECTION -->
     <div class="hero-slider" id="heroSlider">
-        
-        <!-- SLIDE 1: PROMO UTAMA (Left Aligned) -->
         <div class="slide slide-1 active" style="background-image: url('{{ asset('images/hero/slide1.jpg') }}');">
             <div class="slide-content">
                 <h1>Nikmatnya <br>Roti Manis Premium</h1>
@@ -3362,25 +2976,14 @@
             </div>
         </div>
 
-        <!-- SLIDE 2: BRANDING (Center Aligned) -->
-        <div class="slide slide-2"
-     style="background-image: url('{{ asset('images/hero/slide2.jpg') }}');">
-    <div class="slide-content">
-        <h1 style="font-family: 'Playfair Display', serif; font-style: italic;">
-            Dapoer Budess
-        </h1>
-        <p>
-            Nikmati kelembutan roti artisan kelas dunia yang dibuat dengan resep rahasia.
-            Setiap potongnya menjanjikan kelezatan yang tak terlupakan dan aroma yang menggugah selera.
-        </p>
-        <a href="javascript:void(0)" onclick="showSection('products')" class="hero-btn">
-            Eksplorasi Menu
-        </a>
-    </div>
-</div>
+        <div class="slide slide-2" style="background-image: url('{{ asset('images/hero/slide2.jpg') }}');">
+            <div class="slide-content">
+                <h1 style="font-family: 'Playfair Display', serif; font-style: italic;">Dapoer Budess</h1>
+                <p>Nikmati kelembutan roti artisan kelas dunia yang dibuat dengan resep rahasia. Setiap potongnya menjanjikan kelezatan yang tak terlupakan dan aroma yang menggugah selera.</p>
+                <a href="javascript:void(0)" onclick="showSection('products')" class="hero-btn">Eksplorasi Menu</a>
+            </div>
+        </div>
 
-
-        <!-- SLIDE 3: KUALITAS (Right Aligned) -->
         <div class="slide slide-3" style="background-image: url('{{ asset('images/hero/slide3.jpg') }}');">
             <div class="slide-content">
                 <h1>Dibuat Segar <br>Setiap Hari</h1>
@@ -3389,60 +2992,109 @@
             </div>
         </div>
 
-        <!-- NAVIGATION -->
         <button class="slider-nav prev-slide" onclick="moveSlide(-1)">&#10094;</button>
         <button class="slider-nav next-slide" onclick="moveSlide(1)">&#10095;</button>
 
-        <!-- DOTS -->
         <div class="slider-dots">
             <div class="dot active" onclick="currentSlide(0)"></div>
             <div class="dot" onclick="currentSlide(1)"></div>
             <div class="dot" onclick="currentSlide(2)"></div>
         </div>
-
     </div>
 
     <!-- PROMO Section -->
-    <!-- PROMO Section - Roti Sobek -->
     <section class="promo-section" id="promoBanner">
         <div class="promo-card">
             <div class="promo-content">
-                <!-- Badges -->
-                <div class="promo-badges">
-                    <span class="promo-badge">🔥 SPESIAL</span>
-                    <span class="discount-badge">HEMAT 20%</span>
-                </div>
-                
-                <!-- Title -->
-                <h2 class="promo-title">Roti Sobek Lezat!</h2>
-                
-                <!-- Subtitle -->
-                <p class="promo-subtitle">Roti sobek premium dengan tekstur lembut dan rasa yang menggugah selera. Sempurna untuk sarapan atau camilan Anda!</p>
-                
-                <!-- Pricing -->
-                <div class="promo-pricing">
-                    <span class="price-original">Rp 7.000</span>
-                    <span class="price-discount">Rp 28.000</span>
-                    <span class="price-save">💰 Hemat Rp 2.400</span>
-                </div>
-                
-                <!-- Images Grid -->
-                <div class="promo-images">
-                    <div class="promo-image-item">
-                        <img src="{{ asset('images/besar1.jpg') }}" alt="Roti Sobek 1" onerror="this.src='https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400&q=80'">
+                <!-- LEFT COLUMN -->
+                <div class="promo-left">
+                    <!-- Badge Row -->
+                    <div class="promo-badges">
+                        <span class="promo-badge">🔥 SPESIAL HARI INI!</span>
+                        <span class="discount-badge">💎 HEMAT 20%</span>
                     </div>
-                    <div class="promo-image-item">
-                        <img src="{{ asset('images/besar 2.jpg') }}" alt="Roti Sobek 2" onerror="this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&q=80'">
+
+                    <!-- Title -->
+                    <div class="promo-title-section">
+                        <div class="wheat-ornament-left">🌾</div>
+                        <h2 class="promo-title">
+                            Roti Sobek<br>
+                            Premium,<br>
+                            Lembut <span class="highlight">&</span> Fresh!
+                        </h2>
                     </div>
-                    <div class="promo-image-item">
-                        <img src="{{ asset('images/besar 3.jpg') }}" alt="Roti Sobek 3" onerror="this.src='https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=400&q=80'">
+
+                    <!-- Description -->
+                    <p class="promo-subtitle">
+                        Roti sobek premium dengan tekstur lembut dan rasa yang menggugah selera. 
+                        Sempurna untuk sarapan atau camilan Anda!
+                    </p>
+
+                    <!-- Price -->
+                    <div class="promo-pricing">
+                        <span class="price-original">Rp 35.000</span>
+                        <span class="price-discount">Rp 28.000</span>
+                        <span class="price-save">🏷 Hemat Rp 7.000</span>
+                    </div>
+
+                    <!-- Features -->
+                    <div class="promo-features">
+                        <div class="feature-item">
+                            <div class="feature-icon">🌾</div>
+                            <div class="feature-title">Bahan Berkualitas</div>
+                            <div class="feature-subtitle">Pilihan terbaik setiap hari</div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">🔥</div>
+                            <div class="feature-title">Freshly Baked</div>
+                            <div class="feature-subtitle">Dibuat setiap hari</div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">❤️</div>
+                            <div class="feature-title">1000+ Pelanggan</div>
+                            <div class="feature-subtitle">Puas dengan rasa kami</div>
+                        </div>
+                    </div>
+
+                    <!-- CTA Button -->
+                    <div>
+                        <button class="promo-cta" onclick="showSection('products')">
+                            🛒 PESAN SEKARANG – STOK TERBATAS!
+                        </button>
+                        <p class="promo-note">⏰ Promo hanya hari ini!</p>
                     </div>
                 </div>
-                
-                <!-- Button -->
-                <button class="promo-cta" onclick="showSection('products')">
-                    🛒 PESAN SEKARANG
-                </button>
+
+                <!-- RIGHT COLUMN -->
+                <div class="promo-right">
+                    <!-- Wheat Decoration -->
+                    <div class="wheat-decoration">🌾</div>
+
+                    <!-- Best Seller Badge -->
+                    <div class="best-seller-badge">
+                        <div class="crown">👑</div>
+                        <div class="text">BEST<br>SELLER</div>
+                        <div class="stars">★★★</div>
+                    </div>
+
+                    <!-- Product Images -->
+                    <div class="promo-images">
+                        <!-- GAMBAR 1 - UTAMA (BESAR, ATAS KANAN) -->
+                        <div class="promo-image-item promo-image-main">
+                            <img src="{{ asset('images/besar1.jpg') }}" alt="Roti Sobek Premium" onerror="this.src='https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400&q=80'">
+                        </div>
+
+                        <!-- GAMBAR 2 - KECIL (BAWAH KIRI) -->
+                        <div class="promo-image-item promo-image-second">
+                            <img src="{{ asset('images/besar 2.jpg') }}" alt="Donat Premium" onerror="this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&q=80'">
+                        </div>
+
+                        <!-- GAMBAR 3 - SEDANG (BAWAH KANAN) -->
+                        <div class="promo-image-item promo-image-third">
+                            <img src="{{ asset('images/besar 3.jpg') }}" alt="Roti Bundar" onerror="this.src='https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=400&q=80'">
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -3451,18 +3103,13 @@
     <div class="container">
         <!-- Home Section -->
         <section id="home" class="section active">
-            <!-- Why Choose Us Section - Reference Lookalike -->
             <div class="why-choose-section">
                 <h2 class="section-title why-choose-title">Mengapa Memilih Roti Kami?</h2>
-                
                 <div class="zigzag-container">
-                    
-                    <!-- Row 1: Image Left, Card Right -->
                     <div class="zigzag-row" data-aos="fade-up">
                         <div class="zigzag-image">
                             <img src="{{ asset('images/panggang.jpg') }}" alt="Roti Fresh dari Oven">
                         </div>
-                    
                         <div class="zigzag-card">
                             <div class="speech-pointer"></div>
                             <div class="card-header">
@@ -3472,15 +3119,9 @@
                                     <div class="title-underline"></div>
                                 </div>
                             </div>
-                            <p class="card-desc">
-                                Kami menggunakan bahan-bahan pilihan berkualitas tinggi dan dipanggang segar setiap hari 
-                                dengan standar kebersihan yang ketat untuk menjaga rasa dan kelembutannya.
-                            </p>
+                            <p class="card-desc">Kami menggunakan bahan-bahan pilihan berkualitas tinggi dan dipanggang segar setiap hari dengan standar kebersihan yang ketat untuk menjaga rasa dan kelembutannya.</p>
                         </div>
                     </div>
-                    
-                    <!-- Row 2: Card Left, Image Right -->
-                    <!-- Added 'reverse' class to trigger Right-side pointer CSS -->
                     <div class="zigzag-row reverse" data-aos="fade-up">
                         <div class="zigzag-card">
                             <div class="speech-pointer"></div>
@@ -3491,14 +3132,9 @@
                                     <div class="title-underline"></div>
                                 </div>
                             </div>
-                            <p class="card-desc">
-                                Roti kami menawarkan cita rasa lezat dan segar dengan harga yang ramah di kantong. 
-                                Cocok untuk sarapan, camilan, dan momen spesial Anda bersama keluarga.
-                            </p>
+                            <p class="card-desc">Roti kami menawarkan cita rasa lezat dan segar dengan harga yang ramah di kantong. Cocok untuk sarapan, camilan, dan momen spesial Anda bersama keluarga.</p>
                         </div>
-                        
                         <div class="zigzag-image">
-                            <!-- Image: Using rooti.jpg for variety -->
                             <img src="{{ asset('images/keluarga.jpg') }}" alt="Momen Menikmati Roti Bersama">
                         </div>
                     </div>
@@ -3507,13 +3143,11 @@
 
             <div class="section-divider"></div>
 
-            <!-- Automated Best Seller Section on Home -->
             <h2 class="section-title">🔥 Roti Paling Laris</h2>
             <div class="products-grid" id="bestsellerHome"></div>
 
             <div class="section-divider"></div>
 
-            <!-- Reviews Section -->
             <h2 class="section-title">💬 Ulasan Pelanggan</h2>
             <div class="reviews-grid" id="mainReviewsGrid">
                 @if(isset($reviews) && count($reviews) > 0)
@@ -3530,18 +3164,11 @@
                                     </div>
                                 </div>
                                 <div class="stars">
-                                    @for($i = 0; $i < $review->rating; $i++)
-                                        ★
-                                    @endfor
-                                    <span style="color: #ddd;">
-                                        @for($i = 0; $i < (5 - $review->rating); $i++)
-                                            ★
-                                        @endfor
-                                    </span>
+                                    @for($i = 0; $i < $review->rating; $i++)★@endfor
+                                    <span style="color: #ddd;">@for($i = 0; $i < (5 - $review->rating); $i++)★@endfor</span>
                                 </div>
                             </div>
                             <p class="review-text">"{{ $review->comment ?? '' }}"</p>
-                            
                             @if($review->media_urls)
                                 <div style="display: flex; gap: 8px; margin-top: 15px; flex-wrap: wrap;">
                                     @foreach($review->media_urls as $url)
@@ -3564,8 +3191,6 @@
         <!-- Products Section -->
         <section id="products" class="section">
             <h2 class="section-title">Katalog Roti Lengkap</h2>
-            
-            <!-- Sort Controls -->
             <div style="display: flex; justify-content: flex-end; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
                 <select id="sortFilter" onchange="applySortFilter()" style="padding: 0.8rem 1rem; border: 2px solid #D4AF37; border-radius: 12px; font-size: 0.95rem; background: white; cursor: pointer; min-width: 250px;">
                     <option value="newest">📌 Terbaru Ditambahkan</option>
@@ -3576,7 +3201,6 @@
                     <option value="name-desc">Z-A Nama Produk</option>
                 </select>
             </div>
-            
             <div class="products-grid" id="productsGrid"></div>
         </section>
 
@@ -3606,13 +3230,13 @@
 
                     <div class="form-group">
                         <label style="margin-bottom: 1rem; display: block;">Metode Pengambilan *</label>
-                        <div class="shipping-options" style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
-                            <label class="payment-option active" style="flex: 1; padding: 1rem; border: 2px solid var(--primary); border-radius: 8px; cursor: pointer; transition: all 0.3s; background: #fffcf5;" id="shipping-delivery">
+                        <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
+                            <label style="flex: 1; padding: 1rem; border: 2px solid var(--primary); border-radius: 8px; cursor: pointer; transition: all 0.3s; background: #fffcf5;" id="shipping-delivery">
                                 <input type="radio" name="shipping_method" value="delivery" checked onclick="toggleAddressFields('delivery')">
                                 <span style="font-weight: 600; display: block; margin-bottom: 0.25rem;">🚚 Dianter Penjual</span>
                                 <span style="font-size: 0.85rem; color: #666;">Kami antar pesanan ke lokasi Anda</span>
                             </label>
-                            <label class="payment-option" style="flex: 1; padding: 1rem; border: 2px solid #ddd; border-radius: 8px; cursor: pointer; transition: all 0.3s;" id="shipping-pickup">
+                            <label style="flex: 1; padding: 1rem; border: 2px solid #ddd; border-radius: 8px; cursor: pointer; transition: all 0.3s;" id="shipping-pickup">
                                 <input type="radio" name="shipping_method" value="pickup" onclick="toggleAddressFields('pickup')">
                                 <span style="font-weight: 600; display: block; margin-bottom: 0.25rem;">🏠 Mengambil Langsung ke Toko</span>
                                 <span style="font-size: 0.85rem; color: #666;">Ambil pesanan Anda di gerai kami</span>
@@ -3625,17 +3249,14 @@
                             <label>Kota *</label>
                             <input type="text" name="city" required placeholder="Contoh: Kota Bogor">
                         </div>
-
                         <div class="form-group">
                             <label>Nama Jalan *</label>
                             <input type="text" name="street" required placeholder="Contoh: Jl. Mawar Indah">
                         </div>
-
                         <div class="form-group">
                             <label>Detail Rumah / Patokan (Opsional)</label>
                             <input type="text" name="house_details" placeholder="Contoh: Rumah pagar hitam, ada pohon mangga">
                         </div>
-
                         <div class="form-row">
                             <div class="form-group">
                                 <label>Nomor Rumah *</label>
@@ -3646,7 +3267,6 @@
                                 <input type="text" name="rt_rw" required placeholder="005/002">
                             </div>
                         </div>
-
                         <div style="background: #fff8e1; border-left: 4px solid #ffca28; padding: 1rem; margin-bottom: 1.5rem; border-radius: 4px;" id="shippingInfoBox">
                             <p style="margin: 0; font-size: 0.9rem; color: #856404; font-weight: 600;">🚚 Informasi Pengiriman:</p>
                             <p style="margin: 0.25rem 0 0; font-size: 0.85rem; color: #856404;">Ongkos kirim akan ditentukan oleh Admin setelah pesanan masuk. Kami akan menghubungi Anda melalui chat/WA.</p>
@@ -3678,26 +3298,21 @@
 
                     <div class="form-group">
                         <label>Catatan Pesanan (Opsional)</label>
-                        <textarea rows="2" name="notes" placeholder="Contoh:Pencet Bel/Hubungi No. Telp/Catatan Lainnya"></textarea>
+                        <textarea rows="2" name="notes" placeholder="Contoh: Pencet Bel/Hubungi No. Telp/Catatan Lainnya"></textarea>
                     </div>
 
                     <div class="form-group">
                         <label style="margin-bottom: 1rem; display: block;">Metode Pembayaran *</label>
-                        <div class="payment-options" style="display: flex; gap: 1rem; flex-wrap: wrap;">
-                            <label class="payment-option" style="flex: 1; padding: 1rem; border: 2px solid #ddd; border-radius: 8px; cursor: pointer; transition: all 0.3s;">
-                                <input type="radio" name="payment_method" value="COD" checked onclick="selectPayment('COD')">
-                                <span style="font-weight: 600; display: block; margin-bottom: 0.25rem;">🏠 COD (Bayar di Tempat)</span>
-                                <span style="font-size: 0.85rem; color: #666;">Bayar tunai di tempat</span>
-                            </label>
-                            <label class="payment-option" id="qrisPaymentOption" style="flex: 1; padding: 1rem; border: 2px solid #ddd; border-radius: 8px; cursor: pointer; transition: all 0.3s; display: none;">
-                                <input type="radio" name="payment_method" value="QRIS" onclick="selectPayment('QRIS')">
+                        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                            <label style="flex: 1; padding: 1rem; border: 2px solid var(--primary); border-radius: 8px; cursor: pointer; transition: all 0.3s; background: #fffcf5;">
+                                <input type="radio" name="payment_method" value="QRIS" checked style="cursor: pointer;">
                                 <span style="font-weight: 600; display: block; margin-bottom: 0.25rem;">📱 QRIS (E-Wallet/Banking)</span>
+                                <span style="font-size: 0.85rem; color: #666;">Transfer via QRIS, E-Wallet, atau Banking</span>
                             </label>
                         </div>
                     </div>
 
                     <button type="submit" class="checkout-btn">Proses Pesanan</button>
-                    <!-- Hidden field fields for compatibility if needed, but we handle in JS -->
                 </form>
             </div>
         </section>
@@ -3705,57 +3320,15 @@
         <!-- Pesanan Saya Section -->
         <section id="orders" class="section">
             <h2 class="section-title">📦 Pesanan Saya</h2>
-            
             <div class="orders-container">
                 <div style="text-align: center; padding: 3rem 1rem; color: #999;">
                     <p style="font-size: 1.1rem; margin-bottom: 0.5rem;">Belum ada pesanan</p>
                     <p style="font-size: 0.9rem;">Masukkan nomor WhatsApp Anda di bagian Chat untuk melihat status pesanan</p>
                 </div>
             </div>
-
-            <!-- Sample Order Card (untuk referensi) -->
-            <div style="display: none;" class="sample-order-card">
-                <div style="background: white; border-radius: 15px; padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 4px 15px rgba(0,0,0,0.08); border-left: 4px solid #D4AF37;">
-                    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
-                        <div>
-                            <p style="margin: 0; font-size: 0.85rem; color: #999;">Nomor Pesanan</p>
-                            <p style="margin: 0.25rem 0 0 0; font-size: 1.1rem; font-weight: 700; color: #333;">#ORD-2026-001</p>
-                        </div>
-                        <div style="background: #e8f5e9; color: #2e7d32; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600;">
-                            ✅ Siap Diambil di Toko
-                        </div>
-                    </div>
-
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid #eee;">
-                        <div>
-                            <p style="margin: 0; font-size: 0.85rem; color: #999;">Metode Pengambilan</p>
-                            <p style="margin: 0.25rem 0 0 0; font-size: 0.95rem; color: #333;">🏪 Ambil Sendiri di Toko</p>
-                        </div>
-                        <div>
-                            <p style="margin: 0; font-size: 0.85rem; color: #999;">Tanggal Pesanan</p>
-                            <p style="margin: 0.25rem 0 0 0; font-size: 0.95rem; color: #333;">19 Feb 2026</p>
-                        </div>
-                    </div>
-
-                    <div style="margin-bottom: 1rem;">
-                        <p style="margin: 0 0 0.5rem 0; font-size: 0.85rem; color: #999;">Produk</p>
-                        <p style="margin: 0; font-size: 0.95rem; color: #333;">Roti Sobek x2, Roti Manis x1</p>
-                    </div>
-
-                    <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 1rem; border-top: 1px solid #eee;">
-                        <div>
-                            <p style="margin: 0; font-size: 0.85rem; color: #999;">Total</p>
-                            <p style="margin: 0.25rem 0 0 0; font-size: 1.2rem; font-weight: 700; color: #D4AF37;">Rp 28.800</p>
-                        </div>
-                        <button style="background: #8B4513; color: white; border: none; padding: 0.7rem 1.5rem; border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;">
-                            Hubungi Admin
-                        </button>
-                    </div>
-                </div>
-            </div>
         </section>
 
-        <!-- Profile (Tentang Kami) Section -->
+        <!-- Profile Section -->
         <section id="profile" class="section">
             <div class="about-container">
                 <div class="about-header" data-aos="fade-up">
@@ -3769,18 +3342,11 @@
                             <img src="{{ asset('images/rocil.jpg') }}" alt="Proses Pembuatan Roti" class="about-img-large">
                         </div>
                     </div>
-
                     <div class="about-text-content" data-aos="fade-left">
                         <div class="about-description">
-                            <p>
-                                Berdiri sejak tahun 2014, Dapoer Budess hadir sebagai roti rumahan dengan cita rasa khas yang selalu dirindukan. Kami menghadirkan berbagai varian favorit seperti coklat, keju, coklat keju, sosis keju, pisang coklat, pisang keju, hingga pisang coklat keju — semuanya dibuat dengan bahan pilihan dan proses yang penuh ketelatenan.
-                            <p style="margin-top: 1rem;">
-                               Keunikan kami bukan hanya pada rasa, tetapi pada identitas yang melekat di setiap gigitan. Tanpa perlu melihat siapa yang menjualnya, pelanggan sudah tahu — ini pasti roti Dapoer Budess.
-                               Dari aroma yang harum, tekstur yang lembut, hingga rasa yang khas dan konsisten, pelanggan dapat langsung mengenali siapa pembuatnya.
-                            </p>
-                            <p style="margin-top: 1rem;">
-                                Dengan sentuhan hangat khas masakan rumah, Dapoer Budess ingin menjadi bagian dari momen indah Anda, baik sebagai teman sarapan pagi, camilan sore yang manis, maupun hantaran berharga untuk orang-orang tersayang.
-                            </p>
+                            <p>Berdiri sejak tahun 2014, Dapoer Budess hadir sebagai roti rumahan dengan cita rasa khas yang selalu dirindukan. Kami menghadirkan berbagai varian favorit seperti coklat, keju, coklat keju, sosis keju, pisang coklat, pisang keju, hingga pisang coklat keju — semuanya dibuat dengan bahan pilihan dan proses yang penuh ketelatenan.</p>
+                            <p style="margin-top: 1rem;">Keunikan kami bukan hanya pada rasa, tetapi pada identitas yang melekat di setiap gigitan. Tanpa perlu melihat siapa yang menjualnya, pelanggan sudah tahu — ini pasti roti Dapoer Budess.</p>
+                            <p style="margin-top: 1rem;">Dengan sentuhan hangat khas masakan rumah, Dapoer Budess ingin menjadi bagian dari momen indah Anda, baik sebagai teman sarapan pagi, camilan sore yang manis, maupun hantaran berharga untuk orang-orang tersayang.</p>
                         </div>
                     </div>
                 </div>
@@ -3789,33 +3355,16 @@
                     <div class="vm-grid">
                         <div class="vision-box">
                             <h3 class="vm-title">Visi Kami</h3>
-                            <p class="about-description">
-                                Menjadi brand roti rumahan terpercaya yang dikenal karena cita rasa khas, kualitas terbaik, dan konsistensi rasa yang selalu membuat pelanggan kembali.
-                            </p>
+                            <p class="about-description">Menjadi brand roti rumahan terpercaya yang dikenal karena cita rasa khas, kualitas terbaik, dan konsistensi rasa yang selalu membuat pelanggan kembali.</p>
                         </div>
                         <div class="mission-box">
                             <h3 class="vm-title">Misi Kami</h3>
                             <ul class="mission-list">
-                                <li class="mission-item">
-                                    <div class="mission-number">1</div>
-                                    <div class="mission-text">Menghadirkan roti berkualitas dengan bahan pilihan terbaik.</div>
-                                </li>
-                                <li class="mission-item">
-                                    <div class="mission-number">2</div>
-                                    <div class="mission-text">Menjaga konsistensi rasa dan tekstur di setiap produksi.</div>
-                                </li>
-                                <li class="mission-item">
-                                    <div class="mission-number">3</div>
-                                    <div class="mission-text">Memberikan harga yang terjangkau tanpa mengurangi kualitas.</div>
-                                </li>
-                                <li class="mission-item">
-                                    <div class="mission-number">4</div>
-                                    <div class="mission-text">Mengembangkan inovasi varian rasa sesuai selera pelanggan..</div>
-                                </li>
-                                <li class="mission-item">
-                                    <div class="mission-number">5</div>
-                                    <div class="mission-text">Menjadikan setiap produk sebagai simbol kehangatan dan kepuasan pelanggan.</div>
-                                </li>
+                                <li class="mission-item"><div class="mission-number">1</div><div class="mission-text">Menghadirkan roti berkualitas dengan bahan pilihan terbaik.</div></li>
+                                <li class="mission-item"><div class="mission-number">2</div><div class="mission-text">Menjaga konsistensi rasa dan tekstur di setiap produksi.</div></li>
+                                <li class="mission-item"><div class="mission-number">3</div><div class="mission-text">Memberikan harga yang terjangkau tanpa mengurangi kualitas.</div></li>
+                                <li class="mission-item"><div class="mission-number">4</div><div class="mission-text">Mengembangkan inovasi varian rasa sesuai selera pelanggan.</div></li>
+                                <li class="mission-item"><div class="mission-number">5</div><div class="mission-text">Menjadikan setiap produk sebagai simbol kehangatan dan kepuasan pelanggan.</div></li>
                             </ul>
                         </div>
                     </div>
@@ -3824,9 +3373,7 @@
         </section>
     </div>
 
-
-
-    <!-- Shopping Cart Modal -->
+    <!-- Cart Overlay & Modal -->
     <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
     <div class="cart-modal" id="cartModal">
         <div class="cart-header">
@@ -3852,34 +3399,28 @@
         </div>
     </div>
 
-    <!-- Message Modal - Chat Interface -->
+    <!-- Message Modal -->
     <div class="message-modal" id="messageModal">
         <div class="message-modal-content">
             <button class="message-close-btn" onclick="closeMessageModal()">×</button>
             <h2 style="font-family: 'Playfair Display', serif; color: var(--primary); margin-bottom: 1rem;">💬 Chat dengan Admin</h2>
             
-            <!-- Search/Login Section -->
             <div id="messageLoginSection" style="margin-bottom: 1rem;">
                 <p style="margin-bottom: 0.5rem; font-size: 0.9rem; color: #666;">Masukkan nomor Whatsapp Anda untuk melihat pesan & status pesanan:</p>
                 <div style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem;">
                     <input type="tel" id="searchPhone" placeholder="08123456789" style="flex: 1; padding: 0.75rem; border: 1px solid #ddd; border-radius: 5px;">
                     <button type="button" id="btnSearchChat" onclick="loadChatThread()" style="padding: 0.75rem 1rem; background: var(--accent); color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: 600; min-width: 80px;">Cari</button>
                 </div>
-                <div id="chatLoading" style="display: none; color: var(--primary); font-size: 0.9rem; margin-bottom: 0.5rem;">
-                    ⏳ Menghubungkan...
-                </div>
+                <div id="chatLoading" style="display: none; color: var(--primary); font-size: 0.9rem; margin-bottom: 0.5rem;">⏳ Menghubungkan...</div>
                 <div id="chatSearchInfo" style="display: none; padding: 0.5rem; background: #fff3cd; color: #856404; font-size: 0.85rem; border-radius: 4px; margin-bottom: 1rem;"></div>
             </div>
 
-            <!-- Order History Section -->
             <div id="orderHistorySection" style="display: none; margin-bottom: 1rem; max-height: 200px; overflow-y: auto; border: 1px solid #eee; border-radius: 8px; padding: 1rem; background: #fffcf5;">
                 <h3 style="font-size: 1rem; color: var(--primary); margin-bottom: 0.5rem; position: sticky; top: 0; background: #fffcf5; padding-bottom: 0.5rem; border-bottom: 1px solid #eee;">📦 Riwayat Pesanan</h3>
                 <div id="orderHistoryList"></div>
             </div>
 
-            <!-- Chat Thread -->
             <div id="chatThreadSection" style="display: none; border: 1px solid #eee; border-radius: 8px; background: #f9f9f9; overflow: hidden; flex-direction: column; height: 400px;">
-                <!-- Chat Header -->
                 <div style="background: #fff; padding: 10px; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center;">
                     <div style="display: flex; align-items: center; gap: 8px;">
                         <span style="font-size: 0.9rem; color: #666;">Nomor: <span id="currentChatPhone" style="font-weight: bold;"></span></span>
@@ -3889,11 +3430,7 @@
                     </div>
                     <button type="button" onclick="logoutChat()" style="background: none; border: none; color: #d32f2f; font-size: 0.8rem; cursor: pointer; text-decoration: underline;">Ganti Nomor</button>
                 </div>
-                <!-- Chat Messages -->
-                <div id="chatMessages" style="flex: 1; overflow-y: auto; padding: 1rem; display: flex; flex-direction: column; gap: 1rem; background: white;">
-                </div>
-
-                <!-- Chat Input -->
+                <div id="chatMessages" style="flex: 1; overflow-y: auto; padding: 1rem; display: flex; flex-direction: column; gap: 1rem; background: white;"></div>
                 <div style="border-top: 1px solid #eee; padding: 1rem; background: #f9f9f9;">
                     <form id="chatMessageForm" onsubmit="sendChatMessage(event)" style="display: flex; gap: 0.5rem;">
                         <textarea id="chatInput" placeholder="Ketik pesan Anda..." required style="flex: 1; padding: 0.75rem; border: 1px solid #ddd; border-radius: 5px; resize: none; height: 60px;"></textarea>
@@ -3902,7 +3439,6 @@
                 </div>
             </div>
 
-            <!-- First Message Form -->
             <div id="firstMessageSection" style="display: none;">
                 <form id="messageForm" onsubmit="sendMessage(event)">
                     <div class="form-group">
@@ -3921,226 +3457,271 @@
                 </form>
             </div>
         </div>
-        <div class="message-overlay" onclick="closeMessageModal()"></div>
     </div>
+    <div class="message-overlay" id="messageOverlay" onclick="closeMessageModal()"></div>
 
+    <!-- Success Message -->
     <div class="success-message" id="successMessage">
         <div class="success-icon">✓</div>
         <h2 style="font-family: 'Playfair Display', serif; color: var(--primary); margin-bottom: 0.3rem; font-size: 2rem; font-weight: 700;">Pesanan Berhasil!</h2>
         <p style="color: #999; font-size: 0.95rem; margin-bottom: 2rem;">Terima kasih telah berbelanja di Dapoer Budess</p>
-        
         <div id="orderInfo" style="margin: 2rem 0;">
-            <!-- Order Number Card -->
             <div style="background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%); padding: 1.5rem; border-radius: 12px; margin-bottom: 1.5rem; border: 1px solid #e9ecef;">
                 <p style="margin-bottom: 0.5rem; color: #999; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600;">Nomor Pesanan</p>
                 <p id="orderNumber" style="font-size: 1.4em; font-weight: 700; color: var(--primary); margin: 0; font-family: 'Courier New', monospace;"></p>
             </div>
-
-            <!-- Status Card -->
             <div style="background: linear-gradient(135deg, #fffbf0 0%, #fff9f5 100%); padding: 1.5rem; border-radius: 12px; margin-bottom: 1.5rem; border: 1px solid #ffe8cc;">
                 <p style="margin-bottom: 0.8rem; color: #999; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600;">Status Pesanan</p>
                 <div style="display: inline-block; background: linear-gradient(135deg, #020202ff 0%, #ff9800 100%); color: white; padding: 0.6rem 1.2rem; border-radius: 20px; font-weight: 600; font-size: 0.9rem;">
                     <span id="orderStatus">⏳ Menunggu Konfirmasi</span>
                 </div>
             </div>
-
-            <!-- Info Box -->
             <div style="background: #f0f9ff; padding: 1.2rem; border-radius: 12px; border-left: 4px solid #2196F3; text-align: left; margin-bottom: 2rem;">
-                <p style="margin: 0.5rem 0; color: #555; font-size: 0.9rem;">
-                    <strong style="color: #2196F3;">📱 Cek Status:</strong> Hubungi customer service melalui tombol chat atau cek nomor antrian Anda.
-                </p>
-                <p style="margin: 0.5rem 0; color: #555; font-size: 0.9rem;">
-                    <strong style="color: #2196F3;">⏱️ Admin akan merespon pesanan Anda dalam beberapa menit.</strong>
-                </p>
+                <p style="margin: 0.5rem 0; color: #555; font-size: 0.9rem;"><strong style="color: #2196F3;">📱 Cek Status:</strong> Hubungi customer service melalui tombol chat atau cek nomor antrian Anda.</p>
+                <p style="margin: 0.5rem 0; color: #555; font-size: 0.9rem;"><strong style="color: #2196F3;">⏱️ Admin akan merespon pesanan Anda dalam beberapa menit.</strong></p>
             </div>
         </div>
-
-        <!-- Action Buttons -->
         <div style="margin-top: 2rem;">
             <button class="checkout-btn" style="width: 100%; background: linear-gradient(135deg, #8B4513 0%, #6B3410 100%); color: white; border: none; padding: 1rem 1.5rem; border-radius: 8px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; font-size: 0.95rem;" onclick="closeSuccess()">← Kembali ke Beranda</button>
         </div>
     </div>
 
-    <script>
-        // Product Data
-        const products = @json($products);
+    <!-- Purchase Modal -->
+    <div class="message-modal" id="purchaseModal">
+        <div class="message-modal-content" style="max-width: 400px; text-align: center;">
+            <button class="message-close-btn" onclick="closePurchaseModal()">×</button>
+            <h2 style="font-family: 'Playfair Display', serif; color: var(--primary); margin-bottom: 1rem; font-size: 1.5rem;">Pilih Opsi Pembelian</h2>
+            <div style="background: #f9f9f9; padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;">
+                <p style="color: #666; margin: 0; font-size: 0.95rem;">Apa yang ingin Anda lakukan?</p>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 1rem;">
+                <button onclick="addToCartOnly()" style="background: #f0f0f0; color: #333; border: 2px solid #ddd; padding: 1rem; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 1rem; transition: all 0.3s;">🛒 Masukkan Keranjang</button>
+                <button onclick="buyNow()" style="background: var(--primary); color: white; border: none; padding: 1rem; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 1rem; transition: all 0.3s;">⚡ Beli Sekarang</button>
+            </div>
+        </div>
+    </div>
+    <div class="message-overlay" id="purchaseOverlay" onclick="closePurchaseModal()"></div>
 
+    <!-- CAPTCHA Modal -->
+    <div class="message-modal" id="captchaModal">
+        <div class="message-modal-content" style="max-width: 500px;">
+            <button class="message-close-btn" onclick="closeCaptchaModal()">×</button>
+            <h2 style="font-family: 'Playfair Display', serif; color: var(--primary); margin-bottom: 1.5rem; font-size: 1.5rem;">🔐 Verifikasi Keamanan</h2>
+            <div style="background: #fff8e1; border: 2px solid #ffca28; border-radius: 8px; padding: 1.5rem; margin-bottom: 1.5rem; text-align: center;">
+                <p style="margin: 0 0 1rem 0; font-size: 0.9rem; color: #856404; font-weight: 600;">Silakan verifikasi bahwa Anda bukan robot</p>
+                <div class="g-recaptcha" data-sitekey="{{ env('RECAPTCHA_SITE_KEY') }}" data-callback="onRecaptchaSuccess" style="display: flex; justify-content: center; margin-bottom: 1rem;"></div>
+                <p style="margin: 0; font-size: 0.75rem; color: #999;">Dilindungi oleh reCAPTCHA</p>
+            </div>
+            <div style="display: flex; gap: 1rem;">
+                <button onclick="closeCaptchaModal()" style="flex: 1; padding: 0.75rem; background: #ddd; color: #333; border: none; border-radius: 6px; cursor: pointer; font-weight: 600;">Batal</button>
+                <button onclick="verifyCaptchaAndCheckout()" id="verifyCaptchaBtn" style="flex: 1; padding: 0.75rem; background: var(--primary); color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; opacity: 0.6; cursor: not-allowed;" disabled>✓ Verifikasi</button>
+            </div>
+        </div>
+    </div>
+    <div class="message-overlay" id="captchaOverlay" onclick="closeCaptchaModal()"></div>
+
+    
+
+    <!-- Review Modal -->
+    <div id="reviewModal" class="message-modal">
+        <div class="message-modal-content" style="max-width: 600px;">
+            <button class="message-close-btn" onclick="closeReviewModal()">×</button>
+            <h2 style="text-align: center; color: var(--primary); margin-bottom: 1.5rem; font-family: 'Playfair Display', serif;">Beri Ulasan</h2>
+            <form id="reviewForm" onsubmit="submitReview(event)">
+                <input type="hidden" id="reviewOrderId" name="order_id">
+                <div class="form-group" style="text-align: center;">
+                    <label>Rating Produk</label>
+                    <div class="star-rating" id="starRating">
+                        <span class="star" data-value="1">★</span>
+                        <span class="star" data-value="2">★</span>
+                        <span class="star" data-value="3">★</span>
+                        <span class="star" data-value="4">★</span>
+                        <span class="star" data-value="5">★</span>
+                    </div>
+                    <input type="hidden" id="ratingValue" name="rating" value="5">
+                </div>
+                <div class="form-group">
+                    <label>Nama Tampilan (Opsional)</label>
+                    <input type="text" name="display_name" placeholder="Nama yang ingin ditampilkan">
+                </div>
+                <div class="form-group">
+                    <label>Ulasan Anda</label>
+                    <textarea name="comment" rows="4" placeholder="Ceritakan pengalaman Anda menikmati roti kami..." required></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Foto/Video (Opsional)</label>
+                    <input type="file" name="media[]" id="mediaInput" multiple accept="image/*,video/*" onchange="previewMedia()">
+                    <div id="mediaPreview" style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px;"></div>
+                </div>
+                <button type="submit" class="submit-msg-btn">Kirim Ulasan</button>
+            </form>
+        </div>
+    </div>
+    <div id="reviewOverlay" class="message-overlay" onclick="closeReviewModal()"></div>
+
+    <!-- Footer -->
+    <footer>
+        <!-- Left decorative image - wheat/bread ingredients -->
+        <div class="footer-deco-left"></div>
+        
+        <!-- Right decorative image - artisan bread -->
+        <div class="footer-deco-right"></div>
+        
+        <div class="footer-content">
+            <div class="footer-info">
+                <h3>📍 Dapoer Budess Bakery</h3>
+                <p>Toko roti premium dengan bahan pilihan berkualitas tinggi dan harga terjangkau.</p>
+                <div class="footer-contact">
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-details">
+                            <div class="contact-label">Lokasi</div>
+                            <div class="contact-value">Jl. Wates Dalam No.61, RT.02/RW.05, Pasirmulya, Kec. Bogor Bar., Kota Bogor, Jawa Barat 16118</div>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div class="contact-details">
+                            <div class="contact-label">Telepon</div>
+                            <div class="contact-value">+62 821-1997-9538</div>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div class="contact-details">
+                            <div class="contact-label">Email</div>
+                            <div class="contact-value">destidwinursanti.d3@gmail.com</div>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">⏰</div>
+                        <div class="contact-details">
+                            <div class="contact-label">Jam Operasional</div>
+                            <div class="contact-value">Senin – Minggu: 07:00 – 13:00 WIB<br>Libur pada hari raya nasional</div>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📱</div>
+                        <div class="contact-details">
+                            <div class="contact-label">Instagram</div>
+                            <div class="contact-value">
+                                <a href="https://www.instagram.com/dapoer_budess?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1 1 12.324 0 6.162 6.162 0 0 1-12.324 0zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm4.965-10.322a1.44 1.44 0 1 1 2.881.001 1.44 1.44 0 0 1-2.881-.001z"/></svg>
+                                    @dapoer_budess
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d253666.18359730975!2d106.60825187562773!3d-6.58032243989468!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x611ecf1a7e8f91ab%3A0x3354703eaba33357!2sRoti%20Panggang%20Dapoer%20Budess!5e0!3m2!1sen!2sus!4v1770439312098!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; {{ date('Y') }} Dapoer Budess Bakery. Semua hak dilindungi. | Premium Quality & Fresh Every Day</p>
+        </div>
+    </footer>
+
+    <script>
+        const products = @json($products);
         let cart = [];
         let currentPhone = localStorage.getItem('customerPhone') || null;
         let isFetchingChat = false;
+        let messagePollingInterval;
+        let lastMessageCount = 0;
 
         function normalizePhone(phone) {
             if (!phone) return '';
             let normalized = phone.replace(/[^0-9]/g, '');
-            if (normalized.startsWith('62')) {
-                normalized = '0' + normalized.substring(2);
-            } else if (!normalized.startsWith('0') && normalized.length > 0) {
-                normalized = '0' + normalized;
-            }
+            if (normalized.startsWith('62')) normalized = '0' + normalized.substring(2);
+            else if (!normalized.startsWith('0') && normalized.length > 0) normalized = '0' + normalized;
             return normalized;
         }
 
-        // Cleanup on page unload
-        window.addEventListener('beforeunload', function() {
-            // No cleanup needed for now
-        });
-
-        // Render Products
         function renderProducts(containerId, filterBestseller, sortOption = null) {
             const container = document.getElementById(containerId);
-            let filteredProducts = filterBestseller ? products.filter(p => p.bestseller) : products;
-            
-            // Apply sorting if specified
+            let filteredProducts = filterBestseller ? products.filter(p => p.bestseller) : [...products];
             if (sortOption) {
                 switch(sortOption) {
-                    case 'bestseller':
-                        filteredProducts = filteredProducts.sort((a, b) => b.total_sold - a.total_sold);
-                        break;
-                    case 'price-low':
-                        filteredProducts = filteredProducts.sort((a, b) => a.effective_price - b.effective_price);
-                        break;
-                    case 'price-high':
-                        filteredProducts = filteredProducts.sort((a, b) => b.effective_price - a.effective_price);
-                        break;
-                    case 'name-asc':
-                        filteredProducts = filteredProducts.sort((a, b) => a.name.localeCompare(b.name));
-                        break;
-                    case 'name-desc':
-                        filteredProducts = filteredProducts.sort((a, b) => b.name.localeCompare(a.name));
-                        break;
-                    case 'newest':
-                    default:
-                        // Keep original order (newest first)
-                        break;
+                    case 'bestseller': filteredProducts.sort((a, b) => b.total_sold - a.total_sold); break;
+                    case 'price-low': filteredProducts.sort((a, b) => a.effective_price - b.effective_price); break;
+                    case 'price-high': filteredProducts.sort((a, b) => b.effective_price - a.effective_price); break;
+                    case 'name-asc': filteredProducts.sort((a, b) => a.name.localeCompare(b.name)); break;
+                    case 'name-desc': filteredProducts.sort((a, b) => b.name.localeCompare(a.name)); break;
                 }
             } else if (filterBestseller) {
-                // If it's a bestseller section, sort by total_sold descending
-                filteredProducts = filteredProducts.sort((a, b) => b.total_sold - a.total_sold);
+                filteredProducts.sort((a, b) => b.total_sold - a.total_sold);
             }
-
             if (filteredProducts.length === 0) {
                 container.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 3rem; color: #888; font-style: italic;">Belum ada produk yang ditampilkan saat ini.</div>';
                 return;
             }
-
-            // Marketing taglines array
-            const taglines = [
-                "⚡ Promo terbatas!",
-                "🔥 Stok menipis!",
-                "✨ Fresh setiap hari!",
-                "💯 Favorit pelanggan!",
-                "🎉 Harga spesial hari ini!"
-            ];
-
+            const taglines = ["⚡ Promo terbatas!", "🔥 Stok menipis!", "✨ Fresh setiap hari!", "💯 Favorit pelanggan!", "🎉 Harga spesial hari ini!"];
             container.innerHTML = filteredProducts.map(product => {
-                // Get random tagline
                 const randomTagline = taglines[Math.floor(Math.random() * taglines.length)];
-                
-                // Determine badge text
                 let badgeText = "";
                 if (product.is_discount_active) {
-                    if (product.discount_type === 'percentage') {
-                        badgeText = `DISKON ${Math.round(product.discount_value)}%`;
-                    } else {
-                        badgeText = "PROMO";
-                    }
+                    badgeText = product.discount_type === 'percentage' ? `DISKON ${Math.round(product.discount_value)}%` : "PROMO";
                 } else if (product.bestseller) {
                     badgeText = "🔥 TERLARIS";
                 }
-                
-                // Stock status styling
                 const stockStatus = product.stock_status || {};
-                const stockColors = {
-                    'green': '#10b981',
-                    'yellow': '#f59e0b',
-                    'red': '#ef4444',
-                    'orange': '#f97316'
-                };
-                const stockBgColors = {
-                    'green': '#d1fae5',
-                    'yellow': '#fef3c7',
-                    'red': '#fee2e2',
-                    'orange': '#ffedd5'
-                };
-                
-                // Button configuration
+                const stockColors = { green: '#10b981', yellow: '#f59e0b', red: '#ef4444', orange: '#f97316' };
+                const stockBgColors = { green: '#d1fae5', yellow: '#fef3c7', red: '#fee2e2', orange: '#ffedd5' };
                 const buttonText = stockStatus.is_preorder ? '📅 Pre-Order untuk Besok' : '🛒 Beli';
                 const buttonDisabled = !stockStatus.can_order;
-                
                 return `
                     <div class="product-card" data-category="${product.category}">
-                        <!-- Promo Badge -->
                         ${badgeText ? `<div class="product-promo-badge">${badgeText}</div>` : ''}
-                        
-                        <!-- Product Image Wrapper (Circular) -->
                         <div class="product-image-wrapper">
                             <div class="product-image">
-                                ${product.image ? 
-                                    `<img src="${product.image}" alt="${product.name}" style="width:100%; height:100%; object-fit:cover;">` : 
-                                    `<div style="width:100%; height:100%; display:flex; align-items:center; justify-content:center; color:#ccc; font-size:3rem;">🍞</div>`
-                                }
+                                ${product.image ? `<img src="${product.image}" alt="${product.name}" style="width:100%;height:100%;object-fit:cover;">` : `<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:#ccc;font-size:3rem;">🍞</div>`}
                             </div>
                         </div>
-                        
-                        <!-- Product Info -->
                         <div class="product-info">
                             <h3 class="product-name">${product.name}</h3>
-                            <p class="product-description">${product.description || 'Lembut, manis, and fresh setiap hari'}</p>
-                            
-                            <!-- Stock Status Badge -->
-                            ${stockStatus.label ? `
-                                <div style="margin: 0.75rem 0; padding: 0.5rem 0.75rem; background: ${stockBgColors[stockStatus.color]}; border-left: 3px solid ${stockColors[stockStatus.color]}; border-radius: 0.5rem; font-size: 0.8rem; font-weight: 600; color: ${stockColors[stockStatus.color]}; text-align: center;">
-                                    ${stockStatus.label}
-                                </div>
-                            ` : ''}
-                            
-                            <!-- Pricing -->
+                            <p class="product-description">${product.description || 'Lembut, manis, dan fresh setiap hari'}</p>
+                            ${stockStatus.label ? `<div style="margin:0.75rem 0;padding:0.5rem 0.75rem;background:${stockBgColors[stockStatus.color]};border-left:3px solid ${stockColors[stockStatus.color]};border-radius:0.5rem;font-size:0.8rem;font-weight:600;color:${stockColors[stockStatus.color]};text-align:center;">${stockStatus.label}</div>` : ''}
                             <div class="price-container">
-                                ${product.is_discount_active ? 
-                                    `<span class="price-old">Rp ${product.price.toLocaleString('id-ID')}</span>
-                                     <span class="price-new">Rp ${product.effective_price.toLocaleString('id-ID')}</span>` :
-                                    `<span class="price-new">Rp ${product.price.toLocaleString('id-ID')}</span>`
-                                }
+                                ${product.is_discount_active ? `<span class="price-old">Rp ${product.price.toLocaleString('id-ID')}</span><span class="price-new">Rp ${product.effective_price.toLocaleString('id-ID')}</span>` : `<span class="price-new">Rp ${product.price.toLocaleString('id-ID')}</span>`}
                             </div>
-                            
-                            <!-- Marketing Tagline -->
-                            <p class="marketing-tagline">${randomTagline}</p>
-                            
-                            <!-- CTA Button -->
-                            <button class="cta-button" onclick="addToCart(${product.id}, ${stockStatus.is_preorder})" ${buttonDisabled ? 'disabled' : ''}>
-                                ${buttonText}
-                            </button>
+                            <p style="font-size:0.8rem;color:#888;margin-bottom:0.75rem;">${randomTagline}</p>
+                            <button class="cta-button" onclick="addToCart(${product.id}, ${!!stockStatus.is_preorder})" ${buttonDisabled ? 'disabled' : ''}>${buttonText}</button>
                         </div>
-                    </div>
-                `;
+                    </div>`;
             }).join('');
         }
 
-        // Apply Sort Filter
         function applySortFilter() {
-            const sortValue = document.getElementById('sortFilter').value;
-            renderProducts('productsGrid', false, sortValue);
+            renderProducts('productsGrid', false, document.getElementById('sortFilter').value);
         }
 
-        // Add to Cart
         function addToCart(productId, isPreorder = false) {
             const product = products.find(p => p.id === productId);
-            
-            // Check if product can be ordered
             if (!product.stock_status || !product.stock_status.can_order) {
                 alert('Maaf, produk ini saat ini tidak tersedia untuk dipesan.');
                 return;
             }
             
-            // Store product info for modal
-            window.selectedProduct = { 
-                id: productId,
-                name: product.name,
-                price: product.effective_price,
-                isPreorder: isPreorder
-            };
+            // Jika pre-order, langsung redirect ke halaman pre-order
+            if (isPreorder) {
+                // Simpan produk ke localStorage sebagai cart
+                const cart = [{
+                    id: productId,
+                    name: product.name,
+                    price: product.effective_price,
+                    quantity: 1
+                }];
+                localStorage.setItem('cart', JSON.stringify(cart));
+                
+                // Redirect ke halaman pre-order
+                window.location.href = '/preorder';
+                return;
+            }
             
-            // Show purchase option modal
+            // Untuk instant order, lanjutkan seperti biasa
+            window.selectedProduct = { id: productId, name: product.name, price: product.effective_price, isPreorder: false };
             showPurchaseModal();
         }
 
@@ -4155,81 +3736,126 @@
         }
 
         function addToCartOnly() {
-            const product = products.find(p => p.id === window.selectedProduct.id);
-            const existingItem = cart.find(item => item.id === window.selectedProduct.id);
-            
-            if (existingItem) {
-                existingItem.quantity++;
-            } else {
-                cart.push({ 
-                    ...product, 
-                    quantity: 1,
-                    price: product.effective_price,
-                    original_price: product.price,
-                    is_discounted: product.is_discount_active,
-                    is_preorder: window.selectedProduct.isPreorder
-                });
-            }
-            
-            updateCart();
-            showNotification(`${product.name} ditambahkan ke keranjang!`);
-            closePurchaseModal();
+            // Show CAPTCHA first before adding to cart
+            window.pendingCartAction = 'add_only';
+            showCaptchaModal();
         }
 
         function buyNow() {
-            const product = products.find(p => p.id === window.selectedProduct.id);
-            const existingItem = cart.find(item => item.id === window.selectedProduct.id);
-            
-            if (existingItem) {
-                existingItem.quantity++;
-            } else {
-                cart.push({ 
-                    ...product, 
-                    quantity: 1,
-                    price: product.effective_price,
-                    original_price: product.price,
-                    is_discounted: product.is_discount_active,
-                    is_preorder: window.selectedProduct.isPreorder
-                });
-            }
-            
-            updateCart();
-            closePurchaseModal();
-            showSection('checkout');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            // Show CAPTCHA first before buy now
+            window.pendingCartAction = 'buy_now';
+            showCaptchaModal();
         }
 
-        // Update Cart
+        function executePendingCartAction() {
+            // Handle different pending actions
+            if (window.pendingCartAction === 'go_to_checkout') {
+                // Just go to checkout page (no product to add)
+                showSection('checkout');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                
+                // Auto-fill saved phone if exists
+                const savedPhone = localStorage.getItem('customerPhone');
+                if (savedPhone) {
+                    const phoneInput = document.querySelector('input[name="customer_phone"]');
+                    if (phoneInput && !phoneInput.value) {
+                        phoneInput.value = savedPhone;
+                    }
+                }
+            } else {
+                // Add product to cart (for add_only and buy_now)
+                const product = products.find(p => p.id === window.selectedProduct.id);
+                const existingItem = cart.find(item => item.id === window.selectedProduct.id);
+                
+                if (existingItem) {
+                    existingItem.quantity++;
+                } else {
+                    cart.push({ 
+                        ...product, 
+                        quantity: 1, 
+                        price: product.effective_price, 
+                        original_price: product.price, 
+                        is_discounted: product.is_discount_active, 
+                        is_preorder: window.selectedProduct.isPreorder 
+                    });
+                }
+                
+                updateCart();
+                closePurchaseModal();
+                
+                if (window.pendingCartAction === 'add_only') {
+                    showNotification(`${product.name} ditambahkan ke keranjang!`);
+                } else if (window.pendingCartAction === 'buy_now') {
+                    // Redirect to checkout after adding to cart
+                    showSection('checkout');
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+            }
+            
+            window.pendingCartAction = null;
+        }
+
+        function showCaptchaModal() {
+            document.getElementById('captchaModal').classList.add('active');
+            document.getElementById('captchaOverlay').classList.add('active');
+            if (typeof grecaptcha !== 'undefined') grecaptcha.reset();
+            window.recaptchaToken = null;
+            const btn = document.getElementById('verifyCaptchaBtn');
+            if (btn) { btn.disabled = true; btn.style.opacity = '0.6'; btn.style.cursor = 'not-allowed'; }
+        }
+
+        function closeCaptchaModal() {
+            document.getElementById('captchaModal').classList.remove('active');
+            document.getElementById('captchaOverlay').classList.remove('active');
+            if (typeof grecaptcha !== 'undefined') grecaptcha.reset();
+            window.recaptchaToken = null;
+        }
+
+        function verifyCaptchaAndCheckout() {
+            const token = window.recaptchaToken;
+            if (!token) { showNotification('Silakan selesaikan verifikasi reCAPTCHA terlebih dahulu'); return; }
+            const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+            fetch('/checkout', {
+                method: 'POST',
+                headers: { 'X-CSRF-TOKEN': csrfToken, 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                body: JSON.stringify({ _token: csrfToken, recaptcha_token: token, verify_only: true })
+            })
+            .then(r => r.json())
+            .then(data => {
+                if (data.success || data.captcha_verified) {
+                    closeCaptchaModal();
+                    showNotification('✓ Verifikasi berhasil!');
+                    
+                    // Execute pending cart action after verification
+                    setTimeout(() => {
+                        if (window.pendingCartAction) {
+                            executePendingCartAction();
+                        }
+                    }, 500);
+                } else {
+                    showNotification('❌ Verifikasi gagal. Silakan coba lagi.');
+                    setTimeout(() => { if (typeof grecaptcha !== 'undefined') grecaptcha.reset(); window.recaptchaToken = null; }, 500);
+                }
+            })
+            .catch(err => { console.error(err); showNotification('Terjadi kesalahan saat verifikasi.'); });
+        }
+
         function updateCart() {
             const cartCount = document.getElementById('cartCount');
             const cartItems = document.getElementById('cartItems');
             const cartSummary = document.getElementById('cartSummary');
-            
             const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
             cartCount.textContent = totalItems;
-            
-            // Visual feedback animation
-            cartCount.classList.add('pop');
-            setTimeout(() => cartCount.classList.remove('pop'), 300);
-            
             if (cart.length === 0) {
                 cartItems.innerHTML = '<div class="empty-cart"><div class="empty-cart-icon">🛒</div><p>Keranjang Anda masih kosong</p></div>';
                 cartSummary.style.display = 'none';
             } else {
-                cartItems.innerHTML = cart.map(item => {
-                    return `
+                cartItems.innerHTML = cart.map(item => `
                     <div class="cart-item">
-                        <div class="cart-item-image">
-                            ${item.image ? `<img src="${item.image}" alt="${item.name}" style="width: 100%; height: 100%; object-fit: cover;">` : '🍞'}
-                        </div>
+                        <div class="cart-item-image">${item.image ? `<img src="${item.image}" alt="${item.name}" style="width:100%;height:100%;object-fit:cover;">` : '🍞'}</div>
                         <div class="cart-item-details">
                             <div class="cart-item-name">${item.name}</div>
-                            <div class="cart-item-price">
-                                ${item.is_discounted ? 
-                                    `<span class="text-red-600 font-bold">Rp ${item.price.toLocaleString('id-ID')}</span> <span class="text-xs text-gray-400 line-through">Rp ${item.original_price.toLocaleString('id-ID')}</span>` 
-                                    : `Rp ${item.price.toLocaleString('id-ID')}`
-                                }
-                            </div>
+                            <div class="cart-item-price">Rp ${item.price.toLocaleString('id-ID')}</div>
                             <div class="quantity-controls">
                                 <button class="quantity-btn" onclick="updateQuantity(${item.id}, -1)">-</button>
                                 <span style="padding: 0 1rem;">${item.quantity}</span>
@@ -4237,389 +3863,299 @@
                                 <button class="remove-item" onclick="removeItem(${item.id})">Hapus</button>
                             </div>
                         </div>
-                    </div>
-                `}).join('');
-                
+                    </div>`).join('');
                 updateTotals();
                 cartSummary.style.display = 'block';
             }
         }
 
-
-
-
-
-        // Update Totals (Subtotal only)
         function updateTotals() {
             const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-            
             document.getElementById('subtotal').textContent = `Rp ${subtotal.toLocaleString('id-ID')}`;
-            
-            // Note: shippingCost and discountRow elements might still be in the DOM
-            // but we won't show them or we'll show them as 0/hidden.
-            const shippingCostEl = document.getElementById('shippingCost');
-            if (shippingCostEl) shippingCostEl.textContent = 'Rp 0';
-            
-            const discountRow = document.getElementById('discountRow');
-            if(discountRow) discountRow.style.display = 'none';
-
             document.getElementById('total').textContent = `Rp ${subtotal.toLocaleString('id-ID')}`;
         }
 
-        // Update Quantity
         function updateQuantity(productId, change) {
             const item = cart.find(item => item.id === productId);
             if (item) {
                 item.quantity += change;
-                if (item.quantity <= 0) {
-                    removeItem(productId);
-                } else {
-                    updateCart();
-                }
+                if (item.quantity <= 0) removeItem(productId);
+                else updateCart();
             }
         }
 
-        // Remove Item
         function removeItem(productId) {
             cart = cart.filter(item => item.id !== productId);
             updateCart();
         }
 
-        // Toggle Cart
         function toggleCart() {
-            const cartModal = document.getElementById('cartModal');
-            const cartOverlay = document.getElementById('cartOverlay');
-            cartModal.classList.toggle('active');
-            cartOverlay.classList.toggle('active');
+            document.getElementById('cartModal').classList.toggle('active');
+            document.getElementById('cartOverlay').classList.toggle('active');
         }
 
-
-        // === HERO SLIDER LOGIC ===
         let slideIndex = 0;
         const slides = document.querySelectorAll('.slide');
         const dots = document.querySelectorAll('.dot');
-        
-        // Init slider
-        function initSlider() {
-            if(slides.length > 0) {
-                showSlide(slideIndex);
-                // Auto-play removed as per user request
-            }
-        }
 
         function showSlide(n) {
-            // Loop functionality
             if (n >= slides.length) slideIndex = 0;
             if (n < 0) slideIndex = slides.length - 1;
-
-            // Remove active classes
-            slides.forEach(slide => slide.classList.remove('active'));
-            dots.forEach(dot => dot.classList.remove('active'));
-
-            // Add active class to current
+            slides.forEach(s => s.classList.remove('active'));
+            dots.forEach(d => d.classList.remove('active'));
             slides[slideIndex].classList.add('active');
             dots[slideIndex].classList.add('active');
         }
 
-        function moveSlide(n) {
-            slideIndex += n;
-            showSlide(slideIndex);
-        }
+        function moveSlide(n) { slideIndex += n; showSlide(slideIndex); }
+        function currentSlide(n) { slideIndex = n; showSlide(slideIndex); }
+        window.addEventListener('load', () => showSlide(0));
 
-        function currentSlide(n) {
-            slideIndex = n;
-            showSlide(slideIndex);
-        }
-
-        // Start Slider on Load (Manual Only)
-        window.addEventListener('load', initSlider);
-
-        // Show Section
         function showSection(sectionId) {
-            document.querySelectorAll('.section').forEach(section => {
-                section.classList.remove('active');
-            });
+            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
             document.getElementById(sectionId).classList.add('active');
-            
-            document.querySelectorAll('.nav-links a').forEach(link => {
-                link.classList.remove('active');
-            });
-            
-            // Highlight the corresponding nav link
+            document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
             const navLink = document.querySelector(`.nav-links a[onclick*="${sectionId}"]`);
-            if (navLink) {
-                navLink.classList.add('active');
-            }
-            
-            // Hide promo banner on checkout and profile sections
+            if (navLink) navLink.classList.add('active');
             const promoBanner = document.getElementById('promoBanner');
-            if (promoBanner) {
-                if (sectionId === 'checkout' || sectionId === 'profile') {
-                    promoBanner.style.display = 'none';
-                } else {
-                    promoBanner.style.display = 'block';
-                }
-            }
-            
+            if (promoBanner) promoBanner.style.display = (sectionId === 'checkout' || sectionId === 'profile') ? 'none' : 'block';
             window.scrollTo({ top: 0, behavior: 'smooth' });
-
-            // Close mobile menu if open
             const navMenu = document.getElementById('navMenu');
-            // Safety check in case navMenu is missing (though unlikely)
-            if (navMenu && navMenu.classList.contains('open')) {
-                navMenu.classList.remove('open');
-            }
+            if (navMenu) navMenu.classList.remove('open');
         }
 
-        // Go to Checkout
         function goToCheckout() {
-            if (cart.length === 0) {
-                alert('Keranjang Anda masih kosong!');
+            if (cart.length === 0) { 
+                alert('Keranjang Anda masih kosong!'); 
+                return; 
+            }
+            
+            // SECURITY: Check max items per order (10 items)
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            if (totalItems > 10) {
+                showNotification('⚠️ Maksimal 10 item per pesanan. Silakan kurangi jumlah item di keranjang.');
                 return;
             }
-            toggleCart();
-            showSection('checkout');
             
-            // Auto-fill nomor WhatsApp jika sudah pernah tersimpan
-            const savedPhone = localStorage.getItem('customerPhone');
-            if (savedPhone && savedPhone.trim()) {
-                const phoneInput = document.querySelector('input[name="customer_phone"]');
-                if (phoneInput && !phoneInput.value) {
-                    phoneInput.value = savedPhone;
-                    console.log('[Checkout] Auto-filled phone number:', savedPhone);
+            // SECURITY: Check checkout cooldown (rate limiting)
+            const lastCheckoutTime = localStorage.getItem('lastCheckoutTime');
+            const now = Date.now();
+            const cooldownSeconds = 10; // 10 seconds cooldown
+            
+            if (lastCheckoutTime) {
+                const timeSinceLastCheckout = (now - parseInt(lastCheckoutTime)) / 1000;
+                if (timeSinceLastCheckout < cooldownSeconds) {
+                    const remainingTime = Math.ceil(cooldownSeconds - timeSinceLastCheckout);
+                    showNotification(`⏳ Mohon tunggu ${remainingTime} detik sebelum melakukan pesanan lagi.`);
+                    return;
                 }
             }
+            
+            // Set pending action to go to checkout
+            window.pendingCartAction = 'go_to_checkout';
+            toggleCart();
+            
+            // Show CAPTCHA modal for verification
+            showCaptchaModal();
         }
 
-        // Select Payment Style
-        function selectPayment(method) {
-            document.querySelectorAll('.payment-options .payment-option').forEach(opt => {
-                opt.style.borderColor = '#ddd';
-                opt.style.backgroundColor = 'white';
-            });
-            event.currentTarget.parentElement.style.borderColor = 'var(--primary)';
-            event.currentTarget.parentElement.style.backgroundColor = '#fffcf5';
-        }
-
-        // Toggle Address Fields based on Shipping Method
         function toggleAddressFields(method) {
             const addressSection = document.getElementById('addressSection');
             const pickupSection = document.getElementById('pickupSection');
             const deliveryLabel = document.getElementById('shipping-delivery');
             const pickupLabel = document.getElementById('shipping-pickup');
             const shippingInfoBox = document.getElementById('shippingInfoBox');
-            const qrisPaymentOption = document.getElementById('qrisPaymentOption');
-            
-            // Toggle UI active states
             if (method === 'delivery') {
-                deliveryLabel.classList.add('active');
                 deliveryLabel.style.borderColor = 'var(--primary)';
                 deliveryLabel.style.backgroundColor = '#fffcf5';
-                pickupLabel.classList.remove('active');
                 pickupLabel.style.borderColor = '#ddd';
                 pickupLabel.style.backgroundColor = 'white';
-                
                 addressSection.style.display = 'block';
                 pickupSection.style.display = 'none';
-                if(shippingInfoBox) shippingInfoBox.style.display = 'block';
-                
-                // Hide QRIS for delivery
-                qrisPaymentOption.style.display = 'none';
-                document.querySelector('input[name="payment_method"][value="COD"]').checked = true;
-                
-                // Set required
-                addressSection.querySelectorAll('input').forEach(input => {
-                    if (input.name !== 'house_details') {
-                        input.required = true;
-                    }
-                });
+                if (shippingInfoBox) shippingInfoBox.style.display = 'block';
+                addressSection.querySelectorAll('input').forEach(input => { if (input.name !== 'house_details') input.required = true; });
             } else {
-                pickupLabel.classList.add('active');
                 pickupLabel.style.borderColor = 'var(--primary)';
                 pickupLabel.style.backgroundColor = '#fffcf5';
-                deliveryLabel.classList.remove('active');
                 deliveryLabel.style.borderColor = '#ddd';
                 deliveryLabel.style.backgroundColor = 'white';
-                
                 addressSection.style.display = 'none';
                 pickupSection.style.display = 'block';
-                if(shippingInfoBox) shippingInfoBox.style.display = 'none';
-                
-                // Show QRIS for pickup
-                qrisPaymentOption.style.display = 'flex';
-                
-                // Remove required
-                addressSection.querySelectorAll('input').forEach(input => {
-                    input.required = false;
-                });
+                if (shippingInfoBox) shippingInfoBox.style.display = 'none';
+                addressSection.querySelectorAll('input').forEach(input => { input.required = false; });
             }
         }
 
-        // Handle Checkout Submit
         function handleCheckoutSubmit(event) {
             event.preventDefault();
             
-            // Validasi stok sebelum checkout
+            // SECURITY: Frontend validation
+            const formData = new FormData(event.target);
+            const customerName = formData.get('customer_name');
+            const customerPhone = formData.get('customer_phone');
+            
+            // 1. Validate name (required, min 3 chars)
+            if (!customerName || customerName.trim().length < 3) {
+                showNotification('⚠️ Nama harus diisi minimal 3 karakter.');
+                return;
+            }
+            
+            // 2. Validate phone (only digits, min 10 chars)
+            const phoneDigits = customerPhone.replace(/[^0-9]/g, '');
+            if (phoneDigits.length < 10) {
+                showNotification('⚠️ Nomor telepon harus minimal 10 digit.');
+                return;
+            }
+            
+            // 3. Check max items per order
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            if (totalItems > 10) {
+                showNotification('⚠️ Maksimal 10 item per pesanan.');
+                return;
+            }
+            
+            // 4. Check stock availability
             for (let item of cart) {
                 const product = products.find(p => p.id === item.id);
                 if (product && product.stock < item.quantity) {
-                    alert(`Stok ${product.name} tidak cukup! Stok tersedia: ${product.stock}, Anda memesan: ${item.quantity}`);
+                    alert(`Stok ${product.name} tidak cukup!`);
                     return;
                 }
             }
             
-            const formData = new FormData(event.target);
+            // 5. Check checkout cooldown (rate limiting)
+            const lastCheckoutTime = localStorage.getItem('lastCheckoutTime');
+            const now = Date.now();
+            const cooldownSeconds = 10;
+            
+            if (lastCheckoutTime) {
+                const timeSinceLastCheckout = (now - parseInt(lastCheckoutTime)) / 1000;
+                if (timeSinceLastCheckout < cooldownSeconds) {
+                    const remainingTime = Math.ceil(cooldownSeconds - timeSinceLastCheckout);
+                    showNotification(`⏳ Mohon tunggu ${remainingTime} detik sebelum melakukan pesanan lagi.`);
+                    return;
+                }
+            }
+            
+            // Set checkout timestamp for rate limiting
+            localStorage.setItem('lastCheckoutTime', now.toString());
+            
             processCheckout(formData);
         }
 
-        // Show/Hide QRIS
-        // Process Checkout (Backend Call)
         function processCheckout(formData) {
-            // Get CSRF token
             const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-            
-            // Prepare order items as a string because we're using FormData for file upload
-            const items = cart.map(item => ({
-                product_id: item.id,
-                product_name: item.name,
-                price: item.price,
-                quantity: item.quantity,
-            }));
+            formData.append('_token', csrfToken);
+            const items = cart.map(item => ({ product_id: item.id, product_name: item.name, price: item.price, quantity: item.quantity }));
             formData.append('items_json', JSON.stringify(items));
             
-            // Send to backend
+            // Show loading state
+            const submitBtn = document.querySelector('#checkoutForm button[type="submit"]');
+            const originalBtnText = submitBtn ? submitBtn.textContent : '';
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.textContent = '⏳ Memproses...';
+            }
+            
             fetch('/checkout', {
                 method: 'POST',
-                headers: {
-                    'X-CSRF-TOKEN': csrfToken,
-                    'Accept': 'application/json'
-                },
+                headers: { 'X-CSRF-TOKEN': csrfToken, 'Accept': 'application/json' },
                 body: formData
             })
             .then(async response => {
                 const isJson = response.headers.get('content-type')?.includes('application/json');
                 const data = isJson ? await response.json() : null;
-
                 if (!response.ok) {
-                    // Jika ada error validasi atau server error
-                    const errorMsg = data?.message || `Error ${response.status}: Terjadi kesalahan server`;
-                    throw new Error(errorMsg);
+                    // Check if user is blocked
+                    if (response.status === 403 || (data && data.blocked)) {
+                        throw new Error('BLOCKED');
+                    }
+                    throw new Error(data?.message || `Error ${response.status}`);
                 }
-
                 return data;
             })
             .then(data => {
                 if (data && data.success) {
-                    // Update order info di success message
                     document.getElementById('orderNumber').textContent = data.order_number || '-';
-                    
-                    // Custom message for Payment Status
-                    const statusElem = document.getElementById('orderStatus');
-                    if (formData.get('payment_method') === 'QRIS') {
-                         statusElem.innerHTML = 'Menunggu Konfirmasi Pembayaran (QRIS)';
-                         statusElem.style.color = '#FFA500';
-                    } else {
-                         statusElem.innerHTML = 'Menunggu Konfirmasi Admin (COD)';
-                         statusElem.style.color = 'var(--primary)';
-                    }
-
-                    // Save phone for chat session
                     const phone = normalizePhone(formData.get('customer_phone'));
-                    console.log('[Checkout] Saving phone to localStorage:', phone);
-                    
-                    if (phone) {
-                        localStorage.setItem('customerPhone', phone);
-                        currentPhone = phone;
-                        console.log('[Checkout] Phone saved successfully');
-                    }
-
-                    document.getElementById('successMessage').classList.add('active');
-                    document.getElementById('cartOverlay').classList.add('active');
+                    if (phone) { localStorage.setItem('customerPhone', phone); currentPhone = phone; }
                     cart = [];
                     updateCart();
                     document.getElementById('checkoutForm').reset();
+                    // Redirect to payment page instead of opening modal
+                    window.location.href = '/payment/' + data.order_id;
                 } else {
                     alert('Gagal memproses pesanan: ' + (data?.message || 'Unknown error'));
+                    if (submitBtn) {
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = originalBtnText;
+                    }
                 }
             })
-            .catch(error => {
-                console.error('Checkout Error:', error);
-                alert('Checkout Gagal: ' + error.message);
+            .catch(error => { 
+                console.error(error); 
+                
+                // Handle blocked user
+                if (error.message === 'BLOCKED') {
+                    showBlockedMessage();
+                } else {
+                    alert('Checkout Gagal: ' + error.message);
+                }
+                
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = originalBtnText;
+                }
             });
         }
+        
+        function showBlockedMessage() {
+            const message = `
+                <div style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); 
+                     background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.3); 
+                     z-index: 100000; max-width: 500px; text-align: center;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">⚠️</div>
+                    <h2 style="color: #d32f2f; margin-bottom: 1rem; font-family: 'Playfair Display', serif;">Akses Dibatasi Sementara</h2>
+                    <p style="color: #666; margin-bottom: 1.5rem; line-height: 1.6;">
+                        Silakan hubungi admin untuk konfirmasi pesanan Anda.
+                    </p>
+                    <button onclick="this.parentElement.remove()" 
+                            style="background: var(--primary); color: white; border: none; padding: 0.75rem 2rem; 
+                                   border-radius: 8px; cursor: pointer; font-weight: 600;">
+                        Tutup
+                    </button>
+                </div>
+                <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+                     background: rgba(0,0,0,0.5); z-index: 99999;" 
+                     onclick="this.nextElementSibling.remove(); this.remove();"></div>
+            `;
+            document.body.insertAdjacentHTML('beforeend', message);
+        }
 
-        // Close Success Message
         function closeSuccess() {
             document.getElementById('successMessage').classList.remove('active');
             document.getElementById('cartOverlay').classList.remove('active');
             showSection('home');
         }
 
-        // Open Chat with Admin
-        function openChatWithAdmin() {
-            closeSuccess();
-            // Scroll to chat section
-            const chatSection = document.querySelector('[data-section="pesan"]');
-            if (chatSection) {
-                chatSection.scrollIntoView({ behavior: 'smooth' });
-            } else {
-                // Fallback: scroll to top and show pesan section
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-                showSection('pesan');
-            }
-        }
-
-        // Show Notification
         function showNotification(message) {
-            const notification = document.createElement('div');
-            notification.style.cssText = `
-                position: fixed;
-                top: 100px;
-                right: 20px;
-                background: var(--primary);
-                color: white;
-                padding: 1rem 1.5rem;
-                border-radius: 10px;
-                box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-                z-index: 3000;
-                animation: slideInRight 0.4s ease;
-            `;
-            notification.textContent = message;
-            document.body.appendChild(notification);
-            
-            setTimeout(() => {
-                notification.style.animation = 'slideOutRight 0.4s ease';
-                setTimeout(() => notification.remove(), 400);
-            }, 2000);
+            const n = document.createElement('div');
+            n.style.cssText = 'position:fixed;top:100px;right:20px;background:var(--primary);color:white;padding:1rem 1.5rem;border-radius:10px;box-shadow:0 4px 15px rgba(0,0,0,0.3);z-index:50000;animation:slideInRight 0.4s ease;font-family:Outfit,sans-serif;';
+            n.textContent = message;
+            document.body.appendChild(n);
+            setTimeout(() => { n.style.animation = 'slideOutRight 0.4s ease'; setTimeout(() => n.remove(), 400); }, 2000);
         }
 
-        // Message Modal Functions
         function openMessageModal() {
-            console.log('[Chat] Opening message modal');
-            const messageModal = document.getElementById('messageModal');
-            messageModal.classList.add('active');
-            
-            // Auto-login Check
+            document.getElementById('messageModal').classList.add('active');
+            document.getElementById('messageOverlay').classList.add('active');
             const savedPhone = localStorage.getItem('customerPhone');
-            if (savedPhone && savedPhone.trim()) {
-                console.log('[Chat] Auto-login with:', savedPhone);
-                currentPhone = savedPhone;
-                loadChatThread(savedPhone);
-                // Pastikan polling dimulai
-                setTimeout(() => {
-                    if (currentPhone && !messagePollingInterval) {
-                        console.log('[Chat] Force starting polling after modal open');
-                        startMessagePolling();
-                    }
-                }, 1000);
-            } else {
-                console.log('[Chat] No saved phone - showing login form');
-                resetMessageModal();
-            }
+            if (savedPhone) { currentPhone = savedPhone; loadChatThread(savedPhone); }
+            else resetMessageModal();
         }
 
         function logoutChat() {
-            if(confirm('Apakah Anda yakin ingin mengganti nomor?')) {
+            if (confirm('Apakah Anda yakin ingin mengganti nomor?')) {
                 localStorage.removeItem('customerPhone');
                 currentPhone = null;
                 stopMessagePolling();
@@ -4628,477 +4164,209 @@
         }
 
         function closeMessageModal() {
-            console.log('[Chat] Closing message modal');
-            const messageModal = document.getElementById('messageModal');
-            messageModal.classList.remove('active');
-            // Jangan stop polling, biarkan tetap berjalan untuk badge notification
-            // stopMessagePolling();
+            document.getElementById('messageModal').classList.remove('active');
+            document.getElementById('messageOverlay').classList.remove('active');
         }
 
         function resetMessageModal() {
-            console.log('[Chat] Resetting modal to phone search view');
             document.getElementById('messageLoginSection').style.display = 'block';
             document.getElementById('chatThreadSection').style.display = 'none';
             document.getElementById('firstMessageSection').style.display = 'none';
             document.getElementById('searchPhone').value = '';
-            document.getElementById('senderPhone').value = '';
-            document.getElementById('senderName').value = '';
-            document.getElementById('senderMessage').value = '';
         }
 
         async function loadChatThread(manualPhone = null) {
             if (isFetchingChat) return;
             let phone = manualPhone || document.getElementById('searchPhone').value;
-            
             const loading = document.getElementById('chatLoading');
-            const searchBtn = document.getElementById('btnSearchChat') || document.querySelector('#messageLoginSection button');
+            const searchBtn = document.getElementById('btnSearchChat');
             const infoBox = document.getElementById('chatSearchInfo');
-            
-            if (!phone || phone.trim() === "") {
-                const savedPhone = localStorage.getItem('customerPhone');
-                if (savedPhone) phone = savedPhone;
-                else return;
-            }
-
+            if (!phone || !phone.trim()) { const s = localStorage.getItem('customerPhone'); if (s) phone = s; else return; }
             phone = normalizePhone(phone);
             isFetchingChat = true;
-            if(loading) loading.style.display = 'block';
-            if(searchBtn) {
-                searchBtn.disabled = true;
-                if(!searchBtn.originalText) searchBtn.originalText = searchBtn.textContent;
-                searchBtn.textContent = '...';
-            }
-            if(infoBox) infoBox.style.display = 'none';
-            
+            if (loading) loading.style.display = 'block';
+            if (searchBtn) { searchBtn.disabled = true; searchBtn.originalText = searchBtn.textContent; searchBtn.textContent = '...'; }
+            if (infoBox) infoBox.style.display = 'none';
             try {
-                console.log('[Chat] Fetching status for:', phone);
                 const response = await fetch(`/order-status/${encodeURIComponent(phone)}`);
-                
                 if (response.status === 404) {
-                    if(infoBox) {
-                        infoBox.textContent = "Nomor belum terdaftar. Silakan isi form di bawah untuk mulai chat.";
-                        infoBox.style.display = 'block';
-                    }
-                    setTimeout(() => {
-                        showFirstMessageForm(phone);
-                        if(loading) loading.style.display = 'none';
-                        if(searchBtn) {
-                            searchBtn.disabled = false;
-                            searchBtn.textContent = searchBtn.originalText || 'Cari';
-                        }
-                        isFetchingChat = false;
-                    }, 500);
+                    if (infoBox) { infoBox.textContent = "Nomor belum terdaftar. Silakan isi form di bawah."; infoBox.style.display = 'block'; }
+                    setTimeout(() => { showFirstMessageForm(phone); if (loading) loading.style.display = 'none'; if (searchBtn) { searchBtn.disabled = false; searchBtn.textContent = searchBtn.originalText || 'Cari'; } isFetchingChat = false; }, 500);
                     return;
                 }
-                
                 const rawText = await response.text();
                 let data;
-                try {
-                    data = JSON.parse(rawText);
-                } catch (e) {
-                    console.error('[Chat] JSON parse failed, trying to fix raw text...', e);
-                    // Try to find the last valid JSON ending
-                    const lastBrace = rawText.lastIndexOf('}');
-                    if (lastBrace !== -1) {
-                        try {
-                            data = JSON.parse(rawText.substring(0, lastBrace + 1));
-                            console.log('[Chat] Successfully recovered JSON by truncating junk at the end.');
-                        } catch (e2) {
-                            throw new Error('Truly invalid JSON');
-                        }
-                    } else {
-                        throw new Error('No JSON object found in response');
-                    }
+                try { data = JSON.parse(rawText); } catch (e) {
+                    const lb = rawText.lastIndexOf('}');
+                    if (lb !== -1) { try { data = JSON.parse(rawText.substring(0, lb + 1)); } catch (e2) { throw new Error('Invalid JSON'); } }
+                    else throw new Error('No JSON found');
                 }
-
                 if (data.success) {
                     currentPhone = phone;
                     localStorage.setItem('customerPhone', phone);
-                    const phoneDisplay = document.getElementById('currentChatPhone');
-                    if(phoneDisplay) phoneDisplay.textContent = phone;
-                    
+                    document.getElementById('currentChatPhone').textContent = phone;
                     document.getElementById('messageLoginSection').style.display = 'none';
                     document.getElementById('firstMessageSection').style.display = 'none';
-
-                    fetch('/messages/mark-read', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-                        },
-                        body: JSON.stringify({ phone: phone })
-                    }).catch(e => console.warn(e));
-
+                    fetch('/messages/mark-read', { method: 'POST', headers: { 'Content-Type': 'application/json', 'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content') }, body: JSON.stringify({ phone }) }).catch(e => console.warn(e));
                     displayStatusAndChat(data);
                     startMessagePolling();
-                } else {
-                    showFirstMessageForm(phone);
-                }
+                } else { showFirstMessageForm(phone); }
             } catch (error) {
-                console.error('[Chat] Error loading thread:', error);
-                if(infoBox) {
-                    infoBox.textContent = "Gagal memuat chat. Pastikan koneksi internet aktif.";
-                    infoBox.style.display = 'block';
-                    infoBox.style.background = '#f8d7da';
-                    infoBox.style.color = '#721c24';
-                }
+                console.error(error);
+                if (infoBox) { infoBox.textContent = "Gagal memuat chat. Pastikan koneksi internet aktif."; infoBox.style.display = 'block'; infoBox.style.background = '#f8d7da'; infoBox.style.color = '#721c24'; }
             } finally {
                 isFetchingChat = false;
                 if (loading) loading.style.display = 'none';
-                if (searchBtn) {
-                    searchBtn.disabled = false;
-                    searchBtn.textContent = searchBtn.originalText || 'Cari';
-                }
+                if (searchBtn) { searchBtn.disabled = false; searchBtn.textContent = searchBtn.originalText || 'Cari'; }
             }
         }
 
         function displayStatusAndChat(data) {
             document.getElementById('messageLoginSection').style.display = 'none';
             document.getElementById('firstMessageSection').style.display = 'none';
-            document.getElementById('chatThreadSection').style.display = 'flex';
-            
-            // Render Order History
             const orderSection = document.getElementById('orderHistorySection');
             const orderList = document.getElementById('orderHistoryList');
-            
             if (data.orders && data.orders.length > 0) {
                 orderSection.style.display = 'block';
                 orderList.innerHTML = data.orders.map(order => {
                     let actionButtons = '';
-                    
-                    // Logic untuk tombol Scan QR (QRIS Pickup)
-                    if (order.payment_method === 'QRIS' && order.shipping_method === 'pickup' && !order.payment_proof && order.status !== 'cancelled' && order.status !== 'completed' && order.payment_status !== 'paid') {
-                        actionButtons += `
-                            <button onclick="openUploadModal('${order.id}')" style="background: var(--primary); color: white; border: none; padding: 6px 14px; border-radius: 6px; cursor: pointer; font-size: 0.85rem; font-weight: 600; display: flex; align-items: center; gap: 4px;">
-                                📱 Scan QR Code
-                            </button>
-                        `;
+                    if (order.payment_method === 'QRIS' && order.payment_status !== 'paid' && order.status !== 'cancelled') {
                     }
-
                     return `
-                    <div style="padding: 1rem; border-bottom: 1px solid #eee; margin-bottom: 0.5rem; background: #fff; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
-                        <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 0.5rem;">
-                            <strong style="color: var(--primary); font-size: 1.1rem;">${order.order_number}</strong>
-                            <span class="status-badge status-${order.status}">${order.status_label || order.status}</span>
-                        </div>
-                        <div style="font-size: 0.95rem; color: #444; margin-bottom: 0.75rem; line-height: 1.4;">
-                            ${order.items.map(i => `<div style="display: flex; justify-content: space-between;"><span>${i.quantity}x ${i.product_name}</span> <span>Rp ${i.price}</span></div>`).join('')}
-                        </div>
-                        
-                        ${order.estimated_delivery_date ? `
-                        <div style="background: #e1f5fe; border: 1px solid #b3e5fc; padding: 0.75rem; border-radius: 8px; margin: 0.75rem 0; color: #01579b;">
-                            <div style="font-weight: bold; font-size: 0.85rem; margin-bottom: 0.25rem; display: flex; align-items: center; gap: 4px;">🚚 Estimasi Pengantaran:</div>
-                            <div style="font-size: 0.9rem;">
-                                📅 <strong>${order.estimated_delivery_date}</strong><br>
-                                ⏰ Jam <strong>${order.estimated_delivery_time} WIB</strong>
+                        <div style="padding:1rem;border-bottom:1px solid #eee;margin-bottom:0.5rem;background:#fff;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,0.05);">
+                            <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:0.5rem;">
+                                <strong style="color:var(--primary);">${order.order_number}</strong>
+                                <span class="status-badge status-${order.status}">${order.status_label || order.status}</span>
                             </div>
-                        </div>
-                         ` : ''}
+                            <div style="font-size:0.95rem;color:#444;margin-bottom:0.75rem;">
+                                ${order.items.map(i => `<div style="display:flex;justify-content:space-between;"><span>${i.quantity}x ${i.product_name}</span><span>Rp ${i.price}</span></div>`).join('')}
+                            </div>
+                            ${order.estimated_delivery_date ? `<div style="background:#e1f5fe;border:1px solid #b3e5fc;padding:0.75rem;border-radius:8px;margin:0.75rem 0;color:#01579b;"><strong>🚚 ${order.estimated_delivery_date} | ⏰ ${order.estimated_delivery_time} WIB</strong></div>` : ''}
+                            <div style="font-size:0.85rem;color:#666;display:flex;justify-content:space-between;align-items:center;margin-top:0.75rem;">
+                                <span>${order.created_at}</span>
+                                <div style="display:flex;gap:0.5rem;">
+                                    ${actionButtons}
+                                    ${(order.status === 'delivered' || order.status === 'completed') && !order.has_reviewed ? `<button onclick="openReviewModal('${order.id}')" style="background:var(--accent);color:white;border:none;padding:4px 12px;border-radius:6px;cursor:pointer;font-size:0.85rem;font-weight:600;">★ Beri Ulasan</button>` : ''}
+                                    ${order.has_reviewed ? '<span style="color:#4CAF50;font-size:0.85rem;font-weight:600;">✓ Diulas</span>' : ''}
+                                </div>
+                            </div>
+                        </div>`;
+                }).join('');
+            } else { orderSection.style.display = 'none'; }
 
-                        <div style="border-top: 1px dashed #ddd; margin: 0.5rem 0; padding-top: 0.5rem; font-size: 0.85rem; color: #666;">
-                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.25rem;">
-                                <span>Subtotal:</span>
-                                <span>Rp ${order.subtotal}</span>
-                            </div>
-                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.25rem; font-weight: 600; color: #d32f2f;">
-                                <span>Ongkos Kirim:</span>
-                                <span>
-                                    ${order.shipping_cost === '0' && order.status !== 'delivered' && order.status !== 'cancelled' ? 
-                                        '<i style="font-weight: 400; color: #080707ff; font-size: 0.8rem;">(Menunggu konfirmasi admin)</i>' : 
-                                        `+ Rp ${order.shipping_cost}`}
-                                </span>
-                            </div>
-                            <div style="display: flex; justify-content: space-between; font-size: 1rem; font-weight: bold; color: #000; margin-top: 0.25rem;">
-                                <span>Total Tagihan:</span>
-                                <span>Rp ${order.total_amount}</span>
-                            </div>
-                        </div>
-
-                        ${order.payment_method === 'QRIS' && order.shipping_method === 'pickup' && order.payment_status !== 'paid' && order.status !== 'cancelled' ? 
-                           `<div style="background: #fff3cd; color: #856404; padding: 0.5rem; border-radius: 4px; font-size: 0.85rem; margin-top: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
-                                <span>⚠️ Scan QR Code saat tiba di Dapoer Budess</span>
-                            </div>` : ''
-                        }
-
-                        <div style="font-size: 0.85rem; color: #888; display: flex; justify-content: space-between; align-items: center; margin-top: 0.75rem;">
-                            <span>${order.created_at}</span>
-                            <div style="display: flex; gap: 0.5rem;">
-                                ${actionButtons}
-                                ${(order.status === 'delivered' || order.status === 'completed') && !order.has_reviewed ? 
-                                    `<button onclick="openReviewModal('${order.id}')" style="background: var(--accent); color: white; border: none; padding: 4px 12px; border-radius: 6px; cursor: pointer; font-size: 0.85rem; font-weight: 600;">★ Beri Ulasan</button>` 
-                                    : ''}
-                                ${order.has_reviewed ? '<span style="color: #4CAF50; font-size: 0.85rem; font-weight: 600;">✓ Diulas</span>' : ''}
-                            </div>
-                        </div>
-                    </div>
-                `;}).join('');
-            } else {
-                orderSection.style.display = 'none';
-            }
-
-            // Render Messages
             const chatMessages = document.getElementById('chatMessages');
             chatMessages.innerHTML = '';
-            
-            // Handle both notifications (new API) and messages (old API fallback)
+            document.getElementById('chatThreadSection').style.display = 'flex';
             const msgs = data.notifications || data.messages || [];
-
             msgs.forEach(msg => {
                 const messageDiv = document.createElement('div');
-                messageDiv.style.display = 'flex';
-                // Adjust for data structure difference: msg.sender (new) vs msg.sender_type (old)
                 const sender = msg.sender || msg.sender_type;
-                messageDiv.style.justifyContent = sender === 'user' ? 'flex-end' : 'flex-start';
-                
+                messageDiv.style.cssText = `display:flex;justify-content:${sender === 'user' ? 'flex-end' : 'flex-start'};`;
                 const bubble = document.createElement('div');
-                bubble.style.maxWidth = '70%';
-                bubble.style.padding = '0.75rem 1rem';
-                bubble.style.borderRadius = '8px';
-                bubble.style.wordWrap = 'break-word';
-                
-                if (sender === 'user') {
-                    bubble.style.background = '#e3f2fd';
-                    bubble.style.color = '#1565c0';
-                } else {
-                    bubble.style.background = '#f3e5f5';
-                    bubble.style.color = '#6a1b9a';
-                }
-
-                const timeStr = msg.created_at_formatted || msg.created_at; // Support both
-                const messageText = msg.message;
-                
-                let statusHtml = '';
-                if (sender === 'user') {
-                    // Checkmark Logic
-                    // Single tick (gray) = Sent
-                    // Double tick (bright blue) = Read
-                    if (msg.is_read) {
-                         // Double check
-                         statusHtml = `<span style="margin-left: 6px; font-size: 0.85rem; color: #00bcd4; font-weight: bold; letter-spacing: -3px;">✓✓</span>`;
-                    } else {
-                         // Single check
-                         statusHtml = `<span style="margin-left: 6px; font-size: 0.85rem; color: #999;">✓</span>`;
-                    }
-                }
-
-                bubble.innerHTML = `
-                    <div>${messageText}</div>
-                    <div style="font-size: 0.75rem; opacity: 0.7; margin-top: 0.25rem; display: flex; justify-content: space-between; align-items: center;">
-                        <span>${timeStr}</span>
-                        ${statusHtml}
-                    </div>
-                `;
-                
+                bubble.style.cssText = `max-width:70%;padding:0.75rem 1rem;border-radius:8px;word-wrap:break-word;background:${sender === 'user' ? '#e3f2fd' : '#f3e5f5'};color:${sender === 'user' ? '#1565c0' : '#6a1b9a'};`;
+                const timeStr = msg.created_at_formatted || msg.created_at;
+                const statusHtml = sender === 'user' ? (msg.is_read ? `<span style="margin-left:6px;font-size:0.85rem;color:#00bcd4;font-weight:bold;letter-spacing:-3px;">✓✓</span>` : `<span style="margin-left:6px;font-size:0.85rem;color:#999;">✓</span>`) : '';
+                bubble.innerHTML = `<div>${msg.message}</div><div style="font-size:0.75rem;opacity:0.7;margin-top:0.25rem;display:flex;justify-content:space-between;align-items:center;"><span>${timeStr}</span>${statusHtml}</div>`;
                 messageDiv.appendChild(bubble);
                 chatMessages.appendChild(messageDiv);
             });
-
-            // Scroll to bottom
-            setTimeout(() => {
-                chatMessages.scrollTop = chatMessages.scrollHeight;
-            }, 100);
-            
-            // Inisialisasi counter pesan untuk tracking pesan baru
-            if (lastMessageCount === 0) {
-                lastMessageCount = msgs.length;
-            }
+            setTimeout(() => { chatMessages.scrollTop = chatMessages.scrollHeight; }, 100);
+            if (lastMessageCount === 0) lastMessageCount = msgs.length;
         }
 
         function showFirstMessageForm(phone = '') {
             document.getElementById('messageLoginSection').style.display = 'none';
             document.getElementById('chatThreadSection').style.display = 'none';
             document.getElementById('firstMessageSection').style.display = 'block';
-            if (phone) {
-                document.getElementById('senderPhone').value = phone;
-            }
-        }
-
-        function showLoginSection() {
-            document.getElementById('messageLoginSection').style.display = 'block';
-            document.getElementById('chatThreadSection').style.display = 'none';
-            document.getElementById('firstMessageSection').style.display = 'none';
+            if (phone) document.getElementById('senderPhone').value = phone;
         }
 
         function sendMessage(event) {
             event.preventDefault();
-            
             const phone = normalizePhone(document.getElementById('senderPhone').value);
             const name = document.getElementById('senderName').value;
             const message = document.getElementById('senderMessage').value;
-            
-            // Get CSRF token
             const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-            
-            // Send to backend
             fetch('/messages', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRF-TOKEN': csrfToken
-                },
-                body: JSON.stringify({
-                    name: name,
-                    phone: phone,
-                    message: message
-                })
+                headers: { 'Content-Type': 'application/json', 'X-CSRF-TOKEN': csrfToken },
+                body: JSON.stringify({ name, phone, message })
             })
-            .then(response => response.json())
+            .then(r => r.json())
             .then(data => {
                 if (data.success) {
                     showNotification('Pesan berhasil dikirim!');
                     localStorage.setItem('customerPhone', phone);
                     currentPhone = phone;
                     document.getElementById('messageForm').reset();
-                    loadChatThread(phone); // Reload chat
-                } else {
-                    showNotification('Gagal mengirim pesan, coba lagi');
-                }
+                    loadChatThread(phone);
+                } else { showNotification('Gagal mengirim pesan, coba lagi'); }
             })
-            .catch(error => {
-                console.error('Error:', error);
-                showNotification('Terjadi kesalahan saat mengirim pesan');
-            });
+            .catch(error => { console.error(error); showNotification('Terjadi kesalahan saat mengirim pesan'); });
         }
 
         async function sendChatMessage(event) {
             event.preventDefault();
-
             const phone = normalizePhone(currentPhone || document.getElementById('searchPhone').value);
             const message = document.getElementById('chatInput').value.trim();
-
-            if (!phone || !message) {
-                alert('Pesan tidak boleh kosong');
-                return;
-            }
-
+            if (!phone || !message) { alert('Pesan tidak boleh kosong'); return; }
             try {
                 const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-
                 const response = await fetch('/messages', {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-CSRF-TOKEN': csrfToken
-                    },
-                    body: JSON.stringify({
-                        name: 'User', // Backend will use existing thread name
-                        phone: phone,
-                        message: message
-                    })
+                    headers: { 'Content-Type': 'application/json', 'X-CSRF-TOKEN': csrfToken },
+                    body: JSON.stringify({ name: 'User', phone, message })
                 });
-
                 const data = await response.json();
-
                 if (data.success) {
                     document.getElementById('chatInput').value = '';
-                    
-                    // Langsung refresh chat tanpa reload penuh
-                    console.log('[Chat] Message sent, refreshing chat...');
                     await checkNewMessages();
-                    
-                    // Auto scroll to bottom
-                    setTimeout(() => {
-                        const chatBox = document.getElementById('chatMessages');
-                        if (chatBox) {
-                            chatBox.scrollTop = chatBox.scrollHeight;
-                        }
-                    }, 200);
-                    
-                    // Pastikan polling tetap berjalan
-                    if (!messagePollingInterval) {
-                        console.log('[Chat] Restarting polling after send');
-                        startMessagePolling();
-                    }
-                } else {
-                    alert('Gagal mengirim pesan: ' + (data.message || 'Unknown error'));
-                }
-            } catch (error) {
-                console.error('[Chat] Error sending message:', error);
-                alert('Gagal mengirim pesan');
-            }
+                    setTimeout(() => { const cb = document.getElementById('chatMessages'); if (cb) cb.scrollTop = cb.scrollHeight; }, 200);
+                    if (!messagePollingInterval) startMessagePolling();
+                } else { alert('Gagal mengirim pesan: ' + (data.message || 'Unknown error')); }
+            } catch (error) { console.error(error); alert('Gagal mengirim pesan'); }
         }
 
-        // Review Functions
         function closeReviewModal() {
             document.getElementById('reviewModal').classList.remove('active');
             document.getElementById('reviewOverlay').classList.remove('active');
         }
 
-        function resetReviewForm() {
-            document.getElementById('reviewForm').reset();
-            document.getElementById('mediaPreview').innerHTML = '';
-            setRating(5);
-        }
-
-        // Star Rating Logic
         function initStarRating() {
-            const starRatingContainer = document.getElementById('starRating');
-            if (!starRatingContainer) return;
-            
-            const stars = starRatingContainer.querySelectorAll('.star');
-            
+            const container = document.getElementById('starRating');
+            if (!container) return;
+            const stars = container.querySelectorAll('.star');
             stars.forEach(star => {
                 star.addEventListener('click', function(e) {
                     e.preventDefault();
-                    const value = this.getAttribute('data-value');
-                    document.getElementById('ratingValue').value = value;
-                    highlightStars(value);
+                    document.getElementById('ratingValue').value = this.getAttribute('data-value');
+                    highlightStars(this.getAttribute('data-value'));
                 });
-                
-                star.addEventListener('mouseover', function() {
-                    const value = this.getAttribute('data-value');
-                    highlightStars(value);
-                });
+                star.addEventListener('mouseover', function() { highlightStars(this.getAttribute('data-value')); });
             });
-            
-            starRatingContainer.addEventListener('mouseleave', function() {
-                const value = document.getElementById('ratingValue').value;
-                highlightStars(value);
-            });
+            container.addEventListener('mouseleave', function() { highlightStars(document.getElementById('ratingValue').value); });
         }
-        
-        // Initialize on page load
-        document.addEventListener('DOMContentLoaded', initStarRating);
-        
-        // Re-initialize when modal opens
+
         function openReviewModal(orderId) {
             document.getElementById('reviewOrderId').value = orderId;
             document.getElementById('reviewModal').classList.add('active');
             document.getElementById('reviewOverlay').classList.add('active');
-            resetReviewForm();
+            document.getElementById('reviewForm').reset();
+            document.getElementById('mediaPreview').innerHTML = '';
             setTimeout(initStarRating, 100);
-        }
-
-        function setRating(value) {
-            document.getElementById('ratingValue').value = value;
-            highlightStars(value);
+            highlightStars(5);
         }
 
         function highlightStars(value) {
-            const stars = document.querySelectorAll('.star');
-            stars.forEach(star => {
-                const starValue = parseInt(star.getAttribute('data-value'));
-                if (starValue <= parseInt(value)) {
-                    star.classList.add('active');
-                } else {
-                    star.classList.remove('active');
-                }
+            document.querySelectorAll('.star').forEach(star => {
+                star.classList.toggle('active', parseInt(star.getAttribute('data-value')) <= parseInt(value));
             });
         }
 
-        // Media Preview
-        function previewMedia() {
-            const input = document.getElementById('mediaInput');
-            const preview = document.getElementById('mediaPreview');
-
-        }
-
-        // Payment Proof Upload Functions
         function openUploadModal(orderId) {
             document.getElementById('uploadOrderId').value = orderId;
             document.getElementById('uploadModal').classList.add('active');
             document.getElementById('uploadOverlay').classList.add('active');
-            // Reset form
             document.getElementById('uploadProofForm').reset();
             document.getElementById('proofPreviewPlaceholder').style.display = 'block';
             document.getElementById('proofPreviewImg').style.display = 'none';
@@ -5114,644 +4382,173 @@
             const input = document.getElementById('proofInput');
             const placeholder = document.getElementById('proofPreviewPlaceholder');
             const img = document.getElementById('proofPreviewImg');
-
             if (input.files && input.files[0]) {
                 const reader = new FileReader();
-                reader.onload = function(e) {
-                    img.src = e.target.result;
-                    img.style.display = 'block';
-                    placeholder.style.display = 'none';
-                }
+                reader.onload = e => { img.src = e.target.result; img.style.display = 'block'; placeholder.style.display = 'none'; };
                 reader.readAsDataURL(input.files[0]);
             }
         }
 
         async function submitPaymentProof(event) {
             event.preventDefault();
-            
             const form = event.target;
             const formData = new FormData(form);
             const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-
-            // Show loading state
             const btn = form.querySelector('button[type="submit"]');
             const originalText = btn.textContent;
             btn.textContent = 'Mengupload...';
             btn.disabled = true;
-
             try {
-                const response = await fetch('/api/upload-payment-proof', {
-                    method: 'POST',
-                    headers: {
-                        'X-CSRF-TOKEN': csrfToken
-                    },
-                    body: formData
-                });
-
+                const response = await fetch('/api/upload-payment-proof', { method: 'POST', headers: { 'X-CSRF-TOKEN': csrfToken }, body: formData });
                 const data = await response.json();
-
-                if (data.success) {
-                    showNotification(data.message);
-                    closeUploadModal();
-                    loadChatThread(); // Reload order history
-                } else {
-                    alert(data.message || 'Gagal mengupload bukti pembayaran');
-                }
-            } catch (error) {
-                console.error('Error:', error);
-                alert('Terjadi kesalahan saat mengupload bukti');
-            } finally {
-                btn.textContent = originalText;
-                btn.disabled = false;
-            }
+                if (data.success) { showNotification(data.message); closeUploadModal(); loadChatThread(); }
+                else { alert(data.message || 'Gagal mengupload bukti pembayaran'); }
+            } catch (error) { console.error(error); alert('Terjadi kesalahan saat mengupload bukti'); }
+            finally { btn.textContent = originalText; btn.disabled = false; }
         }
 
-        // Media Preview
         function previewMedia() {
             const input = document.getElementById('mediaInput');
             const preview = document.getElementById('mediaPreview');
             preview.innerHTML = '';
-
             if (input.files) {
                 Array.from(input.files).forEach(file => {
                     const reader = new FileReader();
-                    reader.onload = function(e) {
+                    reader.onload = e => {
                         const img = document.createElement('img');
                         img.src = e.target.result;
-                        img.classList.add('preview-item');
+                        img.style.cssText = 'width:60px;height:60px;object-fit:cover;border-radius:6px;';
                         preview.appendChild(img);
-                    }
+                    };
                     reader.readAsDataURL(file);
                 });
             }
         }
 
-        // Submit Review
         async function submitReview(event) {
             event.preventDefault();
-            
-            const form = event.target;
-            const formData = new FormData(form);
+            const formData = new FormData(event.target);
             const phone = localStorage.getItem('customerPhone');
-            
-            if (!phone) {
-                alert('Sesi kadaluarsa, silakan cek status pesanan lagi.');
-                return;
-            }
-            
+            if (!phone) { alert('Sesi kadaluarsa, silakan cek status pesanan lagi.'); return; }
             formData.append('phone', phone);
-
             try {
-                const response = await fetch('/reviews', {
-                    method: 'POST',
-                    headers: {
-                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-                    },
-                    body: formData
-                });
-
+                const response = await fetch('/reviews', { method: 'POST', headers: { 'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content') }, body: formData });
                 const data = await response.json();
-
-                if (data.success) {
-                    showNotification(data.message);
-                    closeReviewModal();
-                    // Reload page to show the new review (since we use Server Side Rendering)
-                    setTimeout(() => {
-                        window.location.reload();
-                    }, 1000);
-                } else {
-                    alert(data.message || 'Gagal mengirim ulasan.');
-                }
-            } catch (error) {
-                console.error('Error:', error);
-                alert('Terjadi kesalahan saat mengirim ulasan.');
-            }
+                if (data.success) { showNotification(data.message); closeReviewModal(); setTimeout(() => window.location.reload(), 1000); }
+                else { alert(data.message || 'Gagal mengirim ulasan.'); }
+            } catch (error) { console.error(error); alert('Terjadi kesalahan saat mengirim ulasan.'); }
         }
-        // Reviews are now loaded via Blade (Server Side)
-        // loadReviews function removed
-
-        // Initialize
-        document.addEventListener('DOMContentLoaded', () => {
-            renderProducts('productsGrid', false);
-            renderProducts('bestsellerGrid', true);
-            renderProducts('bestsellerHome', true);
-
-            // Start Polling for messages
-            const savedPhone = localStorage.getItem('customerPhone');
-            if (savedPhone) {
-                currentPhone = savedPhone;
-                startMessagePolling();
-            }
-        });
-
-        // Polling System
-        let messagePollingInterval;
-
-        let lastMessageCount = 0; // Track jumlah pesan terakhir
 
         function startMessagePolling() {
-            console.log('[Polling] Starting message polling for phone:', currentPhone);
-            if (messagePollingInterval) {
-                console.log('[Polling] Clearing existing interval');
-                clearInterval(messagePollingInterval);
-            }
-            checkNewMessages(); // Check immediately
-            messagePollingInterval = setInterval(() => {
-                console.log('[Polling] Checking for new messages...');
-                checkNewMessages();
-            }, 3000); // Check every 3 seconds
-            console.log('[Polling] Interval set, checking every 3 seconds');
+            if (messagePollingInterval) clearInterval(messagePollingInterval);
+            checkNewMessages();
+            messagePollingInterval = setInterval(checkNewMessages, 3000);
         }
 
         function stopMessagePolling() {
-            console.log('[Polling] Stopping message polling');
             if (messagePollingInterval) clearInterval(messagePollingInterval);
             lastMessageCount = 0;
         }
 
         async function checkNewMessages() {
-            if (!currentPhone) {
-                console.log('[Polling] No currentPhone, skipping check');
-                return;
-            }
-
-            console.log('[Polling] Checking messages for:', currentPhone);
-
+            if (!currentPhone) return;
             try {
-                // Check if Chat Modal is OPEN and Thread is Visible
                 const messageModal = document.getElementById('messageModal');
                 const chatThreadSection = document.getElementById('chatThreadSection');
-                const isChatOpen = messageModal && messageModal.classList.contains('active') && 
-                                   chatThreadSection && chatThreadSection.style.display !== 'none';
-
-                console.log('[Polling] Chat open status:', isChatOpen);
-
+                const isChatOpen = messageModal && messageModal.classList.contains('active') && chatThreadSection && chatThreadSection.style.display !== 'none';
                 if (isChatOpen) {
-                     console.log('[Polling] Fetching new messages...');
-                     // Check for new content
-                     const response = await fetch(`/order-status/${encodeURIComponent(currentPhone)}`);
-                     if (response.ok) {
-                         const raw = await response.text();
-                         try {
-                             const data = JSON.parse(raw);
-                             
-                             // Hitung jumlah pesan baru
-                             const msgs = data.notifications || data.messages || [];
-                             const currentMessageCount = msgs.length;
-                             const hasNewMessages = currentMessageCount > lastMessageCount && lastMessageCount > 0;
-                             
-                             console.log('[Polling] Message count - Previous:', lastMessageCount, 'Current:', currentMessageCount, 'Has new:', hasNewMessages);
-                             
-                             // Simpan scroll position sebelum update
-                             const chatContainer = document.getElementById('chatMessages');
-                             const wasAtBottom = chatContainer ? 
-                                 (chatContainer.scrollHeight - chatContainer.scrollTop <= chatContainer.clientHeight + 100) : true;
-                             
-                             displayStatusAndChat(data);
-                             
-                             // Update counter
-                             lastMessageCount = currentMessageCount;
-                             
-                             // Auto-scroll jika ada pesan baru atau user sudah di bawah
-                             if (chatContainer && (hasNewMessages || wasAtBottom)) {
-                                 setTimeout(() => {
-                                     chatContainer.scrollTop = chatContainer.scrollHeight;
-                                     console.log('[Polling] Auto-scrolled to bottom');
-                                 }, 100);
-                             }
-                             
-                             // Tampilkan notifikasi visual jika ada pesan baru
-                             if (hasNewMessages) {
-                                 console.log('[Polling] New message detected! Showing notification');
-                                 showNewMessageNotification();
-                             }
-                             
-                         } catch (e) {
-                             console.error('[Polling] JSON parse error:', e);
-                             const lastBrace = raw.lastIndexOf('}');
-                             if (lastBrace !== -1) {
-                                 try {
-                                     const data = JSON.parse(raw.substring(0, lastBrace + 1));
-                                     displayStatusAndChat(data);
-                                     const msgs = data.notifications || data.messages || [];
-                                     lastMessageCount = msgs.length;
-                                 } catch (e2) {
-                                     console.error('[Polling] Recovery failed:', e2);
-                                 }
-                             }
-                         }
-                     } else {
-                         console.error('[Polling] Response not OK:', response.status);
-                     }
-                     
-                     // Mark as read immediately
-                     await fetch('/messages/mark-read', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-                        },
-                        body: JSON.stringify({ phone: currentPhone })
-                     });
-                     
-                     document.getElementById('msgBadge').style.display = 'none';
-
+                    const response = await fetch(`/order-status/${encodeURIComponent(currentPhone)}`);
+                    if (response.ok) {
+                        const raw = await response.text();
+                        let data;
+                        try { data = JSON.parse(raw); } catch (e) {
+                            const lb = raw.lastIndexOf('}');
+                            if (lb !== -1) { try { data = JSON.parse(raw.substring(0, lb + 1)); } catch (e2) { return; } } else return;
+                        }
+                        const msgs = data.notifications || data.messages || [];
+                        const currentCount = msgs.length;
+                        const hasNew = currentCount > lastMessageCount && lastMessageCount > 0;
+                        const chatContainer = document.getElementById('chatMessages');
+                        const wasAtBottom = chatContainer ? (chatContainer.scrollHeight - chatContainer.scrollTop <= chatContainer.clientHeight + 100) : true;
+                        displayStatusAndChat(data);
+                        lastMessageCount = currentCount;
+                        if (chatContainer && (hasNew || wasAtBottom)) setTimeout(() => { chatContainer.scrollTop = chatContainer.scrollHeight; }, 100);
+                        if (hasNew) showNewMessageNotification();
+                    }
+                    await fetch('/messages/mark-read', { method: 'POST', headers: { 'Content-Type': 'application/json', 'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content') }, body: JSON.stringify({ phone: currentPhone }) });
+                    document.getElementById('msgBadge').style.display = 'none';
                 } else {
-                    console.log('[Polling] Chat closed, checking unread badge');
-                    // Chat is closed (or in login/form view), check for unread count for BADGE
                     const response = await fetch(`/messages/unread/${encodeURIComponent(currentPhone)}`);
                     const data = await response.json();
-                    
-                     const badge = document.getElementById('msgBadge');
-                     if (badge) {
-                         if (data.unread_count > 0) {
-                             badge.style.display = 'flex';
-                             badge.textContent = data.unread_count > 9 ? '9+' : data.unread_count;
-                             console.log('[Polling] Unread count:', data.unread_count);
-                         } else {
-                             badge.style.display = 'none';
-                         }
-                     }
+                    const badge = document.getElementById('msgBadge');
+                    if (badge) { if (data.unread_count > 0) { badge.style.display = 'flex'; badge.textContent = data.unread_count > 9 ? '9+' : data.unread_count; } else { badge.style.display = 'none'; } }
                 }
-            } catch (error) {
-                console.error('[Polling] Error:', error);
-            }
+            } catch (error) { console.error('[Polling] Error:', error); }
         }
 
-        // Notifikasi visual untuk pesan baru
         function showNewMessageNotification() {
-            // Buat elemen notifikasi
-            const notification = document.createElement('div');
-            notification.style.cssText = `
-                position: fixed;
-                top: 100px;
-                right: 20px;
-                background: linear-gradient(135deg, #4CAF50, #45a049);
-                color: white;
-                padding: 1rem 1.5rem;
-                border-radius: 12px;
-                box-shadow: 0 8px 25px rgba(76, 175, 80, 0.4);
-                z-index: 10001;
-                font-family: 'Outfit', sans-serif;
-                font-weight: 600;
-                display: flex;
-                align-items: center;
-                gap: 0.5rem;
-                animation: slideInRight 0.3s ease-out;
-            `;
-            notification.innerHTML = '💬 Pesan baru diterima!';
-            
-            document.body.appendChild(notification);
-            
-            // Hapus setelah 3 detik
-            setTimeout(() => {
-                notification.style.animation = 'slideOutRight 0.3s ease-out';
-                setTimeout(() => notification.remove(), 300);
-            }, 3000);
+            const n = document.createElement('div');
+            n.style.cssText = 'position:fixed;top:100px;right:20px;background:linear-gradient(135deg,#4CAF50,#45a049);color:white;padding:1rem 1.5rem;border-radius:12px;box-shadow:0 8px 25px rgba(76,175,80,0.4);z-index:50000;font-family:Outfit,sans-serif;font-weight:600;display:flex;align-items:center;gap:0.5rem;animation:slideInRight 0.3s ease-out;';
+            n.innerHTML = '💬 Pesan baru diterima!';
+            document.body.appendChild(n);
+            setTimeout(() => { n.style.animation = 'slideOutRight 0.3s ease-out'; setTimeout(() => n.remove(), 300); }, 3000);
         }
 
-        // Tambahkan CSS animation untuk notifikasi dan pulse
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes slideInRight {
-                from {
-                    transform: translateX(400px);
-                    opacity: 0;
-                }
-                to {
-                    transform: translateX(0);
-                    opacity: 1;
-                }
-            }
-            @keyframes slideOutRight {
-                from {
-                    transform: translateX(0);
-                    opacity: 1;
-                }
-                to {
-                    transform: translateX(400px);
-                    opacity: 0;
-                }
-            }
-            @keyframes pulse {
-                0%, 100% {
-                    opacity: 1;
-                    transform: scale(1);
-                }
-                50% {
-                    opacity: 0.5;
-                    transform: scale(0.8);
-                }
-            }
-        `;
-        document.head.appendChild(style);
-        
-        // Sticky Navbar with Scroll Effect
         window.addEventListener('scroll', function() {
             const header = document.querySelector('header');
-            const nav = document.querySelector('nav');
-            const scrollPosition = window.scrollY;
-            
-            if (scrollPosition > 50) {
-                if (header) header.classList.add('scrolled');
-                if (nav) nav.classList.add('scrolled');
-            } else {
-                if (header) header.classList.remove('scrolled');
-                if (nav) nav.classList.remove('scrolled');
-            }
+            if (header) header.classList.toggle('scrolled', window.scrollY > 50);
         });
-    </script>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({
-            duration: 1000,
-            once: true,
-            offset: 100
-        });
-    </script>
+        function onRecaptchaSuccess(token) {
+            window.recaptchaToken = token;
+            const btn = document.getElementById('verifyCaptchaBtn');
+            if (btn) { btn.disabled = false; btn.style.opacity = '1'; btn.style.cursor = 'pointer'; }
+        }
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <!-- Contact Info -->
-            <div class="footer-info">
-                <h3>📍 Dapoer Budess Bakery</h3>
-                <p style="margin-bottom: 1.5rem; color: rgba(255, 248, 220, 0.9);">Toko roti premium dengan bahan pilihan berkualitas tinggi dan harga terjangkau.</p>
-                
-                <div class="footer-contact">
-                    <div class="contact-item">
-                        <div class="contact-icon">📍</div>
-                        <div class="contact-details">
-                            <div class="contact-label">Lokasi</div>
-                            <div class="contact-value">Jl. Wates Dalam No.61, RT.02/RW.05, Pasirmulya, Kec. Bogor Bar., Kota Bogor, Jawa Barat 16118</div>
-                        </div>
-                    </div>
-
-                    <div class="contact-item">
-                        <div class="contact-icon">📞</div>
-                        <div class="contact-details">
-                            <div class="contact-label">Telepon</div>
-                            <div class="contact-value">+62 821-1997-9538</div>
-                        </div>
-                    </div>
-
-                    <div class="contact-item">
-                        <div class="contact-icon">✉️</div>
-                        <div class="contact-details">
-                            <div class="contact-label">Email</div>
-                            <div class="contact-value">destidwinursanti.d3@gmail.com</div>
-                        </div>
-                    </div>
-
-                    <div class="contact-item">
-                        <div class="contact-icon">⏰</div>
-                        <div class="contact-details">
-                            <div class="contact-label">Jam Operasional</div>
-                            <div class="contact-value">Senin - Minggu: 07:00 - 13:00 WIB<br>Libur pada hari raya nasional</div>
-                        </div>
-                    </div>
-
-                    <div class="contact-item">
-                        <div class="contact-details">
-                            <div class="contact-label">Instagram</div>
-                            <div class="contact-value">
-                                <a href="https://www.instagram.com/dapoer_budess?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" style="color: #FFD700; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 0.5rem;">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="color: #FFD700;">
-                                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1 1 12.324 0 6.162 6.162 0 0 1-12.324 0zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm4.965-10.322a1.44 1.44 0 1 1 2.881.001 1.44 1.44 0 0 1-2.881-.001z"/>
-                                    </svg>
-                                    @dapoer_budess
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Map -->
-            <div class="footer-map">
-               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d253666.18359730975!2d106.60825187562773!3d-6.58032243989468!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x611ecf1a7e8f91ab%3A0x3354703eaba33357!2sRoti%20Panggang%20Dapoer%20Budess!5e0!3m2!1sen!2sus!4v1770439312098!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-        </div>
-
-        <div class="footer-bottom">
-            <p>&copy; {{ date('Y') }} Dapoer Budess Bakery. Semua hak dilindungi. | Premium Quality & Fresh Every Day</p>
-        </div>
-    </footer>
-
-    <!-- QRIS Modal -->
-    <!-- Purchase Modal -->
-    <div class="message-modal" id="purchaseModal">
-        <div class="message-modal-content" style="max-width: 400px; text-align: center;">
-            <button class="message-close-btn" onclick="closePurchaseModal()">×</button>
-            <h2 style="font-family: 'Playfair Display', serif; color: var(--primary); margin-bottom: 1rem; font-size: 1.5rem;">Pilih Opsi Pembelian</h2>
-            
-            <div style="background: #f9f9f9; padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;">
-                <p style="color: #666; margin: 0; font-size: 0.95rem;">Apa yang ingin Anda lakukan?</p>
-            </div>
-            
-            <div style="display: flex; flex-direction: column; gap: 1rem;">
-                <button onclick="addToCartOnly()" style="background: #f0f0f0; color: #333; border: 2px solid #ddd; padding: 1rem; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 1rem; transition: all 0.3s;">
-                    🛒 Masukkan Keranjang
-                </button>
-                <button onclick="buyNow()" style="background: var(--primary); color: white; border: none; padding: 1rem; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 1rem; transition: all 0.3s;">
-                    ⚡ Beli Sekarang
-                </button>
-            </div>
-        </div>
-    </div>
-    <div class="message-overlay" id="purchaseOverlay" onclick="closePurchaseModal()"></div>
-
-    <!-- Upload Modal -->
-    <div class="message-modal" id="uploadModal">
-        <div class="message-modal-content" style="max-width: 500px;">
-            <button class="message-close-btn" onclick="closeUploadModal()">×</button>
-            <h2 style="font-family: 'Playfair Display', serif; color: var(--primary); margin-bottom: 1rem;">Scan QR Code Pembayaran</h2>
-            <p style="color: #666; margin-bottom: 1rem; font-size: 0.9rem;">Silakan scan QR code di Dapoer Budess untuk menyelesaikan pembayaran QRIS</p>
-            
-            <form id="uploadProofForm" onsubmit="submitPaymentProof(event)">
-                <input type="hidden" id="uploadOrderId" name="order_id">
-                
-                <div style="margin-bottom: 1.5rem;">
-                    <label style="display: block; font-size: 0.9rem; font-weight: 600; color: #555; margin-bottom: 0.5rem;">📸 Foto Bukti Pembayaran (Opsional)</label>
-                    <div style="border: 2px dashed #ddd; border-radius: 8px; padding: 1.5rem; text-align: center; cursor: pointer; transition: all 0.3s;" onclick="document.getElementById('proofInput').click()">
-                        <div id="proofPreviewPlaceholder" style="color: #999;">
-                            <div style="font-size: 2rem; margin-bottom: 0.5rem;">📸</div>
-                            <p style="margin: 0; font-size: 0.9rem;">Klik untuk upload foto</p>
-                            <p style="margin: 0.25rem 0 0 0; font-size: 0.8rem; color: #bbb;">JPG, PNG (Max 2MB)</p>
-                        </div>
-                        <img id="proofPreviewImg" style="max-width: 100%; max-height: 300px; display: none; border-radius: 6px;">
-                    </div>
-                    <input type="file" id="proofInput" name="payment_proof" accept="image/*" style="display: none;" onchange="previewProof()">
-                </div>
-                
-                <button type="submit" class="submit-msg-btn" style="width: 100%; margin-bottom: 0.5rem;">Konfirmasi Pembayaran</button>
-                <button type="button" onclick="closeUploadModal()" style="width: 100%; background: #f0f0f0; color: #666; border: none; padding: 0.75rem; border-radius: 6px; cursor: pointer; font-weight: 600;">Batal</button>
-            </form>
-        </div>
-    </div>
-    <div class="message-overlay" id="uploadOverlay" onclick="closeUploadModal()"></div>
-
-    <!-- Review Modal -->
-    <div id="reviewModal" class="message-modal">
-        <div class="message-modal-content" style="max-width: 600px;">
-            <button class="message-close-btn" onclick="closeReviewModal()">×</button>
-            <h2 style="text-align: center; color: var(--primary); margin-bottom: 1.5rem; font-family: 'Playfair Display', serif;">Beri Ulasan</h2>
-            
-            <form id="reviewForm" onsubmit="submitReview(event)">
-                <input type="hidden" id="reviewOrderId" name="order_id">
-                
-                <div class="form-group" style="text-align: center;">
-                    <label>Rating Produk</label>
-                    <div class="star-rating" id="starRating">
-                        <span class="star" data-value="1">★</span>
-                        <span class="star" data-value="2">★</span>
-                        <span class="star" data-value="3">★</span>
-                        <span class="star" data-value="4">★</span>
-                        <span class="star" data-value="5">★</span>
-                    </div>
-                    <input type="hidden" id="ratingValue" name="rating" value="5">
-                </div>
-
-                <div class="form-group">
-                    <label>Nama Tampilan (Opsional)</label>
-                    <input type="text" name="display_name" placeholder="Nama yang ingin ditampilkan (Boleh pakai inisial)" style="width: 100%; padding: 0.75rem; border: 2px solid #ddd; border-radius: 8px;">
-                </div>
-
-                <div class="form-group">
-                    <label>Ulasan Anda</label>
-                    <textarea name="comment" rows="4" placeholder="Ceritakan pengalaman Anda menikmati roti kami..." required></textarea>
-                </div>
-
-                <div class="form-group">
-                    <label>Foto/Video (Opsional)</label>
-                    <div class="file-upload-container">
-                        <input type="file" name="media[]" id="mediaInput" multiple accept="image/*,video/*" onchange="previewMedia()">
-                        <label for="mediaInput" class="file-upload-label">
-                            <span>📷 Tambah Foto/Video</span>
-                        </label>
-                    </div>
-                    <div id="mediaPreview" class="media-preview-grid"></div>
-                </div>
-
-                <button type="submit" class="submit-msg-btn">Kirim Ulasan</button>
-            </form>
-        </div>
-    </div>
-    <div id="reviewOverlay" class="message-overlay" onclick="closeReviewModal()"></div>
-
-    <script>
-        // Toggle mobile nav menu
         function toggleMenu() {
             const m = document.getElementById('navMenu');
-            if (!m) return;
-            m.classList.toggle('open');
+            if (m) m.classList.toggle('open');
         }
+
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideInRight { from { transform: translateX(400px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+            @keyframes slideOutRight { from { transform: translateX(0); opacity: 1; } to { transform: translateX(400px); opacity: 0; } }
+            @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(0.8); } }
+            @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        `;
+        document.head.appendChild(style);
 
         document.addEventListener('DOMContentLoaded', () => {
             renderProducts('productsGrid', false);
             renderProducts('bestsellerGrid', true);
             renderProducts('bestsellerHome', true);
-            startMessagePolling();
-
-            // Add event listeners for dynamic shipping calculation
-            const cityInput = document.querySelector('input[name="city"]');
-            if (cityInput) {
-                cityInput.addEventListener('input', updateTotals);
-            }
-            const paymentInputs = document.querySelectorAll('input[name="payment_method"]');
-            paymentInputs.forEach(input => {
-                input.addEventListener('change', updateTotals);
-            });
-
-            // Safety: Escape key closes all overlays
-            document.addEventListener('keydown', function(event) {
-                if (event.key === 'Escape') {
-                    // Close Cart
-                    const cartModal = document.getElementById('cartModal');
-                    const cartOverlay = document.getElementById('cartOverlay');
-                    if (cartModal) cartModal.classList.remove('active');
-                    if (cartOverlay) cartOverlay.classList.remove('active');
-
-                    // Close Message Modal
+            initStarRating();
+            const savedPhone = localStorage.getItem('customerPhone');
+            if (savedPhone) { currentPhone = savedPhone; startMessagePolling(); }
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    toggleCart();
                     closeMessageModal();
-                    
-                    // Close Review Modal
                     closeReviewModal();
-                    
-                    // Close QRIS Modal
-                    closeQrisModal();
-                    
-                    // Close Upload Modal
+                    closeCaptchaModal();
                     closeUploadModal();
-
-                    // Close Success Message
+                    closePurchaseModal();
                     document.getElementById('successMessage').classList.remove('active');
-                    
-                    console.log('Safety: All modals closed via Escape key');
                 }
             });
-
-            // Chat Input Enter Key
             const chatInput = document.getElementById('chatInput');
             if (chatInput) {
                 chatInput.addEventListener('keydown', function(e) {
-                    if (e.key === 'Enter' && !e.shiftKey) {
-                        e.preventDefault();
-                        sendChatMessage(new Event('submit'));
-                    }
+                    if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendChatMessage(new Event('submit')); }
                 });
             }
+            setTimeout(() => { document.body.style.pointerEvents = 'auto'; }, 100);
         });
     </script>
 
-
-<script>
-        // Emergency Fix Button Logic
-        const emergencyBtn = document.getElementById('emergency-fix-btn');
-        if (emergencyBtn) {
-            emergencyBtn.addEventListener('click', function() {
-                // 1. Force hide all modals/overlays
-                const blockers = [
-                    'cartModal', 'cartOverlay', 
-                    'messageModal', 'messageOverlay',
-                    'successMessage', 'reviewModal', 'reviewOverlay',
-                    'qrisModal', 'qrisOverlay', 'uploadModal', 'uploadOverlay'
-                ];
-                blockers.forEach(id => {
-                    const el = document.getElementById(id);
-                    if (el) {
-                        el.classList.remove('active');
-                        el.style.display = 'none';
-                    }
-                });
-
-                // 2. Clear any potential blocking styles
-                document.body.style.pointerEvents = 'auto';
-                document.body.style.overflow = 'auto';
-                document.documentElement.style.pointerEvents = 'auto';
-                
-                // 3. Ensure home section is shown
-                if (typeof showSection === 'function') {
-                    showSection('home');
-                } else {
-                    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-                    const home = document.getElementById('home');
-                    if (home) home.classList.add('active');
-                }
-
-                // 4. Notification
-                alert('Interaksi telah di-reset! Silakan coba lagi.');
-                document.getElementById('emergency-fix-container').style.display = 'none';
-            });
-        }
-
-        // AUTO-FIX on load: ensure nothing is blocking initially
-        setTimeout(() => {
-            document.body.style.pointerEvents = 'auto';
-            document.documentElement.style.pointerEvents = 'auto';
-            console.log('Interaction safety check complete');
-        }, 500);
-    </script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>AOS.init({ duration: 1000, once: true, offset: 100 });</script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </body>
-</html> 
+</html>

@@ -384,9 +384,4 @@
     @endforelse
 </div>
 
-@if($products->hasPages())
-<div style="margin-top: 2rem;">
-    {{ $products->withQueryString()->links() }}
-</div>
-@endif
 @endsection

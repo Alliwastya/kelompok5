@@ -206,9 +206,4 @@
     </table>
 </div>
 
-@if($orders->hasPages())
-<div style="margin-top: 2rem;">
-    {{ $orders->withQueryString()->links() }}
-</div>
-@endif
 @endsection

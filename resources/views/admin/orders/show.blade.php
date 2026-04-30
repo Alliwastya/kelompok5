@@ -215,6 +215,70 @@
             grid-template-columns: 1fr;
         }
     }
+
+    /* Image Modal */
+    .image-modal {
+        display: none;
+        position: fixed;
+        z-index: 9999;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.95);
+        animation: fadeIn 0.3s;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    .image-modal-content {
+        position: relative;
+        margin: auto;
+        padding: 20px;
+        width: 90%;
+        max-width: 1200px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .image-modal-content img {
+        max-width: 100%;
+        max-height: 90vh;
+        object-fit: contain;
+        border-radius: 8px;
+        box-shadow: 0 8px 32px rgba(255, 215, 0, 0.3);
+    }
+
+    .close-modal {
+        position: absolute;
+        top: 20px;
+        right: 40px;
+        color: #FFD700;
+        font-size: 40px;
+        font-weight: bold;
+        cursor: pointer;
+        z-index: 10000;
+        transition: all 0.3s;
+    }
+
+    .close-modal:hover {
+        color: #FFA500;
+        transform: scale(1.1);
+    }
+
+    .payment-proof-thumbnail {
+        transition: all 0.3s;
+    }
+
+    .payment-proof-thumbnail:hover {
+        transform: scale(1.02);
+        box-shadow: 0 8px 24px rgba(255, 215, 0, 0.4) !important;
+    }
 </style>
 
 <a href="{{ route('admin.orders.index') }}" class="back-btn">← Kembali ke Pesanan</a>
@@ -229,6 +293,40 @@
                 <span>No. Pesanan:</span>
                 <span>{{ $order->order_number }}</span>
             </div>
+            
+            <!-- Order Type Badge -->
+            <div class="order-info">
+                <span>Tipe Pesanan:</span>
+                <span>
+                    @if($order->order_type === 'preorder')
+                        <span style="background: linear-gradient(135deg, #FFA500 0%, #FF8C00 100%); color: white; padding: 0.4rem 1rem; border-radius: 50px; font-weight: 700; font-size: 0.9rem;">
+                            🟡 Pre-Order
+                        </span>
+                    @else
+                        <span style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; padding: 0.4rem 1rem; border-radius: 50px; font-weight: 700; font-size: 0.9rem;">
+                            🟢 Instant Order
+                        </span>
+                    @endif
+                </span>
+            </div>
+            
+            <!-- Pickup Date & Time for Pre-Order -->
+            @if($order->order_type === 'preorder')
+            <div class="order-info">
+                <span>📅 Tanggal Ambil:</span>
+                <span style="font-weight: 700; color: #FFA500;">
+                    {{ \Carbon\Carbon::parse($order->pickup_date)->format('d M Y') }}
+                </span>
+            </div>
+            @if($order->pickup_time)
+            <div class="order-info">
+                <span>⏰ Jam Ambil:</span>
+                <span style="font-weight: 700; color: #FFA500;">
+                    {{ \Carbon\Carbon::parse($order->pickup_time)->format('H:i') }}
+                </span>
+            </div>
+            @endif
+            @endif
             
             <div class="order-info">
                 <span>Nama Pelanggan:</span>
@@ -253,8 +351,9 @@
             
             <div class="order-info">
                 <span>Status:</span>
-                <span class="status-badge status-@if($order->status === 'pending_admin') pending @elseif($order->status === 'shipping_set') shipping @elseif($order->status === 'processing') processing @elseif($order->status === 'scheduled') scheduled @elseif($order->status === 'out_for_delivery') delivery @elseif($order->status === 'ready_for_pickup') ready @elseif($order->status === 'picked_up') delivered @elseif($order->status === 'delivered') delivered @elseif($order->status === 'cancelled') cancelled @else pending @endif">
+                <span class="status-badge status-@if($order->status === 'pending_admin') pending @elseif($order->status === 'pending_preorder') pending @elseif($order->status === 'shipping_set') shipping @elseif($order->status === 'processing') processing @elseif($order->status === 'scheduled') scheduled @elseif($order->status === 'out_for_delivery') delivery @elseif($order->status === 'ready_for_pickup') ready @elseif($order->status === 'picked_up') delivered @elseif($order->status === 'delivered') delivered @elseif($order->status === 'cancelled') cancelled @else pending @endif">
                     @if($order->status === 'pending_admin') ⏳ Menunggu Konfirmasi Admin
+                    @elseif($order->status === 'pending_preorder') 🟡 Pre-Order Menunggu Konfirmasi
                     @elseif($order->status === 'shipping_set') 🚚 Ongkir Ditentukan
                     @elseif($order->status === 'processing') 👨‍🍳 Diproses
                     @elseif($order->status === 'scheduled') 📅 Dijadwalkan
@@ -339,7 +438,81 @@
                 <span>Metode Bayar:</span>
                 <span>{{ $order->payment_method }}</span>
             </div>
+
+            <div class="order-info">
+                <span>Status Pembayaran:</span>
+                <span>
+                    @if($order->payment_status === 'paid')
+                        <span style="color: #86efac;">✓ Lunas</span>
+                    @elseif($order->payment_status === 'pending_confirmation')
+                        <span style="color: #fed7aa;">⏳ Menunggu Konfirmasi</span>
+                    @else
+                        <span style="color: #d1d5db;">⏳ Belum Bayar</span>
+                    @endif
+                </span>
+            </div>
         </div>
+
+        <!-- Payment Proof Section -->
+        @if($order->payment_proof)
+        <div class="order-card" style="border: 2px solid #86efac;">
+            <h2>📸 Bukti Pembayaran</h2>
+            
+            <div style="background: #1a1a1a; border-radius: 12px; padding: 1rem; margin-bottom: 1rem;">
+                <div style="text-align: center; margin-bottom: 1rem;">
+                    <img src="{{ asset('storage/' . $order->payment_proof) }}" 
+                         alt="Bukti Pembayaran" 
+                         class="payment-proof-thumbnail"
+                         style="max-width: 100%; max-height: 500px; border-radius: 8px; cursor: pointer; border: 2px solid #FFD700;"
+                         onclick="openImageModal(this.src)">
+                </div>
+                
+                <div style="font-size: 0.875rem; color: #999; text-align: center; margin-bottom: 1rem;">
+                    📅 Diupload: {{ $order->updated_at->format('d M Y H:i') }}
+                </div>
+                
+                <div style="display: flex; gap: 0.75rem; margin-top: 1rem;">
+                    <a href="{{ asset('storage/' . $order->payment_proof) }}" 
+                       target="_blank" 
+                       class="btn-secondary" 
+                       style="flex: 1; display: inline-block;">
+                        🔍 Lihat Full Size
+                    </a>
+                    <a href="{{ asset('storage/' . $order->payment_proof) }}" 
+                       download 
+                       class="btn-secondary" 
+                       style="flex: 1; display: inline-block;">
+                        💾 Download
+                    </a>
+                </div>
+            </div>
+
+            @if($order->payment_status === 'pending_confirmation')
+            <div style="background: rgba(251, 146, 60, 0.1); border: 1px solid #fed7aa; border-radius: 8px; padding: 1rem; margin-bottom: 1rem;">
+                <div style="color: #fed7aa; font-weight: 600; margin-bottom: 0.5rem;">⚠️ Menunggu Konfirmasi</div>
+                <div style="color: #ccc; font-size: 0.875rem;">Silakan verifikasi bukti pembayaran dan konfirmasi status pembayaran.</div>
+            </div>
+
+            <form action="{{ route('admin.orders.confirm-payment', $order->id) }}" method="POST">
+                @csrf
+                @method('PATCH')
+                
+                <div class="btn-group">
+                    <button type="submit" name="action" value="approve" class="btn-success" onclick="return confirm('Konfirmasi pembayaran ini sebagai VALID?')">
+                        ✓ Terima Pembayaran
+                    </button>
+                    <button type="submit" name="action" value="reject" class="btn-warning" onclick="return confirm('Tolak pembayaran ini?')">
+                        ✕ Tolak Pembayaran
+                    </button>
+                </div>
+            </form>
+            @elseif($order->payment_status === 'paid')
+            <div style="background: rgba(34, 197, 94, 0.1); border: 1px solid #86efac; border-radius: 8px; padding: 1rem;">
+                <div style="color: #86efac; font-weight: 600; text-align: center;">✓ Pembayaran Telah Dikonfirmasi</div>
+            </div>
+            @endif
+        </div>
+        @endif
     </div>
 
     <!-- Sidebar -->
@@ -520,5 +693,36 @@
         @endif
     </div>
 </div>
+
+<!-- Image Modal -->
+<div id="imageModal" class="image-modal" onclick="closeImageModal()">
+    <span class="close-modal" onclick="closeImageModal()">&times;</span>
+    <div class="image-modal-content" onclick="event.stopPropagation()">
+        <img id="modalImage" src="" alt="Bukti Pembayaran">
+    </div>
+</div>
+
+<script>
+function openImageModal(imageSrc) {
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImage');
+    modal.style.display = 'block';
+    modalImg.src = imageSrc;
+    document.body.style.overflow = 'hidden';
+}
+
+function closeImageModal() {
+    const modal = document.getElementById('imageModal');
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+
+// Close modal with ESC key
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        closeImageModal();
+    }
+});
+</script>
 
 @endsection

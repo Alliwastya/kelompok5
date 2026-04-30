@@ -8,6 +8,9 @@ class Order extends Model
 {
     protected $fillable = [
         'order_number',
+        'order_type',
+        'pickup_date',
+        'pickup_time',
         'queue_number',
         'customer_name',
         'customer_phone',
@@ -41,6 +44,7 @@ class Order extends Model
         'estimated_ready_at' => 'datetime',
         'responded_at' => 'datetime',
         'estimated_delivery_date' => 'date',
+        'pickup_date' => 'date',
         'total_amount' => 'decimal:2',
         'discount_amount' => 'decimal:2',
         'shipping_cost' => 'decimal:2',

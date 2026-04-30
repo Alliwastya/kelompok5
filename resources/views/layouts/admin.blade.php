@@ -312,10 +312,25 @@
                     <span>📈</span>
                     <span>Laporan</span>
                 </a>
-                <a href="{{ route('admin.reviews.index') }}" class="@if(str_contains(Route::currentRouteName(), 'reviews')) active @endif">
+                <a href="{{ route('admin.security.index') }}" class="@if(Route::currentRouteName() === 'admin.security.index') active @endif">
+                    <span>🔒</span>
+                    <span>Keamanan</span>
+                </a>
+                <a href="{{ route('admin.fraud.index') }}" class="@if(Route::currentRouteName() === 'admin.fraud.index') active @endif">
+                    <span>🚨</span>
+                    <span>Fraud</span>
+                </a>
+                <a href="{{ route('admin.payment-settings.index') }}" class="@if(str_contains(Route::currentRouteName(), 'payment-settings')) active @endif">
+                    <span>💳</span>
+                    <span>Pembayaran</span>
+                </a>
+                <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                     <span>👋</span>
                     <span>Keluar</span>
                 </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
             </nav>
         </div>
         
@@ -327,16 +342,12 @@
                     <span style="font-size: 1.5rem;"></span>
                     <h1>@yield('page-title', 'Admin Panel')</h1>
                 </div>
-                <div class="admin-header-icons">
-                    <button>✉️</button>
-                    <button>🔔</button>
-                    <button>⚙️</button>
-                </div>
             </div>
             
             <!-- Content -->
             <div class="admin-content">
-                @yield('content')
+                @section('content')
+                @show
             </div>
         </div>
     </div>

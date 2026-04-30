@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test QR Image</title>
+</head>
+<body>
+    <h1>Test QR Image Loading</h1>
+    
+    <h2>Test 1: Direct Path</h2>
+    <img src="/storage/payment/gSqG1NElDmIQFl6XO2J2Rd6twZFC2rSYh0mZ4rG0.jpg" 
+         alt="QR Direct" 
+         style="width: 300px; border: 2px solid blue;"
+         onerror="this.style.border='2px solid red'; this.alt='FAILED: ' + this.src;">
+    
+    <h2>Test 2: With Timestamp</h2>
+    <img src="/storage/payment/gSqG1NElDmIQFl6XO2J2Rd6twZFC2rSYh0mZ4rG0.jpg?t=123456" 
+         alt="QR with timestamp" 
+         style="width: 300px; border: 2px solid green;"
+         onerror="this.style.border='2px solid red'; this.alt='FAILED: ' + this.src;">
+    
+    <h2>Test 3: Full URL</h2>
+    <img src="http://127.0.0.1:8000/storage/payment/gSqG1NElDmIQFl6XO2J2Rd6twZFC2rSYh0mZ4rG0.jpg" 
+         alt="QR full URL" 
+         style="width: 300px; border: 2px solid orange;"
+         onerror="this.style.border='2px solid red'; this.alt='FAILED: ' + this.src;">
+    
+    <script>
+        // Log all image load events
+        document.querySelectorAll('img').forEach(img => {
+            img.addEventListener('load', function() {
+                console.log('✓ Loaded:', this.src);
+            });
+            img.addEventListener('error', function() {
+                console.error('✗ Failed:', this.src);
+            });
+        });
+    </script>
+</body>
+</html>
