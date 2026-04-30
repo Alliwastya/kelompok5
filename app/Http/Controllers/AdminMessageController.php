@@ -52,9 +52,8 @@ class AdminMessageController extends Controller
             'is_read' => false,
         ]);
 
-        // Reset auto reply flag so it can be sent again if user replies and admin is away
+        // Update thread last message timestamp
         $thread->update([
-            'is_auto_reply_sent' => false,
             'last_message_at' => now(),
         ]);
 

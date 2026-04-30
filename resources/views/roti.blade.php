@@ -1033,306 +1033,168 @@
             color: #C8A86B;
         }
 
-        @media (max-width: 768px) {
-            .promo-section { padding: 1.5rem 0; }
+        /* ========== MOBILE RESPONSIVE (PREMIUM INSPIRATION STYLE) ========== */
+        @media (max-width: 992px) {
+            .promo-section { padding: 15px 0 !important; }
+            
             .promo-card { 
-                padding: 0 !important; 
-                border-radius: 30px !important; 
-                margin: 0 1rem;
-                min-height: auto;
-                aspect-ratio: auto;
-                width: calc(100% - 2rem);
-            }
-            .promo-content { 
-                flex-direction: column;
-                min-height: auto;
-            }
-            .promo-left {
-                width: 100%;
-                padding: 2rem 1.5rem 1.5rem;
-            }
-            .promo-right {
-                width: 100%;
-                min-height: 350px;
-                padding-bottom: 2rem;
-            }
-            .promo-title { font-size: 2rem; }
-            .promo-subtitle { font-size: 0.85rem; }
-            .price-discount { font-size: 2rem; }
-            .promo-features {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 0.8rem;
-            }
-            .feature-icon { width: 40px; height: 40px; font-size: 18px; }
-            .promo-image-main {
-                width: 260px;
-                height: 220px;
-                top: 20px;
-                right: 50%;
-                transform: translateX(50%) rotate(2deg);
-            }
-            .promo-image-second {
-                width: 150px;
-                height: 130px;
-                bottom: 20px;
-                left: 20px;
-            }
-            .promo-image-third {
-                width: 160px;
-                height: 140px;
-                bottom: 20px;
-                right: 20px;
-            }
-            .wheat-ornament-left { display: none; }
-            .wheat-decoration { 
-                font-size: 80px;
-                top: 10px;
-                right: 10px;
-            }
-            .best-seller-badge {
-                width: 75px;
-                height: 75px;
-                top: 10px;
-                right: 10px;
-            }
-            .best-seller-badge .crown { font-size: 20px; }
-            .best-seller-badge .text { font-size: 10px; }
-            .best-seller-badge .stars { font-size: 9px; }
-        }
-
-        @media (max-width: 480px) {
-            /* 0. General Padding for sections */
-            .container, .products-section, .reviews-section, .contact-section, .about-section, .testimoni-section {
-                padding-left: 16px !important;
-                padding-right: 16px !important;
+                margin: 0 auto !important; 
+                width: 100% !important;
+                border-radius: 40px !important; 
+                padding: 40px 22px !important;
+                background: #FFF9F0 !important;
+                border: 1.5px solid rgba(212, 175, 55, 0.3) !important;
+                box-shadow: 0 20px 60px rgba(139, 69, 19, 0.1) !important;
+                position: relative !important;
+                overflow: hidden !important;
             }
 
-            /* 1. Navbar Mobile Fix */
-            header { 
-                padding: 0.8rem 12px;
-                gap: 8px;
-            }
-            .header-actions { 
-                gap: 4px; 
-                flex-shrink: 0;
-            }
-            .logo-text { display: none; } /* Hide logo text on small mobile */
-            .cart-btn, .message-btn, .menu-btn { 
-                font-size: 0.75rem; 
-                padding: 0.4rem 6px; 
-                gap: 4px;
-            }
-            .logo-img { width: 40px; height: 40px; }
-
-            /* 2. Banner Promo Redesign */
-            .promo-section { 
-                padding: 1.5rem 0;
-                background: transparent;
-            }
-            .promo-card { 
-                margin: 0; /* Already inside container with padding */
-                border-radius: 24px !important;
-                width: 100%;
-                background: #FFFDF9 !important;
-                box-shadow: 0 10px 30px rgba(0,0,0,0.08) !important;
-                padding: 24px 16px !important;
-                border: 1px solid rgba(234, 88, 12, 0.1) !important;
-                height: auto;
-            }
             .promo-content {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                gap: 24px;
-                min-height: auto;
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: flex-start !important;
+                gap: 0 !important;
             }
+
             .promo-left, .promo-right { 
-                display: contents; 
+                width: 100% !important; 
+                display: block !important;
+                position: relative !important;
+                padding: 0 !important;
+                transform: none !important;
             }
 
-            /* 3. Badges & Labels */
+            /* 1. Badges */
             .promo-badges {
-                order: 1;
-                display: flex;
-                flex-wrap: wrap;
-                gap: 8px;
-                justify-content: center;
-                margin-bottom: 0;
-                width: 100%;
+                display: flex !important;
+                gap: 10px !important;
+                margin-bottom: 20px !important;
             }
-            .promo-badge {
-                background: rgba(245, 158, 11, 0.1) !important;
-                color: #ea580c !important;
-                border: 1px solid rgba(234, 88, 12, 0.2);
-                padding: 6px 12px;
-                font-size: 11px;
-                box-shadow: none;
-                animation: none;
-                white-space: nowrap;
-            }
-            .discount-badge {
-                display: inline-block;
-                background: rgba(16, 185, 129, 0.1) !important;
-                color: #10b981 !important;
-                border: 1px solid rgba(16, 185, 129, 0.2);
-                padding: 6px 12px;
-                font-size: 11px;
-                border-radius: 50px;
-                font-weight: 600;
+            .promo-badge, .discount-badge {
+                padding: 7px 15px !important;
+                font-size: 11px !important;
+                border-radius: 50px !important;
+                font-weight: 700 !important;
             }
 
-            /* 4. Title & Description */
-            .promo-title-section {
-                order: 2;
-                margin-bottom: 0;
-            }
+            /* 2. Title & Subtitle */
             .promo-title { 
-                font-size: 1.75rem;
-                line-height: 1.2;
-                text-align: center;
-                color: #3e2723;
-                font-weight: 800;
+                font-size: 2.2rem !important; 
+                text-align: left !important; 
+                margin-bottom: 12px !important;
+                color: #3e2723 !important;
+                line-height: 1.1 !important;
+                font-weight: 900 !important;
             }
             .promo-subtitle { 
-                order: 3;
-                font-size: 0.85rem;
-                margin: 0;
-                line-height: 1.5;
-                text-align: center;
-                color: #6B4E3D;
-                max-width: 100%;
+                font-size: 0.9rem !important;
+                text-align: left !important;
+                margin-bottom: 25px !important;
+                color: #6B4E3D !important;
+                line-height: 1.5 !important;
+                opacity: 0.8 !important;
             }
 
-            /* 5. Images Stack (3 images vertikal) */
+            /* 3. Pricing */
+            .promo-pricing {
+                display: flex !important;
+                flex-direction: row !important;
+                align-items: center !important;
+                gap: 12px !important;
+                margin-bottom: 30px !important;
+            }
+            .price-original { font-size: 1rem !important; opacity: 0.4 !important; text-decoration: line-through !important; }
+            .price-discount { font-size: 2.2rem !important; color: #E8821A !important; font-weight: 800 !important; }
+            .price-save { border-radius: 50px !important; padding: 4px 12px !important; font-size: 10px !important; }
+
+            /* 4. Timer */
+            .promo-countdown {
+                display: flex !important;
+                justify-content: flex-start !important;
+                gap: 8px !important;
+                margin-bottom: 35px !important;
+            }
+            .timer-item {
+                background: white !important;
+                min-width: 62px !important;
+                border-radius: 12px !important;
+                padding: 10px 4px !important;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.03) !important;
+                border: 1px solid rgba(212, 175, 55, 0.1) !important;
+            }
+
+            /* 5. 3 IMAGES (GRID) - SEJAJAR & RAPAT */
             .promo-images {
-                order: 4;
-                display: flex;
-                flex-direction: column;
-                gap: 16px;
-                width: 100%;
-                margin: 0;
+                display: grid !important;
+                grid-template-columns: repeat(3, 1fr) !important;
+                gap: 10px !important;
+                width: 100% !important;
+                height: auto !important;
+                margin-bottom: 30px !important;
+                position: relative !important;
+                padding: 0 !important;
+                left: auto !important;
+                right: auto !important;
+                top: auto !important;
+                bottom: auto !important;
             }
             .promo-image-item {
                 position: relative !important;
                 top: auto !important;
+                left: auto !important;
                 right: auto !important;
                 bottom: auto !important;
-                left: auto !important;
                 transform: none !important;
                 width: 100% !important;
-                height: 200px !important;
-                border-radius: 16px !important;
-                box-shadow: 0 8px 20px rgba(0,0,0,0.1) !important;
+                aspect-ratio: 1/1.1 !important;
+                height: auto !important;
+                border-radius: 12px !important;
                 border: 2px solid white !important;
-                object-fit: cover !important;
+                box-shadow: 0 8px 25px rgba(0,0,0,0.05) !important;
+                animation: none !important;
+                overflow: hidden !important;
             }
-            .best-seller-badge {
-                width: 55px;
-                height: 55px;
-                top: -8px !important;
-                right: -8px !important;
-                background: #3e2723 !important;
-                border-color: #ea580c !important;
-                transform: rotate(10deg);
-                z-index: 5;
-            }
+            .promo-image-item img { width: 100% !important; height: 100% !important; object-fit: cover !important; }
 
-            /* 6. Pricing Row (Sejajar satu baris) */
-            .promo-pricing {
-                order: 5;
-                margin: 0;
-                display: flex;
-                flex-direction: row;
-                gap: 10px;
-                justify-content: center;
-                align-items: center;
-                width: 100%;
-                flex-wrap: nowrap;
-            }
-            .price-original { 
-                font-size: 0.9rem;
-                color: #999;
-                text-decoration: line-through;
-                margin: 0;
-                flex-shrink: 0;
-            }
-            .price-discount { 
-                font-size: 1.8rem;
-                color: #ea580c;
-                font-weight: 800;
-                margin: 0;
-                flex-shrink: 0;
-            }
-            .price-save {
-                display: inline-block;
-                border: 1px solid #ea580c;
-                color: #ea580c;
-                font-size: 10px;
-                padding: 3px 8px;
-                border-radius: 50px;
-                font-weight: 600;
-                flex-shrink: 0;
-            }
-
-            /* 7. Icon Features Row (Space-around) */
+            /* 6. Features Icons */
             .promo-features {
-                order: 6;
-                display: flex;
-                flex-direction: row;
-                justify-content: space-around;
-                width: 100%;
-                background: rgba(245, 158, 11, 0.05);
-                padding: 16px 8px;
-                border-radius: 16px;
-                gap: 4px;
-                margin-bottom: 0;
+                display: flex !important;
+                justify-content: space-between !important;
+                width: 100% !important;
+                background: rgba(255, 255, 255, 0.5) !important;
+                padding: 12px !important;
+                border-radius: 20px !important;
+                margin-bottom: 25px !important;
+                border: 1px solid rgba(255,255,255,0.8) !important;
+                gap: 5px !important;
             }
-            .promo-features > div {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                flex: 1;
-            }
-            .feature-icon { 
-                width: 32px; 
-                height: 32px; 
-                font-size: 14px;
-                margin-bottom: 6px;
-                background: white;
-                border-color: rgba(234, 88, 12, 0.3);
-            }
-            .feature-title { 
-                font-size: 8.5px; 
-                text-align: center;
-                white-space: nowrap;
-            }
-            .feature-subtitle { display: none; }
+            .feature-icon { width: 28px !important; height: 28px !important; font-size: 11px !important; }
+            .feature-title { font-size: 8px !important; font-weight: 700 !important; }
 
-            /* 8. Full Width CTA Button */
-            .promo-cta-container {
-                order: 7;
-                width: 100%;
-                margin-top: 8px;
-            }
+            /* 7. Button CTA */
+            .promo-cta-container { width: 100% !important; margin: 0 !important; }
             .promo-cta { 
-                padding: 14px; 
-                font-size: 14px;
-                border-radius: 30px;
-                background: linear-gradient(135deg, #f59e0b, #ea580c) !important;
-                width: 100%;
-                margin: 0;
-                font-weight: 700;
-            }
-            .promo-note { 
-                order: 8;
-                font-size: 10px;
-                margin-top: 10px;
-                text-align: center;
+                padding: 18px !important; 
+                font-size: 14px !important;
+                border-radius: 50px !important;
+                width: 100% !important;
+                background: linear-gradient(135deg, #E8821A, #D46A00) !important;
+                font-weight: 800 !important;
+                letter-spacing: 0.5px !important;
             }
 
-            /* Hide decorative elements */
-            .wheat-decoration, .wheat-ornament-left { display: none !important; }
-        }
+            /* DECORATIONS */
+            .wheat-decoration {
+                display: block !important;
+                font-size: 160px !important;
+                top: -20px !important;
+                right: -40px !important;
+                opacity: 0.1 !important;
+                position: absolute !important;
+                z-index: 0 !important;
+            }
+            .best-seller-badge, .wheat-ornament-left { display: none !important; }
+            .promo-note { display: block !important; text-align: center !important; width: 100% !important; margin-top: 15px !important; font-size: 10px !important; }
         }
 
         .review-button-container {
@@ -3387,9 +3249,10 @@
                 🛒 Keranjang
                 <span class="cart-count" id="cartCount">0</span>
             </button>
-            <button class="message-btn" onclick="openMessageModal()">
+            <button class="message-btn" onclick="openMessageModal()" style="position: relative;">
                 💬 Pesan
                 <span class="cart-count" id="msgBadge" style="display: none;">!</span>
+                <span id="msgPulse" style="display: none; position: absolute; top: -5px; right: -5px; width: 12px; height: 12px; background: #ff4444; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 0 0 rgba(255, 68, 68, 0.4); animation: pulse-red 2s infinite;"></span>
             </button>
             @auth
              @endif
@@ -4687,6 +4550,8 @@
         function openMessageModal() {
             document.getElementById('messageModal').classList.add('active');
             document.getElementById('messageOverlay').classList.add('active');
+            const pulse = document.getElementById('msgPulse');
+            if (pulse) pulse.style.display = 'none'; // Hide pulse when opened
             const savedPhone = localStorage.getItem('customerPhone');
             if (savedPhone) { currentPhone = savedPhone; loadChatThread(savedPhone); }
             else resetMessageModal();
@@ -4779,7 +4644,16 @@
                             <div style="font-size:0.95rem;color:#444;margin-bottom:0.75rem;">
                                 ${order.items.map(i => `<div style="display:flex;justify-content:space-between;"><span>${i.quantity}x ${i.product_name}</span><span>Rp ${i.price}</span></div>`).join('')}
                             </div>
-                            ${order.estimated_delivery_date ? `<div style="background:#e1f5fe;border:1px solid #b3e5fc;padding:0.75rem;border-radius:8px;margin:0.75rem 0;color:#01579b;"><strong>🚚 ${order.estimated_delivery_date} | ⏰ ${order.estimated_delivery_time} WIB</strong></div>` : ''}
+                            ${order.estimated_delivery_date ? `
+                                <div style="background:#e1f5fe;border:1px solid #b3e5fc;padding:0.75rem;border-radius:8px;margin:0.75rem 0;color:#01579b;">
+                                    <div style="font-weight: bold; margin-bottom: 4px;">📍 Estimasi ${order.shipping_method === 'pickup' ? 'Siap Diambil' : 'Pengiriman'}:</div>
+                                    <div style="display: flex; align-items: center; gap: 8px;">
+                                        <span>📅 ${order.estimated_delivery_date}</span>
+                                        <span>⏰ ${order.estimated_delivery_time} WIB</span>
+                                    </div>
+                                    ${order.estimated_delivery_message ? `<div style="margin-top: 4px; font-size: 0.85rem; font-style: italic;">📝 ${order.estimated_delivery_message}</div>` : ''}
+                                </div>
+                            ` : ''}
                             <div style="font-size:0.85rem;color:#666;display:flex;justify-content:space-between;align-items:center;margin-top:0.75rem;">
                                 <span>${order.created_at}</span>
                                 <div style="display:flex;gap:0.5rem;">
@@ -5005,13 +4879,20 @@
                         }
                         const msgs = data.notifications || data.messages || [];
                         const currentCount = msgs.length;
-                        const hasNew = currentCount > lastMessageCount && lastMessageCount > 0;
+                        
+                        // Deteksi jika ada pesan baru dari admin
+                        if (currentCount > lastMessageCount && lastMessageCount > 0) {
+                            const lastMsg = msgs[msgs.length - 1];
+                            if (lastMsg.sender_type === 'admin') {
+                                showNewMessageNotification(lastMsg.message.substring(0, 50) + (lastMsg.message.length > 50 ? '...' : ''));
+                            }
+                        }
+
                         const chatContainer = document.getElementById('chatMessages');
                         const wasAtBottom = chatContainer ? (chatContainer.scrollHeight - chatContainer.scrollTop <= chatContainer.clientHeight + 100) : true;
                         displayStatusAndChat(data);
                         lastMessageCount = currentCount;
-                        if (chatContainer && (hasNew || wasAtBottom)) setTimeout(() => { chatContainer.scrollTop = chatContainer.scrollHeight; }, 100);
-                        if (hasNew) showNewMessageNotification();
+                        if (chatContainer && wasAtBottom) setTimeout(() => { chatContainer.scrollTop = chatContainer.scrollHeight; }, 100);
                     }
                     await fetch('/messages/mark-read', { method: 'POST', headers: { 'Content-Type': 'application/json', 'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content') }, body: JSON.stringify({ phone: currentPhone }) });
                     document.getElementById('msgBadge').style.display = 'none';
@@ -5019,17 +4900,62 @@
                     const response = await fetch(`/messages/unread/${encodeURIComponent(currentPhone)}`);
                     const data = await response.json();
                     const badge = document.getElementById('msgBadge');
-                    if (badge) { if (data.unread_count > 0) { badge.style.display = 'flex'; badge.textContent = data.unread_count > 9 ? '9+' : data.unread_count; } else { badge.style.display = 'none'; } }
+                    const pulse = document.getElementById('msgPulse');
+                    if (badge) { 
+                        if (data.unread_count > 0) { 
+                            badge.style.display = 'flex'; 
+                            badge.textContent = data.unread_count > 9 ? '9+' : data.unread_count; 
+                            if (pulse) pulse.style.display = 'block'; // Show pulse when unread
+                        } else { 
+                            badge.style.display = 'none'; 
+                            if (pulse) pulse.style.display = 'none'; // Hide pulse when no unread
+                        } 
+                    }
                 }
             } catch (error) { console.error('[Polling] Error:', error); }
         }
 
-        function showNewMessageNotification() {
+        let originalTitle = document.title;
+        let titleInterval = null;
+
+        function showNewMessageNotification(messageText = "Pesan baru diterima!") {
+            // 1. Audio Notification
+            try {
+                const audio = new Audio('https://assets.mixkit.co/active_storage/sfx/2354/2354-preview.mp3');
+                audio.play();
+            } catch (e) { console.warn("Audio play failed:", e); }
+
+            // 2. Visual Pop-up in Web Page
             const n = document.createElement('div');
-            n.style.cssText = 'position:fixed;top:100px;right:20px;background:linear-gradient(135deg,#4CAF50,#45a049);color:white;padding:1rem 1.5rem;border-radius:12px;box-shadow:0 8px 25px rgba(76,175,80,0.4);z-index:50000;font-family:Outfit,sans-serif;font-weight:600;display:flex;align-items:center;gap:0.5rem;animation:slideInRight 0.3s ease-out;';
-            n.innerHTML = '💬 Pesan baru diterima!';
+            n.style.cssText = 'position:fixed;top:100px;right:20px;background:linear-gradient(135deg,#4CAF50,#45a049);color:white;padding:1rem 1.5rem;border-radius:12px;box-shadow:0 8px 25px rgba(76,175,80,0.4);z-index:50000;font-family:Outfit,sans-serif;font-weight:600;display:flex;align-items:center;gap:0.5rem;animation:slideInRight 0.3s ease-out;cursor:pointer;';
+            n.innerHTML = `💬 ${messageText}`;
+            n.onclick = () => { openMessageModal(); n.remove(); stopTitleFlash(); };
             document.body.appendChild(n);
-            setTimeout(() => { n.style.animation = 'slideOutRight 0.3s ease-out'; setTimeout(() => n.remove(), 300); }, 3000);
+            setTimeout(() => { if(n.parentElement) { n.style.animation = 'slideOutRight 0.3s ease-out'; setTimeout(() => n.remove(), 300); } }, 5000);
+
+            // 3. Tab Title Flashing (Optimal for when user is on another tab)
+            startTitleFlash();
+        }
+
+        function startTitleFlash() {
+            if (titleInterval) return;
+            let isFlash = false;
+            titleInterval = setInterval(() => {
+                document.title = isFlash ? `(1) Pesan Baru! 🍞` : originalTitle;
+                isFlash = !isFlash;
+            }, 1000);
+            
+            // Stop flashing when user focuses back or clicks anywhere
+            window.addEventListener('focus', stopTitleFlash, { once: true });
+            document.addEventListener('click', stopTitleFlash, { once: true });
+        }
+
+        function stopTitleFlash() {
+            if (titleInterval) {
+                clearInterval(titleInterval);
+                titleInterval = null;
+                document.title = originalTitle;
+            }
         }
 
         window.addEventListener('scroll', function() {
@@ -5109,6 +5035,11 @@
 
         const style = document.createElement('style');
         style.textContent = `
+            @keyframes pulse-red {
+                0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 68, 68, 0.7); }
+                70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(255, 68, 68, 0); }
+                100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 68, 68, 0); }
+            }
             @keyframes slideInRight { from { transform: translateX(400px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
             @keyframes slideOutRight { from { transform: translateX(0); opacity: 1; } to { transform: translateX(400px); opacity: 0; } }
             @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(0.8); } }

@@ -1,129 +1,124 @@
 @extends('layouts.admin')
 
-@section('page-title', 'Keluar')
+@section('title', 'Manajemen Ulasan')
 
 @section('content')
-<style>
-    .logout-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        min-height: 70vh;
-        padding: 2rem;
-    }
-    
-    .logout-logo {
-        width: 150px;
-        height: 150px;
-        background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
-        border-radius: 20px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 2rem;
-        box-shadow: 0 8px 24px rgba(255, 215, 0, 0.3);
-    }
-    
-    .logout-logo img {
-        width: 120px;
-        height: 120px;
-        object-fit: contain;
-    }
-    
-    .logout-content {
-        text-align: center;
-        background: linear-gradient(135deg, #2a2a2a 0%, #333 100%);
-        border: 2px solid #FFD700;
-        border-radius: 16px;
-        padding: 3rem 2rem;
-        max-width: 500px;
-    }
-    
-    .logout-title {
-        color: #FFD700;
-        font-size: 2rem;
-        font-weight: 900;
-        margin-bottom: 1rem;
-        font-family: 'Playfair Display', serif;
-    }
-    
-    .logout-subtitle {
-        color: #ccc;
-        font-size: 1rem;
-        margin-bottom: 2rem;
-        line-height: 1.6;
-    }
-    
-    .logout-buttons {
-        display: flex;
-        gap: 1rem;
-        flex-direction: column;
-    }
-    
-    .logout-btn {
-        padding: 1rem 2rem;
-        border: none;
-        border-radius: 8px;
-        font-weight: 700;
-        font-size: 1rem;
-        cursor: pointer;
-        transition: all 0.3s;
-        text-decoration: none;
-        display: inline-block;
-    }
-    
-    .logout-btn-primary {
-        background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
-        color: #1a1a1a;
-    }
-    
-    .logout-btn-primary:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 16px rgba(255, 215, 0, 0.3);
-    }
-    
-    .logout-btn-secondary {
-        background: transparent;
-        color: #FFD700;
-        border: 2px solid #FFD700;
-    }
-    
-    .logout-btn-secondary:hover {
-        background: rgba(255, 215, 0, 0.1);
-    }
-    
-    .logout-icon {
-        font-size: 3rem;
-        margin-bottom: 1rem;
-    }
-</style>
-
-<div class="logout-container">
-    <!-- Logo -->
-    <div class="logout-logo">
-        🍞
+<div style="padding: 2rem;">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+        <div>
+            <h1 style="font-family: 'Playfair Display', serif; font-size: 2rem; color: #FFD700; margin-bottom: 0.5rem;">⭐ Manajemen Ulasan</h1>
+            <p style="color: #999;">Kelola ulasan dari pelanggan untuk ditampilkan di halaman utama.</p>
+        </div>
     </div>
-    
-    <!-- Content -->
-    <div class="logout-content">
-        <div class="logout-icon">👋</div>
-        <div class="logout-title">Keluar</div>
-        <div class="logout-subtitle">
-            Apakah Anda yakin ingin keluar dari Dapoer Budess Admin Panel?
+
+    @if(session('success'))
+        <div style="background: rgba(76, 175, 80, 0.1); border: 1px solid #4CAF50; color: #4CAF50; padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem;">
+            {{ session('success') }}
         </div>
-        
-        <div class="logout-buttons">
-            <form action="{{ route('logout') }}" method="POST" style="width: 100%;">
-                @csrf
-                <button type="submit" class="logout-btn logout-btn-primary" style="width: 100%;">
-                    ✓ Ya, Keluar Sekarang
-                </button>
-            </form>
-            <a href="{{ route('admin.dashboard') }}" class="logout-btn logout-btn-secondary" style="width: 100%; text-align: center;">
-                ← Kembali ke Dashboard
-            </a>
-        </div>
+    @endif
+
+    <div style="background: #2a2a2a; border-radius: 12px; border: 1px solid #333; overflow: hidden;">
+        <table style="width: 100%; border-collapse: collapse; text-align: left;">
+            <thead>
+                <tr style="background: #333; color: #FFD700;">
+                    <th style="padding: 1rem; font-weight: 600;">Pelanggan</th>
+                    <th style="padding: 1rem; font-weight: 600;">Rating</th>
+                    <th style="padding: 1rem; font-weight: 600;">Komentar</th>
+                    <th style="padding: 1rem; font-weight: 600;">Media</th>
+                    <th style="padding: 1rem; font-weight: 600;">Status</th>
+                    <th style="padding: 1rem; font-weight: 600; text-align: center;">Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                @forelse($reviews as $review)
+                    <tr style="border-bottom: 1px solid #333; transition: background 0.2s;" onmouseover="this.style.background='rgba(255, 215, 0, 0.02)'" onmouseout="this.style.background='transparent'">
+                        <td style="padding: 1rem;">
+                            <div style="font-weight: 600; color: #fff;">{{ $review->display_name ?: ($review->order ? $review->order->customer_name : 'N/A') }}</div>
+                            <div style="font-size: 0.8rem; color: #666;">#{{ $review->order ? $review->order->order_number : 'N/A' }}</div>
+                            <div style="font-size: 0.75rem; color: #555;">{{ $review->created_at->format('d M Y H:i') }}</div>
+                        </td>
+                        <td style="padding: 1rem;">
+                            <div style="color: #FFD700;">
+                                @for($i = 1; $i <= 5; $i++)
+                                    @if($i <= $review->rating)
+                                        ★
+                                    @else
+                                        <span style="color: #444;">★</span>
+                                    @endif
+                                @endfor
+                            </div>
+                        </td>
+                        <td style="padding: 1rem;">
+                            <div style="max-width: 300px; color: #ccc; font-size: 0.9rem; line-height: 1.4;">
+                                "{{ $review->comment ?: 'Tidak ada komentar.' }}"
+                            </div>
+                        </td>
+                        <td style="padding: 1rem;">
+                            @if($review->media_urls && count($review->media_urls) > 0)
+                                <div style="display: flex; gap: 5px;">
+                                    @foreach($review->media_urls as $url)
+                                        <a href="/{{ $url }}" target="_blank">
+                                            <img src="/{{ $url }}" style="width: 40px; height: 40px; object-fit: cover; border-radius: 4px; border: 1px solid #444;">
+                                        </a>
+                                    @endforeach
+                                </div>
+                            @else
+                                <span style="color: #444; font-size: 0.8rem;">Tidak ada media</span>
+                            @endif
+                        </td>
+                        <td style="padding: 1rem;">
+                            @if($review->is_visible)
+                                <span style="background: rgba(76, 175, 80, 0.1); color: #4CAF50; padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">Terlihat</span>
+                            @else
+                                <span style="background: rgba(244, 67, 54, 0.1); color: #F44336; padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">Tersembunyi</span>
+                            @endif
+                        </td>
+                        <td style="padding: 1rem; text-align: center;">
+                            <form action="{{ route('admin.reviews.toggle', $review->id) }}" method="POST" style="display: inline;">
+                                @csrf
+                                @method('PATCH')
+                                <button type="submit" style="background: {{ $review->is_visible ? 'rgba(244, 67, 54, 0.1)' : 'rgba(76, 175, 80, 0.1)' }}; color: {{ $review->is_visible ? '#F44336' : '#4CAF50' }}; border: 1px solid {{ $review->is_visible ? '#F44336' : '#4CAF50' }}; padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: 0.8rem; font-weight: 600; transition: all 0.2s;">
+                                    {{ $review->is_visible ? '👁️ Sembunyikan' : '👁️ Tampilkan' }}
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                @empty
+                    <tr>
+                        <td colspan="6" style="padding: 3rem; text-align: center; color: #666;">
+                            <div style="font-size: 3rem; margin-bottom: 1rem;">💬</div>
+                            <div>Belum ada ulasan dari pelanggan.</div>
+                        </td>
+                    </tr>
+                @endforelse
+            </tbody>
+        </table>
+    </div>
+
+    <div style="margin-top: 1.5rem; display: flex; justify-content: center;">
+        {{ $reviews->links() }}
     </div>
 </div>
+
+<style>
+    /* Custom styles for pagination if needed */
+    .pagination {
+        display: flex;
+        gap: 5px;
+        list-style: none;
+    }
+    .page-item .page-link {
+        padding: 8px 16px;
+        background: #2a2a2a;
+        border: 1px solid #333;
+        color: #FFD700;
+        text-decoration: none;
+        border-radius: 4px;
+    }
+    .page-item.active .page-link {
+        background: #FFD700;
+        color: #1a1a1a;
+        border-color: #FFD700;
+    }
+</style>
 @endsection

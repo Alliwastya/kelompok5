@@ -273,7 +273,7 @@ class AdminController extends Controller
                     "Pesanan Anda akan segera kami proses. 🍞\n\n" .
                     "Terima kasih! 🙏";
 
-                ChatMessage::create([
+                \App\Models\ChatMessage::create([
                     'message_thread_id' => $order->message_thread_id,
                     'order_id' => $order->id,
                     'sender_type' => 'admin',
@@ -436,7 +436,8 @@ class AdminController extends Controller
     // List Reviews
     public function reviews(Request $request)
     {
-        return view('admin.reviews.index');
+        $reviews = \App\Models\Review::with('order')->latest()->paginate(10);
+        return view('admin.reviews.index', compact('reviews'));
     }
 
     // Toggle Review Visibility

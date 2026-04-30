@@ -82,10 +82,30 @@ class MessageController extends Controller
             'is_read' => false,
         ]);
 
-        // Auto-reply logic
+        // Smart Auto-reply logic
         $autoReplyMessage = null;
-        if (!$thread->is_auto_reply_sent) {
-            $autoReplyContent = "Terima kasih sudah menghubungi kami 😊,Kami akan memberi tahu admin terlebih dahulu dan admin akan segera membalas pertanyaan Anda. \nMohon ditunggu ya 🙏";
+        
+        // Cek pesan terakhir dari admin (termasuk auto-reply sebelumnya)
+        $lastAdminMessage = ChatMessage::where('message_thread_id', $thread->id)
+            ->where('sender_type', 'admin')
+            ->latest()
+            ->first();
+
+        // Kirim auto-reply jika:
+        // 1. Belum pernah kirim auto-reply sama sekali
+        // 2. ATAU Pesan terakhir admin sudah lebih dari 1 menit yang lalu
+        $shouldSendAutoReply = false;
+        if (!$lastAdminMessage) {
+            $shouldSendAutoReply = true;
+        } else {
+            $diffInMinutes = $lastAdminMessage->created_at->diffInMinutes(now());
+            if ($diffInMinutes >= 1) {
+                $shouldSendAutoReply = true;
+            }
+        }
+
+        if ($shouldSendAutoReply) {
+            $autoReplyContent = "Terima kasih sudah menghubungi kami 😊, Kami akan memberi tahu admin terlebih dahulu dan admin akan segera membalas pertanyaan Anda. \nMohon ditunggu ya 🙏";
             
             $autoReplyMessage = ChatMessage::create([
                 'message_thread_id' => $thread->id,
