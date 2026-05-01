@@ -4064,7 +4064,7 @@
                     <div class="product-card" data-category="${product.category}">
                         ${badgeText ? `<div class="product-promo-badge">${badgeText}</div>` : ''}
                         <div class="product-image-wrapper">
-                            <div class="quick-add-btn" onclick="addToCart(${product.id}, ${!!stockStatus.is_preorder})" title="Tambah ke Keranjang">🛒</div>
+
                             <div class="product-image">
                                 ${product.image ? `<img src="${product.image}" alt="${name}" style="width:100%;height:100%;object-fit:cover;">` : `<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:#ccc;font-size:3rem;">🍞</div>`}
                             </div>
